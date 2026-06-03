@@ -1,0 +1,242 @@
+[
+  {
+    "id": "p6c3_001",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "데이터 거버넌스(Data Governance)의 구성 요소로 옳지 않은 것은?",
+    "options": ["데이터 위원회", "데이터 오너(Data Owner)", "데이터 표준화 위원회", "데이터 백업 시스템"],
+    "answer": 3,
+    "explanation": "데이터 거버넌스의 주요 구성 요소는 데이터 위원회(최고 의사결정), 데이터 표준화 위원회(표준 승인), 데이터 오너(최종 책임), 데이터 스튜어드(실무 관리)입니다. 데이터 백업 시스템은 IT 인프라 요소입니다.",
+    "tags": ["데이터거버넌스", "구성요소"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_002",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "데이터 표준 변경 관리 절차를 순서대로 나열한 것은?",
+    "options": [
+      "변경 요청 → 변경 승인 → 영향 분석 → 변경 적용 → 검증",
+      "변경 요청 → 영향 분석 → 변경 승인 → 변경 적용 → 검증",
+      "영향 분석 → 변경 요청 → 변경 승인 → 변경 적용 → 검증",
+      "변경 승인 → 변경 요청 → 영향 분석 → 변경 적용 → 검증"
+    ],
+    "answer": 1,
+    "explanation": "데이터 표준 변경 절차: 변경 요청(필요성 제기) → 영향 분석(관련 시스템 파악) → 변경 승인(위원회 승인) → 변경 적용(시스템 반영) → 변경 검증(결과 확인)입니다.",
+    "tags": ["표준변경관리", "변경절차"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_003",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "데이터 흐름도(DFD)의 구성 요소가 아닌 것은?",
+    "options": ["프로세스(Process)", "데이터 저장소(Data Store)", "외부 엔터티(External Entity)", "인덱스(Index)"],
+    "answer": 3,
+    "explanation": "데이터 흐름도(DFD)의 구성 요소는 프로세스(데이터 처리), 데이터 저장소(데이터 보관), 외부 엔터티(시스템 외부 소스/목적지), 데이터 흐름(이동 경로)입니다. 인덱스는 데이터베이스 구조 요소입니다.",
+    "tags": ["DFD", "데이터흐름도"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_004",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "ETL(Extract, Transform, Load)에서 Transform 단계의 주요 활동으로 옳은 것은?",
+    "options": [
+      "소스 시스템에서 데이터를 추출한다",
+      "변환된 데이터를 목적지(데이터 웨어하우스)에 적재한다",
+      "데이터 변환·정제·통합 및 형식 변경 등을 수행한다",
+      "데이터 백업 및 보관 정책을 적용한다"
+    ],
+    "answer": 2,
+    "explanation": "ETL의 Transform(변환) 단계에서는 소스 데이터를 목적지에 맞게 변환·정제·통합합니다. 예: 코드 매핑, 중복 제거, 형식 변환, 데이터 품질 검증 등. Extract는 추출, Load는 적재입니다.",
+    "tags": ["ETL", "Transform", "데이터변환"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_005",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "요구사항 추적성(Traceability) 관리의 목적으로 가장 적절한 것은?",
+    "options": [
+      "데이터베이스 쿼리 성능을 추적하여 최적화한다",
+      "업무 요구사항이 데이터 모델의 어느 부분에 구현되었는지 연결 관계를 유지한다",
+      "사용자의 데이터베이스 접근 이력을 추적하여 보안을 강화한다",
+      "데이터 변경 이력을 로그로 기록한다"
+    ],
+    "answer": 1,
+    "explanation": "요구사항 추적성(Traceability)은 업무 요구사항이 데이터 모델(엔터티, 속성, 관계)의 어느 부분으로 구현되었는지 연결 관계를 유지합니다. 요구사항 변경 시 영향받는 모델 범위를 빠르게 식별할 수 있습니다.",
+    "tags": ["요구사항추적성", "Traceability"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_006",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "OLAP(Online Analytical Processing)과 OLTP(Online Transaction Processing)의 차이로 옳은 것은?",
+    "options": [
+      "OLAP은 실시간 업무 처리에 최적화되고, OLTP는 다차원 분석에 최적화된다",
+      "OLAP는 다차원 분석과 의사결정 지원에, OLTP는 실시간 업무 트랜잭션 처리에 최적화된다",
+      "OLAP와 OLTP는 동일한 개념이다",
+      "OLAP는 단순 조회만 지원하고, OLTP는 복잡한 분석 쿼리를 지원한다"
+    ],
+    "answer": 1,
+    "explanation": "OLAP(Online Analytical Processing)은 대용량 데이터의 다차원 분석과 의사결정 지원에 최적화됩니다. OLTP(Online Transaction Processing)는 실시간 업무 처리(INSERT/UPDATE/DELETE 빈번)에 최적화됩니다.",
+    "tags": ["OLAP", "OLTP", "차이점"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_007",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "데이터 모델 형상 관리(Configuration Management)의 목적으로 옳은 것은?",
+    "options": [
+      "데이터베이스 저장 공간을 효율적으로 관리한다",
+      "데이터 모델의 버전 이력을 관리하여 이전 버전으로 롤백 가능하게 한다",
+      "데이터 모델의 성능을 자동으로 최적화한다",
+      "데이터 모델을 자동으로 코드로 변환한다"
+    ],
+    "answer": 1,
+    "explanation": "데이터 모델 형상 관리(Configuration Management)는 모델 변경 이력을 관리하여 각 버전을 추적하고, 필요 시 이전 버전으로 롤백할 수 있게 합니다. 변경 전후 비교도 가능합니다.",
+    "tags": ["형상관리", "버전관리"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_008",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "DBA(Database Administrator)의 역할로 옳지 않은 것은?",
+    "options": [
+      "데이터베이스 스키마 관리 (테이블·인덱스 생성·변경)",
+      "데이터베이스 백업 및 복구 관리",
+      "업무 요구사항 수집 및 기능 명세서 작성",
+      "데이터베이스 성능 관리 및 쿼리 튜닝"
+    ],
+    "answer": 2,
+    "explanation": "DBA(데이터베이스 관리자)의 주요 역할은 스키마 관리·성능 관리·백업 복구·보안 관리·용량 관리입니다. 업무 요구사항 수집과 기능 명세서 작성은 업무 분석가(BA)의 역할입니다.",
+    "tags": ["DBA", "역할"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_009",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "데이터 웨어하우스(Data Warehouse)와 데이터 마트(Data Mart)의 관계로 옳은 것은?",
+    "options": [
+      "데이터 마트가 데이터 웨어하우스보다 큰 개념이다",
+      "데이터 웨어하우스는 특정 주제 영역에 특화된 저장소이고, 데이터 마트는 전사적 통합 저장소이다",
+      "데이터 마트는 데이터 웨어하우스에서 특정 주제 영역을 분리한 소규모 저장소이다",
+      "데이터 웨어하우스와 데이터 마트는 동일한 개념이다"
+    ],
+    "answer": 2,
+    "explanation": "데이터 웨어하우스(DW)는 조직 전체의 데이터를 통합하는 대용량 저장소입니다. 데이터 마트(Data Mart)는 DW에서 특정 주제 영역(영업, 마케팅, 재무 등)에 특화된 소규모 저장소입니다.",
+    "tags": ["데이터웨어하우스", "데이터마트"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_010",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "데이터 관리 정책의 구성 요소에 포함되지 않는 것은?",
+    "options": ["데이터 관리 원칙", "데이터 관리 조직", "데이터 관리 절차", "데이터 물리 저장 알고리즘"],
+    "answer": 3,
+    "explanation": "데이터 관리 정책의 구성 요소는 데이터 관리 원칙(방침), 데이터 관리 조직(역할·책임), 데이터 관리 절차(표준 수립·변경·검증), 데이터 관리 도구(메타데이터 시스템)입니다. 물리 저장 알고리즘은 DBMS 내부 구현 사항입니다.",
+    "tags": ["데이터관리정책", "구성요소"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_011",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "실시간 인터페이스와 배치 인터페이스에 대한 설명으로 옳은 것은?",
+    "options": [
+      "실시간 인터페이스는 대용량 데이터를 일괄 처리하고, 배치 인터페이스는 즉시 데이터를 전송한다",
+      "실시간 인터페이스는 API·MQ 등으로 즉시 데이터를 전송하고, 배치 인터페이스는 FTP·ETL 등으로 일괄 전송한다",
+      "두 방식 모두 항상 동기 방식으로 처리된다",
+      "배치 인터페이스는 소량 데이터에만 적합하다"
+    ],
+    "answer": 1,
+    "explanation": "실시간 인터페이스는 API(REST, SOAP), 메시지 큐(MQ) 등을 통해 데이터를 즉시 전송합니다. 배치 인터페이스는 FTP, ETL 등을 통해 정해진 시간에 대량의 데이터를 일괄 전송합니다.",
+    "tags": ["실시간인터페이스", "배치인터페이스"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_012",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "ETL 과정에서 Extract(추출) 단계의 주요 활동으로 옳은 것은?",
+    "options": [
+      "소스 데이터베이스에서 필요한 데이터를 읽어온다",
+      "데이터를 목적지 형식에 맞게 변환하고 정제한다",
+      "변환된 데이터를 데이터 웨어하우스에 저장한다",
+      "데이터 품질 지표를 측정하고 보고서를 생성한다"
+    ],
+    "answer": 0,
+    "explanation": "ETL의 Extract(추출) 단계는 소스 시스템(운영 DB, 파일 등)에서 필요한 데이터를 읽어오는 단계입니다. 변환·정제는 Transform, 목적지 저장은 Load 단계입니다.",
+    "tags": ["ETL", "Extract", "추출"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_013",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "데이터 요구사항 관리 절차를 올바른 순서로 나열한 것은?",
+    "options": [
+      "수집 → 정리 → 분석 → 확인 → 추적성 관리",
+      "분석 → 수집 → 정리 → 확인 → 추적성 관리",
+      "확인 → 수집 → 정리 → 분석 → 추적성 관리",
+      "수집 → 분석 → 정리 → 추적성 관리 → 확인"
+    ],
+    "answer": 0,
+    "explanation": "데이터 요구사항 관리 절차: 요구사항 수집(인터뷰·설문) → 정리(표준 문서화) → 분석(타당성·모순 검토) → 확인(이해관계자 승인) → 추적성 관리(요구사항↔모델 연결 유지).",
+    "tags": ["요구사항관리", "절차"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_014",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "데이터 모델 변경 유형 중 '기존 1:N 관계가 M:N으로 변경될 때 필요한 처리'로 옳은 것은?",
+    "options": [
+      "기존 테이블에 컬럼을 추가하면 된다",
+      "M:N 관계를 처리하기 위한 연관(중간) 테이블을 추가한다",
+      "기존 외래키를 제거하면 된다",
+      "파티셔닝을 적용하면 된다"
+    ],
+    "answer": 1,
+    "explanation": "관계형 데이터베이스에서 M:N 관계는 직접 구현할 수 없으므로, 두 엔터티를 연결하는 연관 테이블(중간 테이블, 교차 테이블)을 생성하여 1:N 관계 두 개로 분해합니다.",
+    "tags": ["관계변경", "M:N관계", "연관테이블"],
+    "difficulty": "상",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c3_015",
+    "part": 6,
+    "chapter": "part6_ch3",
+    "content": "데이터베이스 관리(Database Management)에서 용량 관리의 활동으로 옳은 것은?",
+    "options": [
+      "SQL 쿼리를 분석하여 실행 계획을 최적화한다",
+      "사용자에게 적절한 권한을 부여하고 감사 로그를 관리한다",
+      "스토리지 사용량을 모니터링하고 파티셔닝·아카이빙을 계획한다",
+      "데이터베이스 연결 수를 제한하여 과부하를 방지한다"
+    ],
+    "answer": 2,
+    "explanation": "용량 관리(Capacity Management)는 데이터베이스 스토리지 사용량을 모니터링하고, 증가 추세를 분석하여 파티셔닝·아카이빙(오래된 데이터 이관) 등을 계획합니다. 쿼리 최적화는 성능 관리, 권한·감사는 보안 관리입니다.",
+    "tags": ["용량관리", "DBA"],
+    "difficulty": "중",
+    "questionType": "concept"
+  }
+]
