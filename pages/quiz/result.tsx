@@ -1,8 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { PART_TITLES } from '@/lib/chapters'
-import { isExamPassed, PART_MAX_SCORE, calcPartScore } from '@/lib/exam'
+import { isExamPassed } from '@/lib/exam'
+import PartScoresDisplay from '@/components/quiz/PartScoresDisplay'
+import PracticalExamNotice from '@/components/quiz/PracticalExamNotice'
 
 export default function ResultPage() {
   const router = useRouter()
@@ -72,51 +73,9 @@ export default function ResultPage() {
         )}
       </div>
 
-      {/* Part scores */}
-      <div className="q-card space-y-4">
-        <h2 className="font-semibold text-ink">과목별 점수</h2>
-        {partScores.map((score, i) => {
-          const partNum = i + 1
-          const maxScore = PART_MAX_SCORE[partNum] ?? 8
-          const threshold = Math.round(maxScore * 0.4 * 10) / 10
-          const ok = score >= threshold
-          const pct = Math.min((score / maxScore) * 100, 100)
-          return (
-            <div key={partNum} className="space-y-1">
-              <div className="flex justify-between text-sm">
-                <span className="text-ink-muted">{partNum}과목 {PART_TITLES[partNum]}</span>
-                <span className={`font-bold ${ok ? 'text-mint-600' : 'text-red-500'}`}>
-                  {score}점 / {maxScore}점 {ok ? '✓' : `✗ (기준 ${threshold}점)`}
-                </span>
-              </div>
-              <div className="h-2 bg-surface-soft rounded-full overflow-hidden">
-                <div
-                  className={`h-full rounded-full ${ok ? 'bg-mint-500' : 'bg-coral'}`}
-                  style={{ width: `${pct}%` }}
-                />
-              </div>
-            </div>
-          )
-        })}
-      </div>
+      <PartScoresDisplay partScores={partScores} />
 
-      {/* 실기 40점 안내 (FR-012) */}
-      <div className="q-card bg-amber-50 border-amber-200 space-y-2">
-        <div className="flex items-center gap-2">
-          <span className="text-xl">⚠️</span>
-          <h3 className="font-semibold text-amber-800">실기 40점 별도 준비 필요</h3>
-        </div>
-        <p className="text-sm text-amber-700">
-          DAP 시험에서 실기 1문항은 전체 배점의 40점을 차지합니다.
-          필기 만점(60점)이어도 실기 미달 시 불합격됩니다.
-        </p>
-        <Link
-          href="/practical"
-          className="inline-block mt-1 px-4 py-2 bg-amber-500 text-white rounded-lg text-sm font-semibold hover:bg-amber-600 transition-colors"
-        >
-          실기 연습 시작 →
-        </Link>
-      </div>
+      <PracticalExamNotice variant="extended" showLink />
 
       {/* Actions */}
       <div className="flex gap-3">

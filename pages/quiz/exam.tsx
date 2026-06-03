@@ -14,6 +14,8 @@ import QuizNavigator from '@/components/quiz/QuizNavigator'
 import ExamTimer from '@/components/quiz/ExamTimer'
 import type { Question, AnswerResult, ExamResult } from '@/types'
 import { isExamPassed, PART_MAX_SCORE } from '@/lib/exam'
+import PartScoresDisplay from '@/components/quiz/PartScoresDisplay'
+import PracticalExamNotice from '@/components/quiz/PracticalExamNotice'
 
 type ExamPhase = 'intro' | 'exam' | 'result'
 type ExamMode = 'random' | 'exam1' | 'exam2'
@@ -300,10 +302,7 @@ export default function ExamPage() {
             <div className="text-primary-700">• 각 과목별 배점의 40% 이상</div>
             <div className="text-primary-700">• 1·2·3·5·6과목 각 10문항, 4과목 25문항</div>
           </div>
-          <div className="text-left bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-sm">
-            <div className="font-semibold text-amber-800">⚠️ 실기 40점 별도</div>
-            <div className="text-amber-700 mt-1">실기 1문항 40점은 별도로 준비 필요. 실기 연습 메뉴를 활용하세요.</div>
-          </div>
+          <PracticalExamNotice variant="compact" />
 
           <button
             onClick={startExam}
@@ -360,29 +359,7 @@ export default function ExamPage() {
           <div className="text-xs text-ink-muted">소요 시간: {mins}분 {secs}초</div>
         </div>
 
-        <div className="q-card space-y-3">
-          <h2 className="font-semibold text-ink">과목별 점수</h2>
-          {partScores.map((score, i) => {
-            const partNum = i + 1
-            const passed40 = score >= 40
-            return (
-              <div key={partNum} className="space-y-1">
-                <div className="flex justify-between text-sm">
-                  <span className="text-ink-muted">{partNum}과목 {PART_TITLES[partNum]}</span>
-                  <span className={`font-bold ${passed40 ? 'text-mint-600' : 'text-red-500'}`}>
-                    {score}점 {passed40 ? '✓' : '✗'}
-                  </span>
-                </div>
-                <div className="h-2 bg-surface-soft rounded-full overflow-hidden">
-                  <div
-                    className={`h-full rounded-full transition-all ${passed40 ? 'bg-mint-500' : 'bg-coral'}`}
-                    style={{ width: `${score}%` }}
-                  />
-                </div>
-              </div>
-            )
-          })}
-        </div>
+        <PartScoresDisplay partScores={partScores} />
 
         <div className="flex gap-3">
           <button
