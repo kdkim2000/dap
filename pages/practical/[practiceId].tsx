@@ -3,6 +3,7 @@ import type { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import type { PracticalProblem, PracticalDraft } from '@/types'
 import { getPracticalProblems, getPracticalById, savePracticalDraft, loadPracticalDraft } from '@/lib/practical'
+import { useProgress } from '@/context/ProgressContext'
 import PracticalLayout from '@/components/practical/PracticalLayout'
 import ScenarioPanel from '@/components/practical/ScenarioPanel'
 import AnswerTextEditor from '@/components/practical/AnswerTextEditor'
@@ -16,6 +17,10 @@ interface Props {
 type AnswerTab = 'text' | 'image'
 
 export default function PracticalProblemPage({ problem }: Props) {
+  const { setLastVisited } = useProgress()
+
+  useEffect(() => { setLastVisited('practical', problem.id) }, [problem.id, setLastVisited])
+
   const [tab, setTab] = useState<AnswerTab>('text')
   const [draft, setDraft] = useState<PracticalDraft>({ textAnswer: '', imageDataUrl: null, savedAt: 0 })
   const draftRef = useRef(draft)

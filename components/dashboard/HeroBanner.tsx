@@ -27,10 +27,10 @@ export default function HeroBanner() {
         {/* Text */}
         <div className="flex-1 text-center sm:text-left">
           <h1 className="text-2xl sm:text-3xl font-display font-bold mb-1">
-            DAsP Master
+            DAP Master
           </h1>
           <p className="text-indigo-200 text-sm mb-4">
-            데이터아키텍처 준전문가 자격증을 향해 함께 나아가요!
+            데이터아키텍처 전문가 자격증을 향해 함께 나아가요!
           </p>
 
           {isHydrated && stats.attempted > 0 && (
