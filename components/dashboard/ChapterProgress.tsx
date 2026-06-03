@@ -9,6 +9,7 @@ const PART_COLORS: Record<number, { bar: string; badge: string; text: string }> 
   3: { bar: 'bg-green-500', badge: 'bg-green-100 text-green-700', text: 'text-green-700' },
   4: { bar: 'bg-purple-500', badge: 'bg-purple-100 text-purple-700', text: 'text-purple-700' },
   5: { bar: 'bg-teal-500', badge: 'bg-teal-100 text-teal-700', text: 'text-teal-700' },
+  6: { bar: 'bg-orange-500', badge: 'bg-orange-100 text-orange-700', text: 'text-orange-700' },
 }
 
 export default function ChapterProgress() {
