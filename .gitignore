@@ -1,0 +1,46 @@
+# Next.js
+.next/
+out/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# 빌드 산출물
+build/
+dist/
+
+# 환경 변수
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 에디터
+.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# TypeScript
+*.tsbuildinfo
+
+# 로컬 전용 Claude 설정
+.claude/settings.local.json
+
+# 세션 기록 (민감 정보 포함 파일)
+docs/journal/history.md
+# history2.md는 마스킹 처리 후 공개 (사용자명·컴퓨터명 → [USERNAME]/DESKTOP-XXXXXXXX)
+docs/journal/.sessions
+
+docs/contents/
+
+# 중간 산출물 (PDF 추출 텍스트, 백업)
+scripts/exam1_raw.txt
+scripts/exam2_raw.txt
+data/questions/backup/

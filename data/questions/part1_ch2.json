@@ -1,0 +1,365 @@
+﻿[
+    {
+        "id":  "p1c2_001",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "EA 방향 수립 단계에서 정의해야 하는 항목이 아닌 것은?",
+        "options":  [
+                        "EA 비전",
+                        "EA 목표",
+                        "EA 범위",
+                        "EA 예산 집행 내역"
+                    ],
+        "answer":  3,
+        "explanation":  "EA 방향 수립에서는 비전, 목표, 범위, 전략을 정의합니다. 예산 집행 내역은 운영 단계의 활동입니다.",
+        "tags":  [
+                     "EA구축",
+                     "방향수립"
+                 ],
+        "difficulty":  "하",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_002",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "EA 원칙 구성 요소가 아닌 것은?",
+        "options":  [
+                        "원칙명",
+                        "설명",
+                        "예산",
+                        "영향"
+                    ],
+        "answer":  2,
+        "explanation":  "EA 원칙의 구성 요소는 원칙명, 설명(의미), 근거(채택 이유), 영향(적용 시 의미)입니다. 예산은 원칙 구성 요소가 아닙니다.",
+        "tags":  [
+                     "EA원칙",
+                     "구성요소"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_003",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "데이터 아키텍처 원칙의 예로 가장 적절한 것은?",
+        "options":  [
+                        "IT 비용을 최소화한다",
+                        "데이터는 전사 자산이다",
+                        "개발은 애자일로 한다",
+                        "보안은 최우선이다"
+                    ],
+        "answer":  1,
+        "explanation":  "\u0027데이터는 전사 자산이다\u0027는 DA(데이터 아키텍처) 원칙의 대표적인 예입니다. 데이터를 특정 부서 소유가 아닌 전사 자산으로 관리해야 함을 의미합니다.",
+        "tags":  [
+                     "DA원칙",
+                     "EA구축"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_004",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "아키텍처 뷰(Architecture View)의 정의로 옳은 것은?",
+        "options":  [
+                        "전사 IT 예산 계획서",
+                        "특정 관심사에 따른 시스템의 표현",
+                        "조직도",
+                        "데이터베이스 물리 설계서"
+                    ],
+        "answer":  1,
+        "explanation":  "아키텍처 뷰(View)는 특정 이해관계자의 관심사에 따라 시스템을 표현한 것입니다. 뷰포인트(Viewpoint)는 특정 역할이 관심 갖는 관점입니다.",
+        "tags":  [
+                     "아키텍처뷰",
+                     "EA구축"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_005",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "EA 메타모델(Metamodel)의 역할로 옳은 것은?",
+        "options":  [
+                        "EA 예산을 관리하는 도구",
+                        "아키텍처 요소와 이들 간의 관계를 정의한 모델",
+                        "EA 담당자의 역할 정의서",
+                        "IT 성과 측정 지표"
+                    ],
+        "answer":  1,
+        "explanation":  "EA 메타모델은 아키텍처 구성 요소(엔터티, 프로세스, 기술 등)와 이들 간의 관계를 정의한 모델로, EA 리포지터리의 기반이 됩니다.",
+        "tags":  [
+                     "메타모델",
+                     "EA구축"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_006",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "EA 정보 구성 정의에서 \u0027완전성(Completeness)\u0027 원칙의 의미는?",
+        "options":  [
+                        "아키텍처 정보가 빠짐없이 포함되어야 함",
+                        "아키텍처 정보가 쉽게 이해되어야 함",
+                        "아키텍처 정보가 보안되어야 함",
+                        "아키텍처 정보가 자주 업데이트되어야 함"
+                    ],
+        "answer":  0,
+        "explanation":  "EA 정보 표현의 완전성 원칙은 아키텍처 표현에 필요한 모든 정보가 빠짐없이 포함되어야 함을 의미합니다.",
+        "tags":  [
+                     "EA구축",
+                     "완전성"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_007",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "EA 현황(AS-IS) 정보 수집 방법이 아닌 것은?",
+        "options":  [
+                        "현업·IT 담당자 인터뷰",
+                        "기존 설계서 문서 검토",
+                        "설문 조사",
+                        "EA 원칙 발표회"
+                    ],
+        "answer":  3,
+        "explanation":  "AS-IS 정보 수집 방법: 인터뷰, 문서 검토, 설문, 자동화 도구 등입니다. EA 원칙 발표회는 수집 방법이 아닙니다.",
+        "tags":  [
+                     "AS-IS",
+                     "정보수집"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_008",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "AS-IS 아키텍처 분석에서 파악해야 하는 항목이 아닌 것은?",
+        "options":  [
+                        "중복 시스템 식별",
+                        "인터페이스 현황",
+                        "기술 표준 현황",
+                        "향후 5개년 IT 전략"
+                    ],
+        "answer":  3,
+        "explanation":  "AS-IS 분석은 현재 상태(중복시스템, 인터페이스, 기술표준, 데이터 현황)를 파악합니다. 향후 전략은 TO-BE 수립 단계의 활동입니다.",
+        "tags":  [
+                     "AS-IS",
+                     "분석"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_009",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "Top-Down EA 구축 방식의 특징은?",
+        "options":  [
+                        "현행 시스템 분석에서 출발",
+                        "비즈니스 전략에서 아키텍처를 도출",
+                        "IT 담당자가 주도",
+                        "구현 기술에서 출발"
+                    ],
+        "answer":  1,
+        "explanation":  "Top-Down 방식은 비즈니스 전략과 목표에서 출발하여 아키텍처를 도출하는 방식으로, 비즈니스 정렬성이 높습니다.",
+        "tags":  [
+                     "Top-Down",
+                     "EA구축"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_010",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "실무에서 가장 많이 사용되는 EA 구축 방식은?",
+        "options":  [
+                        "Pure Top-Down",
+                        "Pure Bottom-Up",
+                        "Hybrid(혼합)",
+                        "None"
+                    ],
+        "answer":  2,
+        "explanation":  "Hybrid(혼합) 방식은 Top-Down의 방향성과 Bottom-Up의 현실 반영을 결합한 방식으로, 실무에서 가장 많이 활용됩니다.",
+        "tags":  [
+                     "Hybrid",
+                     "EA구축"
+                 ],
+        "difficulty":  "하",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_011",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "EA 산출물 검증 기준 중 \u0027추적성(Traceability)\u0027의 의미는?",
+        "options":  [
+                        "산출물이 완전해야 함",
+                        "비즈니스 요구에서 기술까지 연결 관계를 추적할 수 있어야 함",
+                        "산출물이 정확해야 함",
+                        "도메인 간 일관성이 있어야 함"
+                    ],
+        "answer":  1,
+        "explanation":  "추적성은 비즈니스 요구 사항에서 비즈니스 아키텍처, 데이터/응용 아키텍처, 기술 아키텍처까지 연결 관계를 추적할 수 있어야 함을 의미합니다.",
+        "tags":  [
+                     "추적성",
+                     "EA구축"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_012",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "갭(Gap) 분석의 정의로 옳은 것은?",
+        "options":  [
+                        "EA 원칙을 정의하는 활동",
+                        "AS-IS와 TO-BE 아키텍처 간의 차이를 분석하는 활동",
+                        "EA 예산을 분석하는 활동",
+                        "이해관계자를 분석하는 활동"
+                    ],
+        "answer":  1,
+        "explanation":  "갭 분석은 현재(AS-IS)와 목표(TO-BE) 아키텍처 간의 차이를 파악하고, 이행을 위해 추가·변경·제거해야 할 요소를 도출하는 활동입니다.",
+        "tags":  [
+                     "갭분석",
+                     "EA구축"
+                 ],
+        "difficulty":  "하",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_013",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "EA 구축 산출물 검증 항목 중 \u0027일관성(Consistency)\u0027의 의미는?",
+        "options":  [
+                        "필요한 모든 정보 포함",
+                        "도메인 간 산출물 연계 관계 일치",
+                        "현업 내용 정확 반영",
+                        "비즈니스 요구에서 기술까지 추적"
+                    ],
+        "answer":  1,
+        "explanation":  "일관성은 BA, DA, AA, TA 등 도메인 간 산출물이 서로 일관되게 연계되어야 함을 의미합니다.",
+        "tags":  [
+                     "일관성",
+                     "EA구축"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_014",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "EA 정보 구성 정의에서 아키텍처 메타모델의 역할은?",
+        "options":  [
+                        "IT 예산 관리",
+                        "아키텍처 요소 간 관계 정의의 기반으로 EA 리포지터리 구성의 근거",
+                        "인사 관리",
+                        "보안 정책 정의"
+                    ],
+        "answer":  1,
+        "explanation":  "아키텍처 메타모델은 EA 구성 요소(엔터티, 프로세스, 서비스 등)와 이들 간의 관계를 정의하며, 이를 기반으로 EA 리포지터리가 구성됩니다.",
+        "tags":  [
+                     "메타모델",
+                     "리포지터리"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p1c2_015",
+        "part":  1,
+        "chapter":  "part1_ch2",
+        "content":  "EA 방향 수립 단계에서 \u0027비전(Vision)\u0027과 \u0027목표(Goal)\u0027의 차이로 옳은 것은?",
+        "options":  [
+                        "비전이 목표보다 구체적",
+                        "목표가 비전보다 추상적",
+                        "비전은 미래 모습, 목표는 비전을 구체화한 측정 가능한 결과",
+                        "비전과 목표는 동일한 개념"
+                    ],
+        "answer":  2,
+        "explanation":  "비전은 EA를 통해 달성하고자 하는 추상적인 미래 모습이고, 목표(Goal)는 비전을 달성하기 위한 측정 가능하고 구체적인 결과를 의미합니다.",
+        "tags":  [
+                     "EA비전",
+                     "EA목표"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "options":  [
+                        "새로운 기술 트렌드 변화",
+                        "법제도 개정 사항",
+                        "현업 데이터 관련 불만 사항과 요구사항",
+                        "정보시스템 구성 현황"
+                    ],
+        "part":  1,
+        "id":  "p1c2_016",
+        "questionType":  "concept",
+        "content":  "데이터 아키텍처 환경분석 시 \u0027이해관계자 분석요인\u0027에 해당하는 것은?",
+        "tags":  [
+                     "DA환경분석",
+                     "이해관계자",
+                     "분석요인"
+                 ],
+        "answer":  2,
+        "explanation":  "DA 환경분석의 분석요인: 외부(기술이슈·트렌드·법제도), 내부(외부 대응 동향), 이해관계자(데이터 관련 불만·요구사항). 기술 트렌드·법제도는 외부, 정보시스템 구성은 내부, 현업 불만·요구는 이해관계자 분석요인입니다.",
+        "chapter":  "part1_ch2",
+        "difficulty":  "중"
+    },
+    {
+        "options":  [
+                        "목적 유형과 산출물 유형",
+                        "의사결정 유형(계획자/책임자/설계자/개발자)과 정보 유형(업무/데이터/응용/기술)",
+                        "아키텍처 도메인과 생명주기 단계",
+                        "이해관계자 유형과 성숙도 수준"
+                    ],
+        "part":  1,
+        "id":  "p1c2_017",
+        "questionType":  "concept",
+        "content":  "아키텍처 매트릭스(Architecture Matrix)를 구성하는 두 가지 축은?",
+        "tags":  [
+                     "아키텍처매트릭스",
+                     "의사결정유형",
+                     "정보유형"
+                 ],
+        "answer":  1,
+        "explanation":  "아키텍처 매트릭스는 2차원 매트릭스로, 행(의사결정 유형: 계획자·책임자·설계자·개발자)과 열(정보 유형: 업무·데이터·응용·기술)로 구성됩니다. 각 셀에서 필요한 산출물이 정의됩니다.",
+        "chapter":  "part1_ch2",
+        "difficulty":  "중"
+    },
+    {
+        "options":  [
+                        "DBMS 성능 튜닝 방향 도출",
+                        "설계 문서와 실제 데이터베이스 개체의 일치 여부 확인",
+                        "코드 표준 준수 여부 점검",
+                        "데이터 도메인의 현행화 상태 파악"
+                    ],
+        "part":  1,
+        "id":  "p1c2_018",
+        "questionType":  "concept",
+        "content":  "현행 데이터아키텍처 정보 구축 시 수행하는 \u0027문서화 현황 및 정합성 분석\u0027의 목적으로 가장 적절한 것은?",
+        "tags":  [
+                     "현행DA분석",
+                     "문서화현황",
+                     "정합성분석"
+                 ],
+        "answer":  1,
+        "explanation":  "현행 DA 정보 구축의 4가지 분석 방법 중 \u0027문서화 현황 및 정합성 분석\u0027은 설계 문서(ERD, 테이블 명세서 등)와 실제 운영 DB 개체 간의 일치성을 확인하는 것이 목적입니다. 데이터 현황 분석은 볼륨·완전성, 표준화 현황 분석은 명칭·도메인 일관성, 설계·관리 현황 분석은 현행화 상태를 다룹니다.",
+        "chapter":  "part1_ch2",
+        "difficulty":  "중"
+    }
+]

@@ -1,0 +1,387 @@
+﻿[
+    {
+        "id":  "p4c3_001",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "논리 데이터 모델링의 특징으로 옳은 것은?",
+        "options":  [
+                        "DBMS 종속적, 물리 설계 포함",
+                        "DBMS 독립적, 속성·관계·이력 상세화",
+                        "현업 관점의 최고 추상화",
+                        "테이블 DDL 포함"
+                    ],
+        "answer":  1,
+        "explanation":  "논리 데이터 모델링은 DBMS에 독립적이며, 개념 모델을 기반으로 속성, 관계, 이력 관리 등을 상세히 정의하는 단계입니다.",
+        "tags":  [
+                     "논리모델링",
+                     "특징"
+                 ],
+        "difficulty":  "하",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_002",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "속성(Attribute) 유형 중 \u0027파생 속성(Derived Attribute)\u0027의 예로 옳은 것은?",
+        "options":  [
+                        "고객명",
+                        "전화번호",
+                        "나이(생년월일로 계산)",
+                        "고객ID"
+                    ],
+        "answer":  2,
+        "explanation":  "파생 속성은 다른 속성 값으로 계산·유도되는 속성입니다. \u0027나이\u0027는 생년월일로 계산되는 파생 속성입니다.",
+        "tags":  [
+                     "파생속성",
+                     "속성유형"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_003",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "도메인(Domain) 정의의 목적은?",
+        "options":  [
+                        "데이터 백업",
+                        "속성이 가질 수 있는 값의 범위·타입·형식을 표준화하여 일관성 확보",
+                        "성능 최적화",
+                        "접근 제어"
+                    ],
+        "answer":  1,
+        "explanation":  "도메인 정의는 속성의 데이터 타입, 길이, 허용 값 범위, 형식 등을 표준화하여 데이터 일관성과 재사용성을 확보합니다.",
+        "tags":  [
+                     "도메인",
+                     "표준화"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_004",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "슈퍼타입(Super Type)의 설명으로 옳은 것은?",
+        "options":  [
+                        "특수 속성을 가진 하위 엔터티",
+                        "공통 속성을 가진 상위 엔터티",
+                        "물리 테이블의 분할 방식",
+                        "인덱스 유형"
+                    ],
+        "answer":  1,
+        "explanation":  "슈퍼타입은 서브타입들이 공통으로 가지는 속성을 모은 상위 엔터티입니다. 서브타입은 각 유형의 특수 속성을 가집니다.",
+        "tags":  [
+                     "슈퍼타입",
+                     "서브타입"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_005",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "배타적 서브타입(Exclusive Sub Type)의 의미는?",
+        "options":  [
+                        "슈퍼타입 없이 독립 존재",
+                        "하나의 서브타입에만 속함 (여러 서브타입에 동시 속할 수 없음)",
+                        "여러 서브타입에 동시 속할 수 있음",
+                        "서브타입이 없음"
+                    ],
+        "answer":  1,
+        "explanation":  "배타적 서브타입은 슈퍼타입의 한 인스턴스가 오직 하나의 서브타입에만 속할 수 있음을 의미합니다.",
+        "tags":  [
+                     "배타적서브타입"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_006",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "선분 이력(Range History) 관리의 특징은?",
+        "options":  [
+                        "변경 시마다 새 행으로 저장",
+                        "시작일~종료일로 데이터 유효 기간 표현",
+                        "변경 횟수만 저장",
+                        "현재 값만 저장"
+                    ],
+        "answer":  1,
+        "explanation":  "선분 이력은 데이터의 유효 시작일과 종료일을 컬럼으로 저장하여 데이터가 유효한 기간(선분)을 표현하는 방식입니다. 기간 조회에 유리합니다.",
+        "tags":  [
+                     "선분이력",
+                     "이력관리"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_007",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "점 이력(Point History) 관리의 특징은?",
+        "options":  [
+                        "시작일~종료일로 기간 표현",
+                        "데이터 변경 시마다 변경 시점을 기록하여 별도 행으로 저장",
+                        "현재 값만 저장",
+                        "이력 없음"
+                    ],
+        "answer":  1,
+        "explanation":  "점 이력은 데이터가 변경될 때마다 변경 시점(타임스탬프)을 기록하여 새 행으로 추가하는 방식입니다. 변경 이력 추적에 유리합니다.",
+        "tags":  [
+                     "점이력",
+                     "이력관리"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_008",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "데이터 모델 품질 기준 중 \u0027유연성(Flexibility)\u0027의 의미는?",
+        "options":  [
+                        "모든 요소가 포함됨",
+                        "정확한 업무 반영",
+                        "변화에 최소 수정으로 대응 가능",
+                        "전사 모델과 일관성"
+                    ],
+        "answer":  2,
+        "explanation":  "유연성은 업무 변화나 새로운 요건이 추가될 때 데이터 모델을 최소한으로 수정하여 대응할 수 있는 특성입니다.",
+        "tags":  [
+                     "데이터모델품질",
+                     "유연성"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_009",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "논리 데이터 모델 품질 6가지 기준으로 옳은 것은?",
+        "options":  [
+                        "정확성·완전성·일관성·유연성·확장성·통합성",
+                        "성능·보안·가용성·신뢰성·유지보수성·이식성",
+                        "기능·비기능·표준·품질·보안·성능",
+                        "비용·시간·범위·품질·리스크·커뮤니케이션"
+                    ],
+        "answer":  0,
+        "explanation":  "데이터 모델 품질 6기준: 정확성(업무 반영), 완전성(빠짐없음), 일관성(전사 동일), 유연성(변화 대응), 확장성(새 요건 수용), 통합성(전사 통합)입니다.",
+        "tags":  [
+                     "데이터모델품질",
+                     "6기준"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_010",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "복합 속성(Composite Attribute) 처리 방법(1NF 조건)으로 옳은 것은?",
+        "options":  [
+                        "그대로 하나의 속성으로 유지",
+                        "개별 원자 속성으로 분해",
+                        "다른 엔터티로 분리",
+                        "무시"
+                    ],
+        "answer":  1,
+        "explanation":  "1NF 조건은 모든 속성이 원자값이어야 합니다. 주소처럼 여러 값을 포함하는 복합 속성은 우편번호·시도·상세주소 등 원자 속성으로 분해해야 합니다.",
+        "tags":  [
+                     "복합속성",
+                     "1NF"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_011",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "논리 데이터 모델링에서 M:N 관계를 구현할 때 추가하는 것은?",
+        "options":  [
+                        "인덱스",
+                        "연결 테이블(교차 엔터티)",
+                        "파티션",
+                        "뷰"
+                    ],
+        "answer":  1,
+        "explanation":  "논리 모델에서 M:N 관계는 연결 테이블(교차 엔터티)을 추가하여 1:M × M:1 관계로 분해합니다.",
+        "tags":  [
+                     "M:N",
+                     "논리모델"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_012",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "이력 관리 적용 기준으로 옳지 않은 것은?",
+        "options":  [
+                        "자주 변경되는 중요 속성",
+                        "과거 시점 데이터 조회 필요",
+                        "감사 요건 존재",
+                        "자주 조인되는 속성"
+                    ],
+        "answer":  3,
+        "explanation":  "이력 관리 적용 기준: 변경 빈도, 과거 조회 요건, 감사 요건, 법규 보존 기간입니다. 자주 조인되는 속성은 반정규화 검토 기준입니다.",
+        "tags":  [
+                     "이력관리",
+                     "적용기준"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_013",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "논리 모델 검토 방법이 아닌 것은?",
+        "options":  [
+                        "자동화 진단 도구",
+                        "전문가 검토",
+                        "이해관계자 검토",
+                        "성능 부하 테스트"
+                    ],
+        "answer":  3,
+        "explanation":  "논리 모델 검토: 자동화 진단(품질 도구), 전문가 검토(DA), 이해관계자 검토(현업)입니다. 성능 부하 테스트는 물리 설계 이후의 활동입니다.",
+        "tags":  [
+                     "논리모델",
+                     "검토방법"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_014",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "속성 정의서에 포함되는 항목이 아닌 것은?",
+        "options":  [
+                        "속성명(한글/영문)",
+                        "도메인(데이터 타입·길이·형식)",
+                        "NULL 여부",
+                        "물리 인덱스 설계"
+                    ],
+        "answer":  3,
+        "explanation":  "속성 정의서: 속성명, 설명, 도메인, NULL 여부, 기본값, 업무 규칙입니다. 물리 인덱스 설계는 물리 모델링 단계의 항목입니다.",
+        "tags":  [
+                     "속성정의서",
+                     "항목"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "id":  "p4c3_015",
+        "part":  4,
+        "chapter":  "part4_ch3",
+        "content":  "논리 모델링에서 \u0027통합성(Integration)\u0027 품질 기준의 의미는?",
+        "options":  [
+                        "빠짐없이 완전함",
+                        "다른 부서와 단절",
+                        "전사 데이터 모델이 일관된 기준으로 통합되어 재사용 가능",
+                        "자주 변화에 대응"
+                    ],
+        "answer":  2,
+        "explanation":  "통합성(Integration)은 전사 데이터 모델이 일관된 기준으로 정의되어, 다른 시스템·모델과 연계·재사용이 가능한 상태를 의미합니다.",
+        "tags":  [
+                     "데이터모델품질",
+                     "통합성"
+                 ],
+        "difficulty":  "중",
+        "questionType":  "concept"
+    },
+    {
+        "options":  [
+                        "전사적 통합 데이터 체계 구축",
+                        "데이터 일관성 및 정확성 규칙 도출",
+                        "사용자와의 명확한 의사소통 수단",
+                        "안정적인 데이터베이스 설계 토대 마련"
+                    ],
+        "part":  4,
+        "id":  "p4c3_016",
+        "questionType":  "concept",
+        "content":  "논리 데이터 모델링의 4가지 기능 중 \u0027정규화 및 업무 규칙 명세화를 통해 데이터의 중복·오류를 방지하는 기능\u0027에 해당하는 것은?",
+        "tags":  [
+                     "논리모델링기능",
+                     "일관성",
+                     "정확성"
+                 ],
+        "answer":  1,
+        "explanation":  "논리 데이터 모델링 4가지 기능: ① 전사적 통합 체계 구축, ② 데이터 일관성·정확성 규칙 도출(정규화·업무규칙 명세화), ③ 사용자와의 명확한 의사소통 수단, ④ 안정적 DB 설계 토대. 중복·오류 방지는 데이터 일관성·정확성 규칙 도출에 해당합니다.",
+        "chapter":  "part4_ch3",
+        "difficulty":  "중"
+    },
+    {
+        "options":  [
+                        "Automatic",
+                        "Dependent",
+                        "Nullify",
+                        "No Effect"
+                    ],
+        "part":  4,
+        "id":  "p4c3_017",
+        "questionType":  "concept",
+        "content":  "참조 무결성 입력 규칙 중 \u0027부모 엔터티 인스턴스가 존재할 때만 자식 입력을 허용하는\u0027 규칙은?",
+        "tags":  [
+                     "참조무결성",
+                     "입력규칙",
+                     "Dependent"
+                 ],
+        "answer":  1,
+        "explanation":  "참조 무결성 입력 규칙: Dependent(부모 존재 시만 입력), Automatic(부모 없으면 자동 생성), Nullify(참조키 NULL 처리), Default(참조키 기본값 처리), Customized(조건 충족시 입력), No Effect(항상 허용). \u0027부모 존재 시만 허용\u0027은 Dependent입니다.",
+        "chapter":  "part4_ch3",
+        "difficulty":  "중"
+    },
+    {
+        "options":  [
+                        "Restrict는 자식 삭제 후 부모 삭제, Cascade는 부모만 삭제",
+                        "Restrict는 자식이 없을 때만 부모 삭제 허용, Cascade는 부모 삭제 시 자식도 자동 삭제",
+                        "Restrict는 참조키를 NULL로, Cascade는 기본값으로 처리",
+                        "두 규칙의 동작은 동일"
+                    ],
+        "part":  4,
+        "id":  "p4c3_018",
+        "questionType":  "comparison",
+        "content":  "참조 무결성 삭제 규칙에서 \u0027Restrict\u0027와 \u0027Cascade\u0027의 차이로 옳은 것은?",
+        "tags":  [
+                     "참조무결성",
+                     "삭제규칙",
+                     "Restrict",
+                     "Cascade"
+                 ],
+        "answer":  1,
+        "explanation":  "삭제 규칙: Restrict(자식 인스턴스가 없을 때만 부모 삭제 허용 - 참조 무결성 보호), Cascade(부모 삭제 시 연쇄하여 자식도 자동 삭제). 실무에서 Cascade는 신중하게 사용해야 합니다.",
+        "chapter":  "part4_ch3",
+        "difficulty":  "상"
+    },
+    {
+        "options":  [
+                        "Restrict",
+                        "Cascade",
+                        "Nullify",
+                        "No Effect"
+                    ],
+        "part":  4,
+        "id":  "p4c3_019",
+        "questionType":  "application",
+        "content":  "B 기업에서 \u0027주문\u0027 부모 엔터티를 삭제할 때 관련된 \u0027주문상세\u0027 자식 엔터티도 함께 삭제하도록 하려 한다. 적용해야 하는 참조 무결성 삭제 규칙은?",
+        "tags":  [
+                     "참조무결성",
+                     "삭제규칙",
+                     "Cascade",
+                     "시나리오"
+                 ],
+        "answer":  1,
+        "explanation":  "Cascade 삭제 규칙은 부모 엔터티 인스턴스 삭제 시 대응되는 자식 인스턴스도 자동으로 삭제합니다. 주문 삭제 시 주문상세도 함께 삭제해야 하므로 Cascade가 적합합니다.",
+        "chapter":  "part4_ch3",
+        "difficulty":  "중"
+    }
+]

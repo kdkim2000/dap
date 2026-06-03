@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --q-bg: #F1F5FF;
+  --q-surface: #FFFFFF;
+  --q-border: #E0E7FF;
+  --q-primary: #6366F1;
+  --q-primary-dark: #4F46E5;
+  --q-mint: #10B981;
+  --q-coral: #F87171;
+  --q-sun: #FBBF24;
+  --q-ink: #0F172A;
+  --q-ink-muted: #475569;
+  --q-ink-faint: #94A3B8;
+}
+
+[data-theme="dark"] {
+  --q-bg: #0A0F2E;
+  --q-surface: #141832;
+  --q-border: #1E2347;
+  --q-ink: #E2E8F0;
+  --q-ink-muted: #94A3B8;
+  --q-ink-faint: #475569;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--q-bg);
+  color: var(--q-ink);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.q-card {
+  background: var(--q-surface);
+  border: 1px solid var(--q-border);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px 0 rgba(15,23,42,.08);
+}
+
+.prose-dasp pre {
+  background: #1E1B4B;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.prose-dasp code:not(pre code) {
+  background: var(--q-border);
+  color: var(--q-primary);
+  padding: 0.1em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+@keyframes q-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes q-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-q-bounce { animation: q-bounce 1.5s ease-in-out infinite; }
+.animate-q-pulse { animation: q-pulse 1s ease-in-out infinite; }

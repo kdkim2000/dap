@@ -1,0 +1,108 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Write(data/questions/**)",
+            "shell": "powershell",
+            "statusMessage": "JSON 스키마 검증 중...",
+            "command": "$raw = [Console]::In.ReadToEnd(); $d = $raw | ConvertFrom-Json; $fp = $d.tool_input.file_path; if ($fp -and (Test-Path $fp)) { try { $qs = Get-Content $fp -Raw | ConvertFrom-Json; Write-Host \"[JSON 검증] $fp — $($qs.Count)문항 유효\" } catch { Write-Host \"[JSON 오류] $fp — 파싱 실패\"; exit 2 } }"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Write(data/theory/**)",
+            "shell": "powershell",
+            "statusMessage": "이론 파일 확인 중...",
+            "command": "$raw = [Console]::In.ReadToEnd(); $d = $raw | ConvertFrom-Json; $fp = $d.tool_input.file_path; if ($fp -and (Test-Path $fp)) { $lines = (Get-Content $fp).Count; $sections = (Select-String -Path $fp -Pattern '^## ').Count; Write-Host \"[이론 파일] $fp — ${lines}줄, ${sections}개 섹션\" }"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Write(context/ProgressContext.tsx)",
+            "shell": "powershell",
+            "statusMessage": "마일스톤 확인 중...",
+            "command": "$marker = '[Phase 1] [foundation-builder] — ProgressContext'; $journal = 'docs/journal/JOURNAL.md'; if (Test-Path $journal) { $content = Get-Content $journal -Raw; if ($content -notmatch [regex]::Escape($marker)) { $ts = Get-Date -Format 'yyyy-MM-dd HH:mm'; $entry = \"`n### [$ts] [Phase 1] [foundation-builder] — ProgressContext 구현 완료`n`n**작업**: 전역 진도 상태(ProgressContext)와 localStorage 유틸 구현`n**교훈**: SSR 환경에서 localStorage 접근 시 typeof window 가드 필수`n**바이브**: 🎉완성`n\"; Add-Content -Path $journal -Value $entry; Write-Host '[저널] Foundation 마일스톤 기록됨' } else { Write-Host '[저널] 이미 기록됨 — 스킵' } }"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Write(components/layout/Layout.tsx)",
+            "shell": "powershell",
+            "statusMessage": "마일스톤 확인 중...",
+            "command": "$marker = '[Phase 2] [layout-builder] — 공통 레이아웃'; $journal = 'docs/journal/JOURNAL.md'; if (Test-Path $journal) { $content = Get-Content $journal -Raw; if ($content -notmatch [regex]::Escape($marker)) { $ts = Get-Date -Format 'yyyy-MM-dd HH:mm'; $entry = \"`n### [$ts] [Phase 2] [layout-builder] — 공통 레이아웃 완성`n`n**작업**: 헤더, 사이드바, 반응형 레이아웃 쉘 구현`n**교훈**: 모든 페이지가 공유하는 레이아웃을 먼저 확정해야 이후 에이전트 작업이 독립적으로 가능`n**바이브**: 🎉완성`n\"; Add-Content -Path $journal -Value $entry; Write-Host '[저널] Layout 마일스톤 기록됨' } else { Write-Host '[저널] 이미 기록됨 — 스킵' } }"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Write(pages/quiz/exam.tsx)",
+            "shell": "powershell",
+            "statusMessage": "마일스톤 확인 중...",
+            "command": "$marker = '[Phase 3] [quiz-builder] — 모의고사'; $journal = 'docs/journal/JOURNAL.md'; if (Test-Path $journal) { $content = Get-Content $journal -Raw; if ($content -notmatch [regex]::Escape($marker)) { $ts = Get-Date -Format 'yyyy-MM-dd HH:mm'; $entry = \"`n### [$ts] [Phase 3] [quiz-builder] — 모의고사 페이지 완성`n`n**작업**: 90분 타이머 + 50문항 모의고사 구현`n**교훈**: 클라이언트 사이드 랜덤 샘플링은 hydration mismatch 주의 필요`n**바이브**: 🎉완성`n\"; Add-Content -Path $journal -Value $entry; Write-Host '[저널] Quiz 마일스톤 기록됨' } else { Write-Host '[저널] 이미 기록됨 — 스킵' } }"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Write(pages/theory/[chapterId].tsx)",
+            "shell": "powershell",
+            "statusMessage": "마일스톤 확인 중...",
+            "command": "$marker = '[Phase 3] [theory-builder] — 이론 챕터'; $journal = 'docs/journal/JOURNAL.md'; if (Test-Path $journal) { $content = Get-Content $journal -Raw; if ($content -notmatch [regex]::Escape($marker)) { $ts = Get-Date -Format 'yyyy-MM-dd HH:mm'; $entry = \"`n### [$ts] [Phase 3] [theory-builder] — 이론 챕터 페이지 완성`n`n**작업**: SSG 기반 이론 본문 페이지 + 마크다운 렌더러 구현`n**교훈**: getStaticPaths + getStaticProps 패턴으로 빌드 시 모든 챕터 경로 사전 생성`n**바이브**: 🎉완성`n\"; Add-Content -Path $journal -Value $entry; Write-Host '[저널] Theory 마일스톤 기록됨' } else { Write-Host '[저널] 이미 기록됨 — 스킵' } }"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Write(pages/index.tsx)",
+            "shell": "powershell",
+            "statusMessage": "마일스톤 확인 중...",
+            "command": "$marker = '[Phase 4] [dashboard-builder] — 대시보드'; $journal = 'docs/journal/JOURNAL.md'; if (Test-Path $journal) { $content = Get-Content $journal -Raw; if ($content -notmatch [regex]::Escape($marker)) { $ts = Get-Date -Format 'yyyy-MM-dd HH:mm'; $entry = \"`n### [$ts] [Phase 4] [dashboard-builder] — 대시보드 메인 페이지 완성`n`n**작업**: 진도율 차트, 취약 챕터, 최근 오답 대시보드 구현`n**교훈**: 외부 차트 라이브러리 없이 CSS/SVG로 구현하면 번들 크기 절약`n**바이브**: 🎉완성`n\"; Add-Content -Path $journal -Value $entry; Write-Host '[저널] Dashboard 마일스톤 기록됨' } else { Write-Host '[저널] 이미 기록됨 — 스킵' } }"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "statusMessage": "TypeScript 타입 검사 중...",
+            "command": "if (Test-Path tsconfig.json) { $out = npx tsc --noEmit 2>&1; if ($LASTEXITCODE -eq 0) { Write-Host '[타입 검사] 통과 — 오류 없음' } else { $errCount = ($out | Measure-Object).Count; Write-Host \"[타입 검사] $errCount 개 오류 발견 — /build-check 실행 권장\" } }"
+          },
+          {
+            "type": "command",
+            "shell": "powershell",
+            "async": true,
+            "command": "$ts = Get-Date -Format 'yyyy-MM-dd HH:mm'; $sessionFile = 'docs/journal/.sessions'; if (Test-Path 'docs/journal') { \"[$ts] session-end\" | Add-Content -Path $sessionFile }"
+          }
+        ]
+      }
+    ]
+  }
+}
