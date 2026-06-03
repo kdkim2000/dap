@@ -7,7 +7,8 @@ interface Props {
 }
 
 const MAX_PX = 1920
-const MAX_BYTES = 2 * 1024 * 1024  // 2MB
+const MAX_BYTES = 2 * 1024 * 1024        // 2MB
+const BASE64_OVERHEAD = 1.37             // base64 인코딩 시 원본 대비 약 37% 크기 증가
 
 function resizeImage(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -24,13 +25,13 @@ function resizeImage(file: File): Promise<string> {
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
       let quality = 0.9
       let dataUrl = canvas.toDataURL('image/jpeg', quality)
-      while (dataUrl.length > MAX_BYTES * 1.37 && quality > 0.3) {
+      while (dataUrl.length > MAX_BYTES * BASE64_OVERHEAD && quality > 0.3) {
         quality -= 0.1
         dataUrl = canvas.toDataURL('image/jpeg', quality)
       }
       resolve(dataUrl)
     }
-    img.onerror = reject
+    img.onerror = (err) => { URL.revokeObjectURL(url); reject(err) }
     img.src = url
   })
 }

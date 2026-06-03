@@ -53,7 +53,12 @@ export function loadPracticalDraft(practiceId: string): PracticalDraft | null {
   try {
     const raw = localStorage.getItem(`${PRACTICAL_KEY_PREFIX}${practiceId}`)
     if (!raw) return null
-    return JSON.parse(raw) as PracticalDraft
+    const parsed = JSON.parse(raw)
+    // 런타임 필드 검증 (오염된 데이터 방어)
+    if (typeof parsed !== 'object' || parsed === null) return null
+    if (typeof parsed.textAnswer !== 'string') return null
+    if (typeof parsed.savedAt !== 'number') return null
+    return parsed as PracticalDraft
   } catch {
     return null
   }

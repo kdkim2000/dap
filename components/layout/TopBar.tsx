@@ -45,7 +45,7 @@ export default function TopBar() {
         {/* Nav (desktop) */}
         <nav className="hidden md:flex items-center gap-1">
           {navLinks.map(({ href, label }) => {
-            const active = router.pathname === href || (href !== '/' && router.pathname.startsWith(href))
+            const active = router.pathname === href || (href !== '/' && router.pathname.startsWith(href + '/'))
             return (
               <Link
                 key={href}
