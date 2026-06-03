@@ -67,8 +67,11 @@ export default function PracticalProblemPage({ problem }: Props) {
   const rightPanel = (
     <div className="space-y-5">
       {/* 탭 */}
-      <div className="flex gap-1 bg-surface-soft rounded-lg p-1">
+      <div role="tablist" aria-label="답안 작성 방식" className="flex gap-1 bg-surface-soft rounded-lg p-1">
         <button
+          role="tab"
+          aria-selected={tab === 'text'}
+          aria-controls="panel-text"
           onClick={() => setTab('text')}
           className={`flex-1 py-2 text-sm font-semibold rounded-md transition-colors ${
             tab === 'text'
@@ -79,6 +82,9 @@ export default function PracticalProblemPage({ problem }: Props) {
           📝 텍스트 서술
         </button>
         <button
+          role="tab"
+          aria-selected={tab === 'image'}
+          aria-controls="panel-image"
           onClick={() => setTab('image')}
           className={`flex-1 py-2 text-sm font-semibold rounded-md transition-colors ${
             tab === 'image'
@@ -91,19 +97,24 @@ export default function PracticalProblemPage({ problem }: Props) {
       </div>
 
       {/* 답안 영역 */}
-      {tab === 'text' ? (
-        <AnswerTextEditor
-          practiceId={problem.id}
-          initialValue={draft.textAnswer}
-          onSave={handleTextSave}
-        />
-      ) : (
-        <ModelImageUpload
-          practiceId={problem.id}
-          initialImageUrl={draft.imageDataUrl}
-          onSave={handleImageSave}
-        />
-      )}
+      <div id="panel-text" role="tabpanel" aria-label="텍스트 서술 답안" hidden={tab !== 'text'}>
+        {tab === 'text' && (
+          <AnswerTextEditor
+            practiceId={problem.id}
+            initialValue={draft.textAnswer}
+            onSave={handleTextSave}
+          />
+        )}
+      </div>
+      <div id="panel-image" role="tabpanel" aria-label="모델 이미지 업로드" hidden={tab !== 'image'}>
+        {tab === 'image' && (
+          <ModelImageUpload
+            practiceId={problem.id}
+            initialImageUrl={draft.imageDataUrl}
+            onSave={handleImageSave}
+          />
+        )}
+      </div>
 
       {/* 저장 시각 */}
       {savedAt && (

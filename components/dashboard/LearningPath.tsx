@@ -16,7 +16,9 @@ function getFirstIncompleteChapter(chapterIds: string[], answers: Record<string,
   for (const id of chapterIds) {
     // A chapter is "completed" if it has at least some answers
     // (simplified check — in real app would compare against question counts)
-    const hasAttempted = Object.keys(answers).some(qid => qid.startsWith(id.replace('part', 'p').replace('_ch', 'c') + '_'))
+    const chapter = CHAPTERS.find(c => c.id === id)
+    const prefix = chapter?.idPrefix ?? ''
+    const hasAttempted = prefix ? Object.keys(answers).some(qid => qid.startsWith(prefix)) : false
     if (!hasAttempted) return id
   }
   return null

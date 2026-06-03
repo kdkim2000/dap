@@ -125,7 +125,7 @@ export default function QuestionCard({
       <div className="space-y-2 mt-2">
         {question.options.map((option, index) => (
           <button
-            key={index}
+            key={`opt-${index}`}
             onClick={() => !showResult && onAnswer(index)}
             disabled={showResult}
             className={getOptionStyle(index)}

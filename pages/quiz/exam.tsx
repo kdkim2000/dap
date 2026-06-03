@@ -57,6 +57,7 @@ export default function ExamPage() {
   const [timeUsed, setTimeUsed] = useState(0)
   const [remainingSeconds, setRemainingSeconds] = useState(EXAM_SECONDS)
   const [hasSavedSession, setHasSavedSession] = useState(false)
+  const [sessionExpiredMsg, setSessionExpiredMsg] = useState(false)
 
   const examEndTimeRef = useRef<number>(0)
   const startTimeRef = useRef<number>(0)  // kept for elapsed-time calculation in result
@@ -110,7 +111,7 @@ export default function ExamPage() {
     if (remaining === 0) {
       clearExamSession()
       setHasSavedSession(false)
-      alert('이전 시험의 시간이 만료되었습니다. 새 시험을 시작해 주세요.')
+      setSessionExpiredMsg(true)
       return
     }
 
@@ -224,9 +225,16 @@ export default function ExamPage() {
         <div className="q-card space-y-6">
           <div className="text-center space-y-2">
             <div className="text-5xl">📝</div>
-            <h1 className="text-2xl font-display font-bold text-ink">DAsP 모의고사</h1>
+            <h1 className="text-2xl font-display font-bold text-ink">DAP 모의고사</h1>
             <p className="text-ink-muted text-sm">실전과 동일한 조건으로 실력을 확인해보세요.</p>
           </div>
+
+          {/* 세션 만료 알림 */}
+          {sessionExpiredMsg && (
+            <div className="bg-amber-50 border border-amber-300 rounded-xl p-3 text-sm text-amber-800">
+              이전 시험의 시간이 만료되었습니다. 새 시험을 시작해 주세요.
+            </div>
+          )}
 
           {/* 이어서 풀기 배너 */}
           {hasSavedSession && (

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useCallback, ReactNode } from 'react'
+import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, ReactNode } from 'react'
 import type { ProgressStore, AnswerResult, ExamResult, Stats } from '@/types'
 import {
   loadProgress,
@@ -81,7 +81,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   const isBookmarked = useCallback((id: string) => progress.bookmarks.includes(id), [progress.bookmarks])
   const getStreak = useCallback(() => progress.examHistory.length, [progress.examHistory])
-  const getXP = useCallback(() => Object.values(progress.answers).filter(v => v === 'correct').length * 10, [progress.answers])
+  const xpValue = useMemo(
+    () => Object.values(progress.answers).filter(v => v === 'correct').length * 10,
+    [progress.answers]
+  )
+  const getXP = useCallback(() => xpValue, [xpValue])
   const getGems = useCallback(() => progress.examHistory.length * 50, [progress.examHistory])
   const getHearts = useCallback(() => 3, [])
 

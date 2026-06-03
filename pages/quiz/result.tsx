@@ -33,7 +33,7 @@ export default function ResultPage() {
   )
   const passed = isExamPassed(scoresByPart)
 
-  const stars = totalScore >= 54 ? 3 : totalScore >= 36 ? 2 : 1
+  const stars = totalScore >= 48 ? 3 : totalScore >= 36 ? 2 : 1  // 60점 만점 기준: 80%=3성, 60%=2성(합격선)
   const mins = Math.floor(timeSeconds / 60)
   const secs = timeSeconds % 60
 
