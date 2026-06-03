@@ -106,9 +106,9 @@ export default function ExamPage() {
 
     const remaining = Math.max(0, Math.floor((saved.examEndTime - Date.now()) / 1000))
     if (remaining === 0) {
-      // 이탈 중 시간 초과 → 세션 삭제, 새 시험 유도
       clearExamSession()
       setHasSavedSession(false)
+      alert('이전 시험의 시간이 만료되었습니다. 새 시험을 시작해 주세요.')
       return
     }
 

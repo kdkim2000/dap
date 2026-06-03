@@ -44,7 +44,7 @@ export default function ScenarioPanel({ title, type, subtype, notation, scenario
 
       {/* 표기법 안내 */}
       <div className="flex items-center gap-2 p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-xs text-amber-800">
-        <span className="text-base">⚠️</span>
+        <span className="text-base" role="img" aria-label="주의">⚠️</span>
         <span><strong>사용 표기법:</strong> {NOTATION_LABELS[notation] ?? notation} — 혼용 금지</span>
       </div>
 
@@ -62,7 +62,7 @@ export default function ScenarioPanel({ title, type, subtype, notation, scenario
           <h3 className="text-xs font-semibold text-ink-muted uppercase tracking-wider">요구사항</h3>
           <ul className="space-y-1.5">
             {requirements.map((req, i) => (
-              <li key={i} className="flex gap-2 text-sm text-ink">
+              <li key={`req-${i}`} className="flex gap-2 text-sm text-ink">
                 <span className="shrink-0 w-5 h-5 rounded-full bg-primary-100 text-primary-700 text-xs font-bold flex items-center justify-center mt-0.5">
                   {i + 1}
                 </span>

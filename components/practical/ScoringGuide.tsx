@@ -48,7 +48,7 @@ export default function ScoringGuide({ checkPoints, sampleAnswer }: Props) {
       {/* 체크리스트 */}
       <ul className="space-y-2">
         {checkPoints.map((point, i) => (
-          <li key={i} className="flex gap-2 items-start">
+          <li key={`cp-${i}-${point.slice(0, 20)}`} className="flex gap-2 items-start">
             <button
               onClick={() => toggle(i)}
               className={`shrink-0 w-5 h-5 mt-0.5 rounded border-2 flex items-center justify-center transition-colors ${

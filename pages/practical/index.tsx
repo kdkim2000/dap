@@ -8,6 +8,8 @@ interface Props {
   problems: PracticalProblem[]
 }
 
+const PREVIEW_LENGTH = 80
+
 const TYPE_LABELS: Record<string, { label: string; icon: string; desc: string }> = {
   logical_model: { label: '논리 데이터 모델 작성', icon: '🗺️', desc: '지문 분석 → 엔터티·관계·속성·서브타입 정의' },
   standard_form: { label: '표준화 정의서 작성', icon: '📋', desc: '엔터티 정의 / 데이터 표준(단어·용어·코드·도메인) 정의' },
@@ -85,7 +87,7 @@ export default function PracticalIndexPage({ problems }: Props) {
                   <span className="text-xl shrink-0">→</span>
                 </div>
                 <p className="text-xs text-ink-faint line-clamp-2">
-                  {problem.scenario.slice(0, 80)}...
+                  {problem.scenario.slice(0, PREVIEW_LENGTH)}...
                 </p>
               </Link>
             ))}
@@ -118,7 +120,7 @@ export default function PracticalIndexPage({ problems }: Props) {
                   <span className="text-xl shrink-0">→</span>
                 </div>
                 <p className="text-xs text-ink-faint line-clamp-2">
-                  {problem.scenario.slice(0, 80)}...
+                  {problem.scenario.slice(0, PREVIEW_LENGTH)}...
                 </p>
               </Link>
             ))}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import type { PracticalProblem, PracticalDraft } from '@/types'
@@ -18,6 +18,7 @@ type AnswerTab = 'text' | 'image'
 export default function PracticalProblemPage({ problem }: Props) {
   const [tab, setTab] = useState<AnswerTab>('text')
   const [draft, setDraft] = useState<PracticalDraft>({ textAnswer: '', imageDataUrl: null, savedAt: 0 })
+  const draftRef = useRef(draft)
   const [savedAt, setSavedAt] = useState<Date | null>(null)
 
   // 기존 답안 복원
@@ -25,23 +26,27 @@ export default function PracticalProblemPage({ problem }: Props) {
     const saved = loadPracticalDraft(problem.id)
     if (saved) {
       setDraft(saved)
+      draftRef.current = saved
       if (saved.savedAt > 0) setSavedAt(new Date(saved.savedAt))
     }
   }, [problem.id])
 
+  // draftRef로 최신 draft를 추적하여 handleTextSave·handleImageSave 재생성 방지
+  useEffect(() => { draftRef.current = draft }, [draft])
+
   const handleTextSave = useCallback((text: string) => {
-    const next: PracticalDraft = { ...draft, textAnswer: text, savedAt: Date.now() }
+    const next: PracticalDraft = { ...draftRef.current, textAnswer: text, savedAt: Date.now() }
     setDraft(next)
     savePracticalDraft(problem.id, next)
     setSavedAt(new Date())
-  }, [draft, problem.id])
+  }, [problem.id])
 
   const handleImageSave = useCallback((dataUrl: string | null) => {
-    const next: PracticalDraft = { ...draft, imageDataUrl: dataUrl, savedAt: Date.now() }
+    const next: PracticalDraft = { ...draftRef.current, imageDataUrl: dataUrl, savedAt: Date.now() }
     setDraft(next)
     savePracticalDraft(problem.id, next)
     setSavedAt(new Date())
-  }, [draft, problem.id])
+  }, [problem.id])
 
   const leftPanel = (
     <ScenarioPanel

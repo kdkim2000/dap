@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { CHAPTERS_BY_PART, PART_TITLES } from '@/lib/chapters'
@@ -17,11 +17,11 @@ export default function QuizIndexPage() {
   const { stats, isHydrated } = useProgress()
   const router = useRouter()
 
-  const getChapterRate = (chapterId: string) => {
+  const getChapterRate = useCallback((chapterId: string) => {
     const c = stats.byChapter[chapterId]
     if (!c || c.attempted === 0) return null
     return Math.round((c.correct / c.attempted) * 100)
-  }
+  }, [stats.byChapter])
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
@@ -35,17 +35,18 @@ export default function QuizIndexPage() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <button
           onClick={() => router.push('/quiz/exam')}
+          aria-label="모의고사 시작"
           className="q-card flex items-center gap-3 hover:border-primary-300 hover:shadow-q-md transition-all cursor-pointer group"
         >
-          <span className="text-3xl">📝</span>
+          <span className="text-3xl" role="img" aria-hidden="true">📝</span>
           <div className="text-left">
             <div className="font-bold text-ink group-hover:text-primary-600 transition-colors">모의고사</div>
             <div className="text-xs text-ink-muted">75문항 · 240분</div>
           </div>
         </button>
 
-        <Link href="/quiz/wrong" className="q-card flex items-center gap-3 hover:border-red-200 hover:shadow-q-md transition-all group">
-          <span className="text-3xl">📕</span>
+        <Link href="/quiz/wrong" aria-label="오답 노트 보기" className="q-card flex items-center gap-3 hover:border-red-200 hover:shadow-q-md transition-all group">
+          <span className="text-3xl" role="img" aria-hidden="true">📕</span>
           <div>
             <div className="font-bold text-ink group-hover:text-red-600 transition-colors">오답 노트</div>
             <div className="text-xs text-ink-muted">
@@ -56,8 +57,8 @@ export default function QuizIndexPage() {
           </div>
         </Link>
 
-        <Link href="/quiz/bookmarks" className="q-card flex items-center gap-3 hover:border-yellow-200 hover:shadow-q-md transition-all group">
-          <span className="text-3xl">⭐</span>
+        <Link href="/quiz/bookmarks" aria-label="북마크 문제 보기" className="q-card flex items-center gap-3 hover:border-yellow-200 hover:shadow-q-md transition-all group">
+          <span className="text-3xl" role="img" aria-hidden="true">⭐</span>
           <div>
             <div className="font-bold text-ink group-hover:text-yellow-600 transition-colors">북마크</div>
             <div className="text-xs text-ink-muted">저장한 문제</div>
