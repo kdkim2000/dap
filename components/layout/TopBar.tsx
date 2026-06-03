@@ -27,9 +27,10 @@ export default function TopBar() {
   }
 
   const navLinks = [
-    { href: '/', label: '홈' },
-    { href: '/theory', label: '이론' },
-    { href: '/quiz', label: '문제풀기' },
+    { href: '/',          label: '홈' },
+    { href: '/theory',    label: '이론' },
+    { href: '/quiz',      label: '문제풀기' },
+    { href: '/practical', label: '실기 연습' },
   ]
 
   return (
@@ -38,7 +39,7 @@ export default function TopBar() {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2 font-display font-bold text-primary-600 text-lg shrink-0">
           <Mascot size={32} expression="happy" />
-          <span className="hidden sm:block">DAsP Master</span>
+          <span className="hidden sm:block">DAP Master</span>
         </Link>
 
         {/* Nav (desktop) */}

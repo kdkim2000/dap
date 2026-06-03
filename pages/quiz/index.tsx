@@ -64,6 +64,14 @@ export default function QuizIndexPage() {
             <div className="text-xs text-ink-muted">저장한 문제</div>
           </div>
         </Link>
+
+        <Link href="/practical" aria-label="실기 연습 시작" className="q-card flex items-center gap-3 hover:border-teal-200 hover:shadow-q-md transition-all group">
+          <span className="text-3xl" role="img" aria-hidden="true">🗺️</span>
+          <div>
+            <div className="font-bold text-ink group-hover:text-teal-600 transition-colors">실기 연습</div>
+            <div className="text-xs text-ink-muted">논리 모델·표준화 (40점)</div>
+          </div>
+        </Link>
       </div>
 
       {/* Part sections */}
