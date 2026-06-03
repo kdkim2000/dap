@@ -120,6 +120,67 @@
 
 > **선택 기준**: 서브타입 간 속성 차이가 크면 분리, 공통 조회가 많으면 통합 전략 고려.
 
+### 4.4 파티셔닝 (Partitioning)
+
+대용량 테이블을 기준에 따라 물리적으로 분할하여 관리·성능을 향상시키는 기법.
+
+| 유형 | 분할 기준 | 설명 | 사용 예 |
+|------|------|------|------|
+| **Range 파티셔닝** | 컬럼 값의 연속적 범위 | 날짜·숫자 범위로 분할 | 연월별 판매 데이터 |
+| **List 파티셔닝** | 컬럼 값의 목록 | 특정 값 목록으로 분할 | 지역코드(서울/부산/대구) |
+| **Hash 파티셔닝** | 해시 함수 적용 결과 | 균등 분산 보장 | 균형적 분산이 필요할 때 |
+| **Composite 파티셔닝** | 두 가지 이상 기준 복합 | Range+Hash 등 조합 | 연월+지역 2차원 분할 |
+
+```sql
+-- Range 파티셔닝 예시
+CREATE TABLE TB_SALES (
+  sale_id NUMBER, sale_date DATE, amount NUMBER
+) PARTITION BY RANGE(sale_date) (
+  PARTITION p_2024_q1 VALUES LESS THAN (DATE '2024-04-01'),
+  PARTITION p_2024_q2 VALUES LESS THAN (DATE '2024-07-01'),
+  PARTITION p_2024_q3 VALUES LESS THAN (DATE '2024-10-01'),
+  PARTITION p_2024_q4 VALUES LESS THAN (DATE '2025-01-01')
+);
+```
+
+**파티셔닝 효과**:
+- **파티션 프루닝**: WHERE 조건이 파티션 키이면 해당 파티션만 스캔 → I/O 대폭 감소
+- **병렬 처리**: 파티션별 병렬 DML 가능
+- **관리 가용성**: 파티션 단위 백업·복구·삭제 가능
+
+### 4.5 재귀 관계 (Recursive Relationship)
+
+동일 엔터티 내의 인스턴스들이 서로 관계를 갖는 구조. 자기 참조 관계라고도 한다.
+
+```
+[직원]
+ - 사번(PK)
+ - 이름
+ - 상위사번(FK → 사번)  ← 자기 자신을 참조
+```
+
+**물리 구현**:
+
+```sql
+CREATE TABLE TB_EMPLOYEE (
+  emp_id    NUMBER PRIMARY KEY,
+  emp_name  VARCHAR2(100),
+  mgr_id    NUMBER REFERENCES TB_EMPLOYEE(emp_id)  -- 자기 참조 FK
+);
+
+-- 계층 조회 (Oracle)
+SELECT emp_id, emp_name, mgr_id,
+       LEVEL, LPAD(' ', (LEVEL-1)*2) || emp_name AS hierarchy
+FROM TB_EMPLOYEE
+START WITH mgr_id IS NULL      -- 최상위 (CEO)
+CONNECT BY PRIOR emp_id = mgr_id;  -- 계층 연결
+```
+
+**사용 예**:
+- 조직도 (직원-상사 관계)
+- 카테고리 트리 (대분류-중분류-소분류)
+- BOM(Bill of Materials, 제품-부품 구성)
+
 ---
 
 ## 5. 데이터베이스
@@ -154,6 +215,33 @@ DBMS가 관리하는 메타데이터 저장소.
 | 보안성 | 민감 컬럼을 제외하고 접근 허용 |
 | 편의성 | 복잡한 쿼리를 단순화 |
 | 가상성 | 물리적 데이터를 보유하지 않음 (마테리얼라이즈드 뷰 제외) |
+
+### 6.2 마테리얼라이즈드 뷰 (Materialized View)
+
+일반 뷰와 달리 **쿼리 결과를 물리적으로 저장**하는 특수 뷰. 조회 시 계산 없이 저장된 결과를 즉시 반환.
+
+| 구분 | 일반 뷰(View) | 마테리얼라이즈드 뷰(Materialized View) |
+|------|------|------|
+| 데이터 저장 | 저장 안 함 (가상) | **물리적으로 저장** |
+| 조회 성능 | 매번 원본 쿼리 실행 | 저장된 결과 즉시 반환 → 빠름 |
+| 최신성 | 항상 최신 | 갱신 주기에 따라 지연 가능 |
+| 갱신 방법 | 해당 없음 | 완전 갱신 또는 증분 갱신 |
+| 주요 용도 | 보안·편의성 | DW 집계 성능 향상 |
+
+```sql
+-- 마테리얼라이즈드 뷰 생성 (Oracle)
+CREATE MATERIALIZED VIEW MV_SALES_MONTHLY
+BUILD IMMEDIATE               -- 즉시 생성
+REFRESH COMPLETE ON DEMAND    -- 요청 시 완전 갱신
+AS
+SELECT TRUNC(sale_date, 'MM') AS sale_month,
+       SUM(amount) AS total_amount,
+       COUNT(*) AS sale_count
+FROM TB_SALES
+GROUP BY TRUNC(sale_date, 'MM');
+```
+
+> **핵심**: DW 환경에서 집계 쿼리가 느릴 때 마테리얼라이즈드 뷰로 사전 계산하여 성능 향상. 갱신 주기를 적절히 설정해야 최신성 보장.
 
 ---
 
@@ -225,7 +313,13 @@ DBMS가 관리하는 메타데이터 저장소.
 8. **이행 함수 종속**: A→B, B→C → A→C (3NF에서 제거 대상)
 9. **반정규화**: 성능을 위해 의도적으로 정규화 위반
 10. **서브타입 구현 전략**: 통합(NULL 많음) / 분리(조인 필요) / 혼합
-11. **뷰(View)**: 가상 테이블, 보안·편의성 제공
-12. **데이터 딕셔너리**: DBMS가 관리하는 메타데이터 저장소
-13. **3계층 스키마**: 외부(뷰)→개념(논리)→내부(물리)
-14. **참조 모델**: 기관 간 데이터 공유·표준화 기준
+11. **파티셔닝 4가지**: Range(범위)·List(목록)·Hash(해시)·Composite(복합)
+12. **파티션 프루닝**: WHERE 조건이 파티션 키이면 해당 파티션만 스캔 → I/O 감소
+13. **재귀 관계(Recursive Relationship)**: 자기 참조 FK — 계층 구조(조직도·카테고리·BOM)
+14. **CONNECT BY**: Oracle 계층 쿼리 키워드 (START WITH: 최상위, PRIOR: 부모 연결)
+15. **마테리얼라이즈드 뷰**: 쿼리 결과를 물리 저장 → 조회 성능↑, DW 집계에 활용
+16. **일반 뷰 vs 마테리얼라이즈드 뷰**: 가상(항상 최신) vs 물리 저장(갱신 주기 지연 가능)
+17. **뷰(View)**: 가상 테이블, 보안·편의성 제공
+18. **데이터 딕셔너리**: DBMS가 관리하는 메타데이터 저장소
+19. **3계층 스키마**: 외부(뷰)→개념(논리)→내부(물리)
+20. **참조 모델**: 기관 간 데이터 공유·표준화 기준
