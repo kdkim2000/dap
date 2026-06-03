@@ -203,6 +203,120 @@
     "questionType": "concept"
   },
   {
+    "id": "p5c2_016",
+    "part": 5,
+    "chapter": "part5_ch2",
+    "content": "Oracle DBMS의 시작(Startup) 단계를 순서대로 나열한 것은?",
+    "options": [
+      "마운트(Mount) → 인스턴스 기동 → 오픈(Open)",
+      "인스턴스 기동 → 마운트(Mount) → 오픈(Open)",
+      "오픈(Open) → 마운트(Mount) → 인스턴스 기동",
+      "인스턴스 기동 → 오픈(Open) → 마운트(Mount)"
+    ],
+    "answer": 1,
+    "explanation": "Oracle DB 시작 3단계: ① 인스턴스 기동(초기화 파라미터 읽기, SGA 메모리 할당·백그라운드 프로세스 생성) → ② 마운트(컨트롤 파일·데이터 파일 점검, 사용자 접속 불가) → ③ 오픈(데이터 파일 열기, 미완료 트랜잭션 자동 복구, 사용자 접속 허용).",
+    "tags": ["DB시작단계", "Startup", "마운트", "오픈"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c2_017",
+    "part": 5,
+    "chapter": "part5_ch2",
+    "content": "Oracle DBMS의 SGA(System Global Area) 구성요소에 대한 설명으로 옳지 않은 것은?",
+    "options": [
+      "DB 버퍼 캐시는 디스크에서 읽은 데이터 블록을 메모리에 캐싱하여 I/O를 줄인다",
+      "공유 풀(Shared Pool)은 SQL 파싱 결과(실행 계획)와 데이터 딕셔너리 정보를 캐싱한다",
+      "로그 버퍼는 Redo 로그를 파일에 기록하기 전 임시 저장한다",
+      "SGA는 각 사용자 세션마다 독립적으로 할당되는 개인 메모리 영역이다"
+    ],
+    "answer": 3,
+    "explanation": "SGA(System Global Area)는 모든 서버 프로세스와 백그라운드 프로세스가 공유하는 메모리 영역입니다. 각 세션마다 독립적으로 할당되는 것은 PGA(Program Global Area)입니다. SGA 구성: DB 버퍼 캐시, 공유 풀, 로그 버퍼.",
+    "tags": ["SGA", "DB버퍼캐시", "공유풀", "로그버퍼"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c2_018",
+    "part": 5,
+    "chapter": "part5_ch2",
+    "content": "Oracle DBMS의 백그라운드 프로세스 중 '더티 버퍼(변경된 캐시 블록)를 디스크의 데이터 파일에 기록하는' 프로세스는?",
+    "options": ["LGWR", "PMON", "SMON", "DBWR"],
+    "answer": 3,
+    "explanation": "DBWR(Database Writer)은 DB 버퍼 캐시의 더티 버퍼(변경된 데이터)를 주기적으로 디스크 데이터 파일에 기록합니다. LGWR는 로그 버퍼→Redo 로그 파일 기록, PMON은 실패 프로세스 정리, SMON은 시스템 복구·임시 세그먼트 정리를 담당합니다.",
+    "tags": ["DBWR", "백그라운드프로세스", "더티버퍼"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c2_019",
+    "part": 5,
+    "chapter": "part5_ch2",
+    "content": "PCTFREE 파라미터와 블록 체이닝(Block Chaining) 현상에 대한 설명으로 옳은 것은?",
+    "options": [
+      "PCTFREE는 새로운 INSERT를 위해 예약하는 공간 비율이다",
+      "PCTFREE를 높게 설정하면 블록당 저장 가능한 행 수가 증가한다",
+      "PCTFREE는 UPDATE 시 행 크기 증가에 대비해 블록 내 예약하는 여유 공간으로, 부족하면 블록 체이닝이 발생한다",
+      "블록 체이닝은 SELECT 성능에는 영향이 없고 INSERT 성능만 저하시킨다"
+    ],
+    "answer": 2,
+    "explanation": "PCTFREE는 UPDATE로 행 크기가 늘어날 때를 대비해 블록 내에 예약하는 여유 공간 비율입니다. PCTFREE가 부족하면 UPDATE 후 행이 블록에 다 들어가지 않아 다른 블록으로 분산(블록 체이닝/마이그레이션)되어 I/O 증가로 SELECT 성능이 저하됩니다.",
+    "tags": ["PCTFREE", "블록체이닝", "물리저장구조"],
+    "difficulty": "상",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c2_020",
+    "part": 5,
+    "chapter": "part5_ch2",
+    "content": "스토어드 프로시저(Stored Procedure) 설계 원칙으로 옳은 것은?",
+    "options": [
+      "하나의 프로시저에 가능한 한 많은 업무 로직을 담아 재컴파일 횟수를 줄인다",
+      "높은 응집도(High Cohesion)와 낮은 결합도(Low Coupling)를 유지하며, 하나의 프로시저는 하나의 업무 기능만 담당한다",
+      "파라미터를 최소화하고 전역 변수를 최대한 활용한다",
+      "프로시저 간 강한 의존 관계를 유지하여 일관성을 보장한다"
+    ],
+    "answer": 1,
+    "explanation": "스토어드 프로시저 설계 원칙은 높은 응집도(하나의 프로시저에 하나의 업무 기능)와 낮은 결합도(다른 프로시저·객체에 대한 의존성 최소화)를 유지하는 것입니다. 이를 통해 재사용성·유지보수성이 높아집니다.",
+    "tags": ["스토어드프로시저", "응집도", "결합도"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c2_021",
+    "part": 5,
+    "chapter": "part5_ch2",
+    "content": "데이터베이스 트리거(Trigger)에서 '연쇄 발동(Cascading Trigger)'이 위험한 이유로 가장 적절한 것은?",
+    "options": [
+      "트리거는 DDL 이벤트에만 반응하기 때문에 DML에서는 발동되지 않는다",
+      "트리거가 또 다른 트리거를 연속 발동시켜 예상치 못한 성능 저하나 무한 루프가 발생할 수 있다",
+      "트리거는 항상 동기 방식으로 실행되어 성능에 유리하다",
+      "트리거는 COMMIT 이후에만 실행되므로 트랜잭션 무결성에 문제가 없다"
+    ],
+    "answer": 1,
+    "explanation": "연쇄 발동(Cascading Trigger)은 트리거 A가 DML을 수행하면 트리거 B가 발동하고, 다시 트리거 C가 발동하는 식으로 예상치 못한 성능 저하나 무한 루프가 발생할 수 있습니다. 트리거는 유용하지만 남용하면 유지보수가 어려워지므로 주의가 필요합니다.",
+    "tags": ["트리거", "연쇄발동", "CascadingTrigger"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c2_022",
+    "part": 5,
+    "chapter": "part5_ch2",
+    "content": "분산 트랜잭션의 2단계 커밋(2-Phase Commit)에 대한 설명으로 옳은 것은?",
+    "options": [
+      "첫 번째 단계에서 모든 노드가 커밋하고, 두 번째 단계에서 검증한다",
+      "코디네이터가 준비(Prepare) 단계에서 모든 참여 노드의 커밋 가능 여부를 확인하고, 커밋(Commit) 단계에서 모두 성공 시 커밋·하나라도 실패 시 전체 롤백한다",
+      "두 개의 독립된 트랜잭션을 순서대로 처리하는 방식이다",
+      "2PC는 단일 노드 트랜잭션에만 적용되는 기법이다"
+    ],
+    "answer": 1,
+    "explanation": "2-Phase Commit(2PC)은 분산 DB의 병행 투명성을 구현하는 핵심 기술입니다. ① 준비(Prepare): 코디네이터가 각 노드에 커밋 가능 여부 질문 → ② 커밋(Commit): 모든 노드 OK이면 전체 커밋, 하나라도 NO이면 전체 롤백. 글로벌 일관성을 보장합니다.",
+    "tags": ["2PhaseCommit", "2PC", "분산트랜잭션"],
+    "difficulty": "상",
+    "questionType": "concept"
+  },
+  {
     "id": "p5c2_015",
     "part": 5,
     "chapter": "part5_ch2",

@@ -218,6 +218,74 @@
     "questionType": "concept"
   },
   {
+    "id": "p6c2_016",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "마테리얼라이즈드 뷰(Materialized View)와 일반 뷰(View)의 차이로 옳은 것은?",
+    "options": [
+      "일반 뷰는 쿼리 결과를 물리적으로 저장하고, 마테리얼라이즈드 뷰는 가상 테이블이다",
+      "마테리얼라이즈드 뷰는 쿼리 결과를 물리적으로 저장하여 조회 시 저장된 결과를 즉시 반환하므로 조회 성능이 우수하다",
+      "마테리얼라이즈드 뷰는 일반 뷰보다 항상 최신 데이터를 보장한다",
+      "마테리얼라이즈드 뷰와 일반 뷰는 기능적으로 동일하다"
+    ],
+    "answer": 1,
+    "explanation": "마테리얼라이즈드 뷰(Materialized View)는 쿼리 결과를 물리적으로 저장하여, 조회 시 원본 쿼리를 실행하지 않고 저장된 결과를 즉시 반환합니다. 일반 뷰는 가상 테이블로 매번 원본 쿼리를 실행합니다. 마테리얼라이즈드 뷰는 DW 집계 성능 향상에 주로 활용됩니다.",
+    "tags": ["마테리얼라이즈드뷰", "MaterializedView", "일반뷰"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_017",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "재귀 관계(Recursive Relationship)가 사용되는 대표적인 업무 사례로 옳은 것은?",
+    "options": [
+      "고객과 주문의 1:N 관계",
+      "직원과 부서의 N:1 관계",
+      "직원-상사 관계처럼 동일 엔터티 내 인스턴스들이 계층 구조를 이루는 경우",
+      "상품과 카테고리의 M:N 관계"
+    ],
+    "answer": 2,
+    "explanation": "재귀 관계(Recursive Relationship, 자기 참조 관계)는 동일 엔터티 내의 인스턴스들이 계층 구조를 이룰 때 사용합니다. 대표 사례: 직원-상사(조직도), 카테고리 트리(대분류-중분류-소분류), BOM(제품-부품 구성). 물리 구현 시 자기 자신을 참조하는 FK를 사용합니다.",
+    "tags": ["재귀관계", "자기참조", "계층구조"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_018",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "Oracle에서 계층형 데이터(재귀 관계)를 조회할 때 사용하는 SQL 키워드 조합으로 옳은 것은?",
+    "options": [
+      "PARTITION BY ~ ORDER BY",
+      "CONNECT BY ~ START WITH",
+      "GROUP BY ~ HAVING",
+      "PIVOT ~ UNPIVOT"
+    ],
+    "answer": 1,
+    "explanation": "Oracle에서 계층형 쿼리는 CONNECT BY(부모-자식 연결 조건)와 START WITH(최상위 노드 조건)를 함께 사용합니다. CONNECT BY PRIOR emp_id = mgr_id는 상위 직원의 emp_id가 하위 직원의 mgr_id와 같음을 의미합니다.",
+    "tags": ["CONNECT BY", "START WITH", "계층쿼리", "Oracle"],
+    "difficulty": "상",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_019",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "파티셔닝 유형 중 List 파티셔닝에 대한 설명으로 옳은 것은?",
+    "options": [
+      "날짜·숫자의 연속적인 범위를 기준으로 분할한다",
+      "해시 함수를 적용한 결과로 데이터를 균등 분산시킨다",
+      "특정 컬럼 값의 목록(예: 지역코드 '서울', '부산', '대구')으로 파티션을 정의한다",
+      "Range와 Hash를 복합 적용하는 방식이다"
+    ],
+    "answer": 2,
+    "explanation": "List 파티셔닝은 특정 컬럼 값의 목록을 기준으로 파티션을 정의합니다. 예: 지역코드가 '서울'이면 서울 파티션, '부산'이면 부산 파티션. Range(범위 기준), Hash(균등 분산), Composite(복합 적용)와 구분됩니다.",
+    "tags": ["List파티셔닝", "파티셔닝유형", "파티션"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
     "id": "p6c2_015",
     "part": 6,
     "chapter": "part6_ch2",

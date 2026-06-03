@@ -228,6 +228,108 @@
     "questionType": "concept"
   },
   {
+    "id": "p5c3_016",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "데이터베이스 성능 문제의 90% 이상이 발생하는 주된 원인으로 가장 적절한 것은?",
+    "options": [
+      "CPU 코어 수 부족",
+      "메모리 용량 부족",
+      "비효율적인 DB I/O(디스크 입출력)",
+      "네트워크 대역폭 부족"
+    ],
+    "answer": 2,
+    "explanation": "데이터베이스 성능 문제의 90% 이상은 CPU나 메모리 부족이 아니라 비효율적인 DB I/O(디스크 입출력)에서 발생합니다. 수만 블록을 읽는 비효율적 SQL을 하드웨어 증설로 해결하는 것은 한계가 있으므로, SQL 튜닝이 최우선입니다.",
+    "tags": ["성능저하원인", "DB I/O", "성능튜닝"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_017",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "데이터베이스 성능 튜닝의 접근 순서로 가장 적절한 것은?",
+    "options": [
+      "하드웨어/OS 튜닝 → DB 인스턴스 튜닝 → DB 오브젝트 튜닝 → SQL 튜닝",
+      "SQL 튜닝 → DB 오브젝트 튜닝 → DB 인스턴스 튜닝 → 하드웨어/OS 튜닝",
+      "DB 인스턴스 튜닝 → SQL 튜닝 → 하드웨어/OS 튜닝 → DB 오브젝트 튜닝",
+      "DB 오브젝트 튜닝 → DB 인스턴스 튜닝 → SQL 튜닝 → 하드웨어/OS 튜닝"
+    ],
+    "answer": 1,
+    "explanation": "성능 튜닝은 바깥(하드웨어)이 아닌 안쪽에서부터 접근해야 합니다. SQL 튜닝(효과 가장 큼) → DB 오브젝트 튜닝(인덱스·파티셔닝) → DB 인스턴스 튜닝(메모리·프로세스 설정) → 하드웨어/OS 튜닝(최후 수단) 순서입니다.",
+    "tags": ["튜닝순서", "SQL튜닝", "성능튜닝"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_018",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "SQL 튜닝에서 바인딩 변수(Binding Variable)를 사용해야 하는 주된 이유는?",
+    "options": [
+      "SQL 문장의 가독성을 높이기 위해",
+      "매번 다른 SQL 문자열로 인한 하드 파싱 부하를 방지하고 소프트 파싱으로 실행 계획을 재사용하기 위해",
+      "데이터 타입 변환 오류를 방지하기 위해",
+      "인덱스 사용 여부를 강제로 제어하기 위해"
+    ],
+    "answer": 1,
+    "explanation": "동적 SQL(값을 직접 붙이는 방식)은 실행마다 다른 SQL 문자열로 인식되어 매번 하드 파싱(실행 계획 재생성)이 발생합니다. 바인딩 변수를 사용하면 SQL 구조가 동일하여 소프트 파싱(기존 실행 계획 재사용)이 가능해져 시스템 부하를 대폭 줄일 수 있습니다.",
+    "tags": ["바인딩변수", "소프트파싱", "동적SQL", "정적SQL"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_019",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "데이터 웨어하우스(DW) 환경에서 팩트(Fact) 테이블과 여러 차원(Dimension) 테이블을 조인할 때 최적의 성능을 위해 사용하는 특수 조인 방식은?",
+    "options": [
+      "중첩 루프 조인(Nested Loop Join)",
+      "소트 머지 조인(Sort Merge Join)",
+      "스타 조인(Star Join)",
+      "하이브리드 조인(Hybrid Join)"
+    ],
+    "answer": 2,
+    "explanation": "스타 조인(Star Join)은 DW의 스타 스키마에서 사용하는 특수 조인 방식입니다. 크기가 작은 차원(Dimension) 테이블들의 카테시안 곱을 먼저 만들고, 그 결과를 대용량 팩트(Fact) 테이블과 한 번만 조인하여 I/O를 줄입니다.",
+    "tags": ["스타조인", "StarJoin", "DW", "팩트테이블"],
+    "difficulty": "상",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_020",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "온라인 프로그램 튜닝에서 '부분 범위 처리(Partial Range Scan)'를 적용해야 하는 이유로 옳은 것은?",
+    "options": [
+      "대용량 배치 작업의 처리량을 최대화하기 위해",
+      "전체 데이터를 정렬 후 일괄 반환하여 정확한 결과를 보장하기 위해",
+      "인덱스를 활용해 조건에 맞는 데이터를 즉시 응답함으로써 응답 속도를 최소화하기 위해",
+      "디스크 전체 스캔으로 누락 없는 결과를 보장하기 위해"
+    ],
+    "answer": 2,
+    "explanation": "온라인 서비스는 응답 속도가 목표입니다. 부분 범위 처리는 인덱스를 활용하여 조건에 맞는 데이터를 전체 읽지 않고 필요한 만큼만 읽어 즉시 응답하는 방식입니다. 게시판 목록 조회에서 최신 20건만 반환하는 것이 대표적 예입니다.",
+    "tags": ["부분범위처리", "PartialRangeScan", "온라인튜닝"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_021",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "SQL 분석 함수 중 ROLLUP에 대한 설명으로 옳은 것은?",
+    "options": [
+      "두 컬럼의 가능한 모든 소계 조합을 생성한다",
+      "사용자가 원하는 소계 조합만 지정하여 생성한다",
+      "계층적 소계(부서별 합계 + 전체 합계 등)를 자동 생성하는 GROUP BY 확장 기능이다",
+      "이전 행 또는 다음 행의 값을 참조하는 함수이다"
+    ],
+    "answer": 2,
+    "explanation": "ROLLUP은 GROUP BY의 확장으로, 계층적 소계를 자동 생성합니다. GROUP BY ROLLUP(dept_id, job)은 부서별 직종별 합계 + 부서별 합계 + 전체 합계를 한 번에 생성합니다. CUBE는 모든 조합 소계, GROUPING SETS는 사용자 지정 조합, LAG/LEAD는 이전/다음 행 참조입니다.",
+    "tags": ["ROLLUP", "분석함수", "GROUP BY확장"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
     "id": "p5c3_015",
     "part": 5,
     "chapter": "part5_ch3",
