@@ -1,0 +1,305 @@
+[
+  {
+    "id": "p6c2_001",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "데이터 모델의 3계층을 순서대로 나열한 것은?",
+    "options": [
+      "물리 → 논리 → 개념",
+      "개념 → 물리 → 논리",
+      "개념 → 논리 → 물리",
+      "논리 → 개념 → 물리"
+    ],
+    "answer": 2,
+    "explanation": "데이터 모델링은 개념 데이터 모델(추상적, 핵심 엔터티) → 논리 데이터 모델(상세, 정규화 적용) → 물리 데이터 모델(DBMS 종속, DDL 생성) 순서로 진행됩니다.",
+    "tags": ["데이터모델", "3계층", "개념논리물리"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_002",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "논리 데이터 모델의 구성 요소로 옳은 것은?",
+    "options": [
+      "테이블, 컬럼, 인덱스, 파티션",
+      "엔터티, 속성, 식별자, 관계, 서브타입",
+      "주제 영역, 핵심 엔터티, 관계",
+      "저장 프로시저, 트리거, 뷰"
+    ],
+    "answer": 1,
+    "explanation": "논리 데이터 모델은 엔터티(관리 대상), 속성(특성), 식별자(유일 식별), 관계(연관성), 서브타입(하위 유형)으로 구성됩니다. 테이블·인덱스는 물리 모델, 주제 영역·핵심 엔터티는 개념 모델 요소입니다.",
+    "tags": ["논리데이터모델", "엔터티", "속성", "관계"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_003",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "논리 데이터 모델에서 물리 데이터 모델로 변환할 때 엔터티(Entity)는 무엇으로 변환되는가?",
+    "options": ["인덱스(Index)", "뷰(View)", "테이블(Table)", "저장 프로시저(Stored Procedure)"],
+    "answer": 2,
+    "explanation": "논리→물리 변환 규칙: 엔터티→테이블, 속성→컬럼, 식별자→기본키(PK), 관계→외래키(FK)입니다.",
+    "tags": ["논리물리변환", "엔터티", "테이블"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_004",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "반정규화(De-normalization) 기법 중 '자주 조인되는 두 테이블을 하나의 테이블로 합치는 방법'은?",
+    "options": ["컬럼 중복", "테이블 합병", "파생 컬럼 추가", "테이블 분할"],
+    "answer": 1,
+    "explanation": "테이블 합병(Table Merge)은 자주 JOIN되는 테이블들을 하나로 합쳐서 JOIN 비용을 제거하는 반정규화 기법입니다. 단, 데이터 중복이 발생할 수 있어 일관성 관리가 필요합니다.",
+    "tags": ["반정규화", "테이블합병"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_005",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "엔터티 유형 중 업무 행위의 이력을 관리하는 엔터티는?",
+    "options": ["기본 엔터티", "중심 엔터티", "행위 엔터티", "참조 엔터티"],
+    "answer": 2,
+    "explanation": "행위 엔터티(Behavior Entity)는 업무 행위의 이력을 관리합니다. 예: 주문변경이력, 가격변경이력. 기본 엔터티(기준 정보: 고객·상품), 중심 엔터티(행위: 주문·계약)와 구분됩니다.",
+    "tags": ["행위엔터티", "엔터티유형"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_006",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "데이터베이스의 3계층 스키마 중 '사용자별 접근 가능한 데이터를 정의하는 계층'은?",
+    "options": ["내부 스키마(Internal Schema)", "개념 스키마(Conceptual Schema)", "외부 스키마(External Schema)", "물리 스키마(Physical Schema)"],
+    "answer": 2,
+    "explanation": "외부 스키마(External Schema)는 사용자 또는 애플리케이션별로 필요한 데이터만 볼 수 있는 뷰(View) 수준의 스키마입니다. 개념 스키마는 전체 논리 구조, 내부 스키마는 물리적 저장 구조입니다.",
+    "tags": ["3계층스키마", "외부스키마"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_007",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "뷰(View)의 특징으로 옳지 않은 것은?",
+    "options": [
+      "기반 테이블의 물리적 데이터를 별도로 저장하지 않는다",
+      "보안 목적으로 민감한 컬럼을 제외하고 접근을 제공할 수 있다",
+      "뷰를 통해 항상 데이터를 INSERT·UPDATE·DELETE 할 수 있다",
+      "복잡한 쿼리를 단순화하여 사용자 편의성을 제공한다"
+    ],
+    "answer": 2,
+    "explanation": "일반 뷰는 읽기 전용인 경우가 많으며, 뷰를 통한 DML(INSERT/UPDATE/DELETE)은 제약이 있습니다. GROUP BY, DISTINCT, 집계함수 등이 포함된 뷰는 수정이 불가합니다. 단, 간단한 단일 테이블 뷰는 수정 가능한 경우도 있습니다.",
+    "tags": ["뷰View", "가상테이블"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_008",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "데이터 참조 모델(Data Reference Model)의 주요 목적으로 옳은 것은?",
+    "options": [
+      "특정 시스템의 성능을 최적화하기 위한 물리 설계 기준 제공",
+      "기관 간 데이터 공유와 재사용을 위한 표준화된 데이터 분류 체계 제공",
+      "데이터베이스 백업 및 복구 전략 수립",
+      "애플리케이션 코드의 데이터 처리 방식 표준화"
+    ],
+    "answer": 1,
+    "explanation": "데이터 참조 모델(Data Reference Model)은 기관 간 데이터 공유와 재사용을 위해 표준화된 방식으로 데이터를 분류·정의합니다. AS-IS와 TO-BE 아키텍처 비교 기준이 되며 중복 개발을 방지합니다.",
+    "tags": ["데이터참조모델", "DRM"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_009",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "개념 데이터 모델의 특징으로 옳은 것은?",
+    "options": [
+      "DBMS 종속적이며 DDL 생성이 가능하다",
+      "정규화를 완전히 적용한 상세 데이터 구조를 표현한다",
+      "추상적 수준에서 핵심 엔터티와 관계만 표현하며 DBMS에 독립적이다",
+      "인덱스, 파티션, 저장공간 등 물리적 요소를 포함한다"
+    ],
+    "answer": 2,
+    "explanation": "개념 데이터 모델은 업무 관점의 추상적 모델로, 핵심 엔터티와 관계만 표현합니다. DBMS에 완전히 독립적이며 업무 이해관계자와의 소통에 사용됩니다. 정규화와 상세 속성은 논리 모델, DDL과 물리 요소는 물리 모델에 해당합니다.",
+    "tags": ["개념데이터모델", "추상적"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_010",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "바커(Barker) 표기법에서 점선으로 표시된 관계선의 의미는?",
+    "options": [
+      "필수(Mandatory) 관계를 나타낸다",
+      "선택(Optional) 관계를 나타낸다",
+      "다(多) 관계를 나타낸다",
+      "식별 관계를 나타낸다"
+    ],
+    "answer": 1,
+    "explanation": "바커(Barker) 표기법에서 실선은 필수(Mandatory) 관계, 점선은 선택(Optional) 관계를 나타냅니다. 까마귀발 기호는 다(多) 관계를 표시합니다.",
+    "tags": ["바커표기법", "선택관계", "필수관계"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_011",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "반정규화(De-normalization)가 필요한 상황으로 가장 적절한 것은?",
+    "options": [
+      "데이터 중복으로 인해 일관성 문제가 발생할 때",
+      "정규화로 인해 너무 많은 JOIN이 필요하여 조회 성능이 저하될 때",
+      "NULL 값이 많아 완전성이 저하될 때",
+      "기본키(PK)가 없는 테이블이 있을 때"
+    ],
+    "answer": 1,
+    "explanation": "반정규화(De-normalization)는 정규화된 테이블에서 성능 향상을 위해 적용합니다. 자주 발생하는 JOIN으로 조회 성능이 저하될 때 테이블 합병이나 컬럼 중복 등의 반정규화를 고려합니다.",
+    "tags": ["반정규화", "성능"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_012",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "데이터 딕셔너리(Data Dictionary)에 대한 설명으로 옳은 것은?",
+    "options": [
+      "업무 용어와 코드를 정의하는 표준 문서이다",
+      "DBMS가 내부적으로 관리하는 데이터베이스 객체에 대한 메타데이터 저장소이다",
+      "데이터의 물리적 저장 위치를 기록하는 OS 파일이다",
+      "ER 다이어그램을 저장하는 CASE 도구이다"
+    ],
+    "answer": 1,
+    "explanation": "데이터 딕셔너리(Data Dictionary)는 DBMS가 내부적으로 관리하는 메타데이터 저장소로, 테이블·컬럼·인덱스·사용자·권한 등의 정보를 포함합니다. 시스템 카탈로그(System Catalog)라고도 합니다.",
+    "tags": ["데이터딕셔너리", "시스템카탈로그"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_013",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "논리 데이터 모델과 물리 데이터 모델의 차이점으로 옳은 것은?",
+    "options": [
+      "논리 모델은 DBMS 종속적이고, 물리 모델은 DBMS에 독립적이다",
+      "논리 모델은 DBMS에 독립적이고 정규화를 적용하며, 물리 모델은 특정 DBMS에 최적화된다",
+      "논리 모델과 물리 모델은 모두 DBMS에 독립적이다",
+      "논리 모델은 업무 전문가가 이해하기 위한 추상적 모델이다"
+    ],
+    "answer": 1,
+    "explanation": "논리 데이터 모델은 DBMS에 독립적이고 정규화를 적용한 업무 중심의 모델입니다. 물리 데이터 모델은 특정 DBMS(Oracle, MySQL 등)의 특성에 맞게 최적화되며 DDL 생성이 가능합니다.",
+    "tags": ["논리모델", "물리모델", "DBMS독립성"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_014",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "반정규화 기법 중 파생 컬럼 추가(Derived Column)의 예시로 옳은 것은?",
+    "options": [
+      "고객 테이블과 주문 테이블을 하나로 합친다",
+      "주문 테이블에 고객명 컬럼을 추가한다 (고객 테이블에도 존재)",
+      "주문 상세 테이블에 주문 합계금액 컬럼을 추가한다 (실제 데이터에서 계산 가능)",
+      "대용량 테이블을 수평으로 분리한다"
+    ],
+    "answer": 2,
+    "explanation": "파생 컬럼 추가는 다른 데이터에서 계산 가능한 값을 별도 컬럼으로 저장하는 반정규화입니다. 주문 상세의 수량과 단가로 계산 가능한 '합계금액'을 컬럼으로 미리 저장하면 집계 쿼리 성능이 향상됩니다.",
+    "tags": ["파생컬럼", "반정규화"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_016",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "마테리얼라이즈드 뷰(Materialized View)와 일반 뷰(View)의 차이로 옳은 것은?",
+    "options": [
+      "일반 뷰는 쿼리 결과를 물리적으로 저장하고, 마테리얼라이즈드 뷰는 가상 테이블이다",
+      "마테리얼라이즈드 뷰는 쿼리 결과를 물리적으로 저장하여 조회 시 저장된 결과를 즉시 반환하므로 조회 성능이 우수하다",
+      "마테리얼라이즈드 뷰는 일반 뷰보다 항상 최신 데이터를 보장한다",
+      "마테리얼라이즈드 뷰와 일반 뷰는 기능적으로 동일하다"
+    ],
+    "answer": 1,
+    "explanation": "마테리얼라이즈드 뷰(Materialized View)는 쿼리 결과를 물리적으로 저장하여, 조회 시 원본 쿼리를 실행하지 않고 저장된 결과를 즉시 반환합니다. 일반 뷰는 가상 테이블로 매번 원본 쿼리를 실행합니다. 마테리얼라이즈드 뷰는 DW 집계 성능 향상에 주로 활용됩니다.",
+    "tags": ["마테리얼라이즈드뷰", "MaterializedView", "일반뷰"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_017",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "재귀 관계(Recursive Relationship)가 사용되는 대표적인 업무 사례로 옳은 것은?",
+    "options": [
+      "고객과 주문의 1:N 관계",
+      "직원과 부서의 N:1 관계",
+      "직원-상사 관계처럼 동일 엔터티 내 인스턴스들이 계층 구조를 이루는 경우",
+      "상품과 카테고리의 M:N 관계"
+    ],
+    "answer": 2,
+    "explanation": "재귀 관계(Recursive Relationship, 자기 참조 관계)는 동일 엔터티 내의 인스턴스들이 계층 구조를 이룰 때 사용합니다. 대표 사례: 직원-상사(조직도), 카테고리 트리(대분류-중분류-소분류), BOM(제품-부품 구성). 물리 구현 시 자기 자신을 참조하는 FK를 사용합니다.",
+    "tags": ["재귀관계", "자기참조", "계층구조"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_018",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "Oracle에서 계층형 데이터(재귀 관계)를 조회할 때 사용하는 SQL 키워드 조합으로 옳은 것은?",
+    "options": [
+      "PARTITION BY ~ ORDER BY",
+      "CONNECT BY ~ START WITH",
+      "GROUP BY ~ HAVING",
+      "PIVOT ~ UNPIVOT"
+    ],
+    "answer": 1,
+    "explanation": "Oracle에서 계층형 쿼리는 CONNECT BY(부모-자식 연결 조건)와 START WITH(최상위 노드 조건)를 함께 사용합니다. CONNECT BY PRIOR emp_id = mgr_id는 상위 직원의 emp_id가 하위 직원의 mgr_id와 같음을 의미합니다.",
+    "tags": ["CONNECT BY", "START WITH", "계층쿼리", "Oracle"],
+    "difficulty": "상",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_019",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "파티셔닝 유형 중 List 파티셔닝에 대한 설명으로 옳은 것은?",
+    "options": [
+      "날짜·숫자의 연속적인 범위를 기준으로 분할한다",
+      "해시 함수를 적용한 결과로 데이터를 균등 분산시킨다",
+      "특정 컬럼 값의 목록(예: 지역코드 '서울', '부산', '대구')으로 파티션을 정의한다",
+      "Range와 Hash를 복합 적용하는 방식이다"
+    ],
+    "answer": 2,
+    "explanation": "List 파티셔닝은 특정 컬럼 값의 목록을 기준으로 파티션을 정의합니다. 예: 지역코드가 '서울'이면 서울 파티션, '부산'이면 부산 파티션. Range(범위 기준), Hash(균등 분산), Composite(복합 적용)와 구분됩니다.",
+    "tags": ["List파티셔닝", "파티셔닝유형", "파티션"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c2_015",
+    "part": 6,
+    "chapter": "part6_ch2",
+    "content": "IE(Information Engineering) 표기법에 대한 설명으로 옳은 것은?",
+    "options": [
+      "필수 관계는 점선, 선택 관계는 실선으로 표시한다",
+      "까마귀발(crow's foot) 기호로 다(多)를 표시하며, 바커 표기법과 혼용이 가능하다",
+      "단선으로 1, 복선(까마귀발)으로 다(多)를 표시하며, 한 가지 표기법만 일관되게 사용해야 한다",
+      "모든 관계는 필수 관계로 간주하여 실선만 사용한다"
+    ],
+    "answer": 2,
+    "explanation": "IE(Information Engineering) 표기법은 단선으로 1(일), 까마귀발(복선)로 다(多)를 표시합니다. 바커 표기법과 IE 표기법은 혼용할 수 없으며, 하나의 모델 내에서 하나의 표기법만 일관되게 사용해야 합니다.",
+    "tags": ["IE표기법", "바커표기법", "표기법"],
+    "difficulty": "중",
+    "questionType": "concept"
+  }
+]

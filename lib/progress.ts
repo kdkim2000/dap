@@ -1,7 +1,9 @@
 import type { ProgressStore, AnswerResult, ExamResult, ExamSession, Stats } from '@/types'
 import { CHAPTERS } from './chapters'
 
-const STORAGE_KEY = 'dasp_progress'
+const STORAGE_KEY     = 'dap_progress'
+const OLD_STORAGE_KEY = 'dasp_progress'
+const EXAM_SESSION_KEY = 'dap_exam_session'
 
 function cloneDefault(): ProgressStore {
   return {
@@ -12,8 +14,20 @@ function cloneDefault(): ProgressStore {
   }
 }
 
+// dasp_progress → dap_progress 자동 마이그레이션 (BR-019)
+function migrateIfNeeded(): void {
+  if (typeof window === 'undefined') return
+  const old = localStorage.getItem(OLD_STORAGE_KEY)
+  const cur = localStorage.getItem(STORAGE_KEY)
+  if (old && !cur) {
+    localStorage.setItem(STORAGE_KEY, old)
+    // 구 키는 삭제하지 않음 (롤백 보험)
+  }
+}
+
 export function loadProgress(): ProgressStore {
   if (typeof window === 'undefined') return cloneDefault()
+  migrateIfNeeded()
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (!raw) return cloneDefault()
@@ -58,8 +72,6 @@ export function resetProgress(): ProgressStore {
 }
 
 // ── Exam session persistence ──────────────────────────────────────────────
-const EXAM_SESSION_KEY = 'dasp_exam_session'
-
 export function saveExamSession(session: ExamSession): void {
   if (typeof window === 'undefined') return
   try {

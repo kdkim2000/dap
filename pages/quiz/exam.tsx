@@ -13,6 +13,9 @@ import AnswerFeedback from '@/components/quiz/AnswerFeedback'
 import QuizNavigator from '@/components/quiz/QuizNavigator'
 import ExamTimer from '@/components/quiz/ExamTimer'
 import type { Question, AnswerResult, ExamResult } from '@/types'
+import { isExamPassed, PART_MAX_SCORE } from '@/lib/exam'
+import PartScoresDisplay from '@/components/quiz/PartScoresDisplay'
+import PracticalExamNotice from '@/components/quiz/PracticalExamNotice'
 
 type ExamPhase = 'intro' | 'exam' | 'result'
 type ExamMode = 'random' | 'exam1' | 'exam2'
@@ -27,15 +30,17 @@ const PART_TITLES: Record<number, string> = {
   2: '데이터 요건 분석',
   3: '데이터 표준화',
   4: '데이터 모델링',
+  5: '데이터베이스 설계와 이용',
+  6: '데이터 품질 관리이해',
 }
 
 const MODE_CONFIG: Record<ExamMode, { label: string; desc: string; icon: string; btnLabel: string }> = {
-  exam1:  { label: '모의고사 1회', desc: '고정 50문항 세트 1',   icon: '📋', btnLabel: '모의고사 1회 시작' },
-  exam2:  { label: '모의고사 2회', desc: '고정 50문항 세트 2',   icon: '📄', btnLabel: '모의고사 2회 시작' },
+  exam1:  { label: '모의고사 1회', desc: '고정 75문항 세트 1',   icon: '📋', btnLabel: '모의고사 1회 시작' },
+  exam2:  { label: '모의고사 2회', desc: '고정 75문항 세트 2',   icon: '📄', btnLabel: '모의고사 2회 시작' },
   random: { label: '랜덤 출제',    desc: '매회 다른 문제 조합',  icon: '🎲', btnLabel: '랜덤 시험 시작' },
 }
 
-const EXAM_SECONDS = 5400 // 90분
+const EXAM_SECONDS = 14400 // 240분 (4시간, DAP 시험 기준)
 
 export default function ExamPage() {
   const router = useRouter()
@@ -52,6 +57,7 @@ export default function ExamPage() {
   const [timeUsed, setTimeUsed] = useState(0)
   const [remainingSeconds, setRemainingSeconds] = useState(EXAM_SECONDS)
   const [hasSavedSession, setHasSavedSession] = useState(false)
+  const [sessionExpiredMsg, setSessionExpiredMsg] = useState(false)
 
   const examEndTimeRef = useRef<number>(0)
   const startTimeRef = useRef<number>(0)  // kept for elapsed-time calculation in result
@@ -103,9 +109,9 @@ export default function ExamPage() {
 
     const remaining = Math.max(0, Math.floor((saved.examEndTime - Date.now()) / 1000))
     if (remaining === 0) {
-      // 이탈 중 시간 초과 → 세션 삭제, 새 시험 유도
       clearExamSession()
       setHasSavedSession(false)
+      setSessionExpiredMsg(true)
       return
     }
 
@@ -130,6 +136,8 @@ export default function ExamPage() {
       2: { correct: 0, total: 0 },
       3: { correct: 0, total: 0 },
       4: { correct: 0, total: 0 },
+      5: { correct: 0, total: 0 },
+      6: { correct: 0, total: 0 },
     }
 
     qs.forEach((q, i) => {
@@ -145,7 +153,8 @@ export default function ExamPage() {
     }
 
     const totalCorrect = Object.values(partScores).reduce((s, p) => s + p.correct, 0)
-    const totalQ = qs.length || 1
+    if (qs.length === 0) return { date: new Date().toISOString(), score: 0, part1Score: 0, part2Score: 0, part3Score: 0, part4Score: 0, part5Score: 0, part6Score: 0, totalTime: elapsed, answers: {} }
+    const totalQ = qs.length
     const totalScore = Math.round((totalCorrect / totalQ) * 100)
 
     const answersMap: Record<string, number> = {}
@@ -160,6 +169,8 @@ export default function ExamPage() {
       part2Score: toScore(2),
       part3Score: toScore(3),
       part4Score: toScore(4),
+      part5Score: toScore(5),
+      part6Score: toScore(6),
       totalTime: elapsed,
       answers: answersMap,
     }
@@ -214,9 +225,16 @@ export default function ExamPage() {
         <div className="q-card space-y-6">
           <div className="text-center space-y-2">
             <div className="text-5xl">📝</div>
-            <h1 className="text-2xl font-display font-bold text-ink">DAsP 모의고사</h1>
+            <h1 className="text-2xl font-display font-bold text-ink">DAP 모의고사</h1>
             <p className="text-ink-muted text-sm">실전과 동일한 조건으로 실력을 확인해보세요.</p>
           </div>
+
+          {/* 세션 만료 알림 */}
+          {sessionExpiredMsg && (
+            <div className="bg-amber-50 border border-amber-300 rounded-xl p-3 text-sm text-amber-800">
+              이전 시험의 시간이 만료되었습니다. 새 시험을 시작해 주세요.
+            </div>
+          )}
 
           {/* 이어서 풀기 배너 */}
           {hasSavedSession && (
@@ -237,15 +255,15 @@ export default function ExamPage() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4">
             <div className="q-card bg-surface-soft text-center py-4">
-              <div className="text-2xl font-bold text-primary-600">50</div>
+              <div className="text-2xl font-bold text-primary-600">75</div>
               <div className="text-xs text-ink-muted mt-1">문항</div>
             </div>
             <div className="q-card bg-surface-soft text-center py-4">
-              <div className="text-2xl font-bold text-primary-600">90</div>
+              <div className="text-2xl font-bold text-primary-600">240</div>
               <div className="text-xs text-ink-muted mt-1">분</div>
             </div>
             <div className="q-card bg-surface-soft text-center py-4">
-              <div className="text-2xl font-bold text-primary-600">4</div>
+              <div className="text-2xl font-bold text-primary-600">6</div>
               <div className="text-xs text-ink-muted mt-1">과목</div>
             </div>
           </div>
@@ -287,11 +305,12 @@ export default function ExamPage() {
 
           {/* Pass criteria */}
           <div className="text-left bg-primary-50 border border-primary-200 rounded-xl px-4 py-3 text-sm space-y-1">
-            <div className="font-semibold text-primary-800 mb-2">합격 기준</div>
-            <div className="text-primary-700">• 전체 평균 60점 이상</div>
-            <div className="text-primary-700">• 각 과목별 40점 이상</div>
-            <div className="text-primary-700">• 1~3과목 10문항, 4과목 20문항</div>
+            <div className="font-semibold text-primary-800 mb-2">합격 기준 (필기)</div>
+            <div className="text-primary-700">• 필기 전체 36점 이상 (60점 만점)</div>
+            <div className="text-primary-700">• 각 과목별 배점의 40% 이상</div>
+            <div className="text-primary-700">• 1·2·3·5·6과목 각 10문항, 4과목 25문항</div>
           </div>
+          <PracticalExamNotice variant="compact" />
 
           <button
             onClick={startExam}
@@ -306,18 +325,19 @@ export default function ExamPage() {
 
   // ── 결과 화면 ─────────────────────────────────────────────────────────
   if (phase === 'result' && examResult) {
-    const passed =
-      examResult.score >= 60 &&
-      examResult.part1Score >= 40 &&
-      examResult.part2Score >= 40 &&
-      examResult.part3Score >= 40 &&
-      examResult.part4Score >= 40
+    const scoresByPart: Record<number, number> = {
+      1: examResult.part1Score, 2: examResult.part2Score, 3: examResult.part3Score,
+      4: examResult.part4Score, 5: examResult.part5Score, 6: examResult.part6Score,
+    }
+    const passed = isExamPassed(scoresByPart)
 
     const partScores = [
       examResult.part1Score,
       examResult.part2Score,
       examResult.part3Score,
       examResult.part4Score,
+      examResult.part5Score,
+      examResult.part6Score,
     ]
 
     const stars = examResult.score >= 80 ? 3 : examResult.score >= 60 ? 2 : 1
@@ -347,29 +367,7 @@ export default function ExamPage() {
           <div className="text-xs text-ink-muted">소요 시간: {mins}분 {secs}초</div>
         </div>
 
-        <div className="q-card space-y-3">
-          <h2 className="font-semibold text-ink">과목별 점수</h2>
-          {partScores.map((score, i) => {
-            const partNum = i + 1
-            const passed40 = score >= 40
-            return (
-              <div key={partNum} className="space-y-1">
-                <div className="flex justify-between text-sm">
-                  <span className="text-ink-muted">{partNum}과목 {PART_TITLES[partNum]}</span>
-                  <span className={`font-bold ${passed40 ? 'text-mint-600' : 'text-red-500'}`}>
-                    {score}점 {passed40 ? '✓' : '✗'}
-                  </span>
-                </div>
-                <div className="h-2 bg-surface-soft rounded-full overflow-hidden">
-                  <div
-                    className={`h-full rounded-full transition-all ${passed40 ? 'bg-mint-500' : 'bg-coral'}`}
-                    style={{ width: `${score}%` }}
-                  />
-                </div>
-              </div>
-            )
-          })}
-        </div>
+        <PartScoresDisplay partScores={partScores} />
 
         <div className="flex gap-3">
           <button
@@ -405,7 +403,7 @@ export default function ExamPage() {
     <div className="max-w-5xl mx-auto px-4 py-6">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h1 className="text-lg font-bold text-ink">DAsP 모의고사</h1>
+          <h1 className="text-lg font-bold text-ink">DAP 모의고사</h1>
           <p className="text-xs text-ink-muted">
             {currentIndex + 1} / {questions.length}문항 · {currentQuestion?.part}과목
           </p>

@@ -9,13 +9,16 @@ const PART_COLORS: Record<number, { bubble: string; text: string; boss: string }
   3: { bubble: 'bg-green-500', text: 'text-green-700', boss: 'bg-green-700' },
   4: { bubble: 'bg-purple-500', text: 'text-purple-700', boss: 'bg-purple-700' },
   5: { bubble: 'bg-teal-500', text: 'text-teal-700', boss: 'bg-teal-700' },
+  6: { bubble: 'bg-orange-500', text: 'text-orange-700', boss: 'bg-orange-700' },
 }
 
 function getFirstIncompleteChapter(chapterIds: string[], answers: Record<string, string>): string | null {
   for (const id of chapterIds) {
     // A chapter is "completed" if it has at least some answers
     // (simplified check — in real app would compare against question counts)
-    const hasAttempted = Object.keys(answers).some(qid => qid.startsWith(id.replace('part', 'p').replace('_ch', 'c') + '_'))
+    const chapter = CHAPTERS.find(c => c.id === id)
+    const prefix = chapter?.idPrefix ?? ''
+    const hasAttempted = prefix ? Object.keys(answers).some(qid => qid.startsWith(prefix)) : false
     if (!hasAttempted) return id
   }
   return null
@@ -43,7 +46,7 @@ export default function LearningPath() {
       <h2 className="text-base font-semibold text-ink">학습 경로</h2>
 
       <div className="space-y-6 overflow-x-auto">
-        {[1, 2, 3, 4].map(part => {
+        {[1, 2, 3, 4, 5, 6].map(part => {
           const colors = PART_COLORS[part]
           const chapters = CHAPTERS_BY_PART[part] ?? []
 

@@ -1,0 +1,349 @@
+[
+  {
+    "id": "p5c3_001",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "SQL 옵티마이저 유형 중 통계 정보를 기반으로 최소 비용의 실행 계획을 선택하는 방식은?",
+    "options": ["규칙 기반 옵티마이저(RBO)", "비용 기반 옵티마이저(CBO)", "인덱스 기반 옵티마이저", "힌트 기반 옵티마이저"],
+    "answer": 1,
+    "explanation": "비용 기반 옵티마이저(CBO, Cost-Based Optimizer)는 테이블 통계 정보(행 수, 컬럼 분포 등)를 기반으로 가장 낮은 비용의 실행 계획을 선택합니다. 현대 DBMS의 표준 방식입니다.",
+    "tags": ["CBO", "옵티마이저", "실행계획"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_002",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "조인 알고리즘 중 소량의 데이터를 처리하고 인덱스가 있을 때 가장 유리한 방식은?",
+    "options": ["Sort Merge Join", "Hash Join", "Nested Loop Join", "Cross Join"],
+    "answer": 2,
+    "explanation": "Nested Loop Join(중첩 루프 조인)은 외부 테이블의 각 행에 대해 내부 테이블을 반복 검색합니다. 소량의 데이터와 인덱스가 있을 때 효율적입니다. 인덱스가 없으면 대량 데이터에서 Hash Join이 유리합니다.",
+    "tags": ["NestedLoopJoin", "조인알고리즘"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_003",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "다음 SQL에서 인덱스가 사용되지 않는 이유로 가장 적절한 것은?\n\nSELECT * FROM TB_EMPLOYEE WHERE SUBSTR(emp_id, 1, 3) = '100';",
+    "options": [
+      "WHERE 절에 컬럼이 없기 때문",
+      "컬럼에 함수(SUBSTR)를 적용하여 인덱스를 사용할 수 없기 때문",
+      "SELECT *를 사용하기 때문",
+      "문자열 비교이기 때문"
+    ],
+    "answer": 1,
+    "explanation": "컬럼에 SUBSTR, UPPER 등 함수를 적용하면 기존 B-Tree 인덱스를 사용할 수 없습니다. 이런 경우 함수기반 인덱스(Function-Based Index)를 별도 생성하거나 SQL을 변경해야 합니다.",
+    "tags": ["인덱스미사용", "함수기반인덱스", "SQL튜닝"],
+    "difficulty": "중",
+    "questionType": "result"
+  },
+  {
+    "id": "p5c3_004",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "Hash Join의 특징으로 옳은 것은?",
+    "options": [
+      "소량의 데이터와 인덱스가 있을 때 가장 효율적이다",
+      "두 테이블을 정렬한 후 병합하는 방식이다",
+      "대용량 데이터의 등호 조인이고 인덱스가 없을 때 효율적이다",
+      "두 테이블의 카티전 곱을 구하는 방식이다"
+    ],
+    "answer": 2,
+    "explanation": "Hash Join은 작은 테이블을 해시 테이블로 메모리에 로드한 후, 큰 테이블의 각 행과 해시 값을 비교하여 매칭합니다. 대량 데이터 + 등호(=) 조인 + 인덱스 없는 경우에 효율적입니다.",
+    "tags": ["HashJoin", "조인알고리즘"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_005",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "실행 계획(Execution Plan)에서 'TABLE ACCESS FULL'이 나타날 때의 의미는?",
+    "options": [
+      "테이블의 인덱스를 사용하여 데이터를 검색한다",
+      "테이블 전체를 순차적으로 스캔하여 데이터를 검색한다 (인덱스 미사용)",
+      "테이블을 해시 방식으로 접근한다",
+      "클러스터드 인덱스를 사용하여 범위 검색을 수행한다"
+    ],
+    "answer": 1,
+    "explanation": "TABLE ACCESS FULL(Full Table Scan)은 인덱스를 사용하지 않고 테이블의 모든 행을 순차적으로 읽는 방식입니다. 인덱스가 없거나, 검색 범위가 너무 넓어 옵티마이저가 풀 스캔을 선택한 경우 나타납니다.",
+    "tags": ["실행계획", "TABLE ACCESS FULL", "풀스캔"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_006",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "버퍼 풀(Buffer Pool) 히트율이 높다는 것의 의미로 옳은 것은?",
+    "options": [
+      "트랜잭션 처리 속도가 느려진다",
+      "디스크 I/O가 많이 발생한다",
+      "메모리에서 데이터를 가져오는 비율이 높아 디스크 I/O가 적다",
+      "CPU 사용률이 100%에 가깝다"
+    ],
+    "answer": 2,
+    "explanation": "버퍼 풀 히트율이 높다는 것은 요청한 데이터가 메모리(버퍼 풀)에 이미 있어 디스크 I/O 없이 처리하는 비율이 높다는 의미입니다. 히트율이 높을수록 성능이 향상됩니다.",
+    "tags": ["버퍼풀", "히트율", "메모리튜닝"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_007",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "Sort Merge Join이 Nested Loop Join보다 유리한 상황은?",
+    "options": [
+      "소량의 데이터이고 내부 테이블에 인덱스가 있을 때",
+      "두 테이블 모두 대용량이고 정렬이 필요한 등호 조인일 때",
+      "조인 조건이 부등호(<, >)인 경우",
+      "두 테이블의 카티전 곱이 필요한 경우"
+    ],
+    "answer": 1,
+    "explanation": "Sort Merge Join은 두 테이블을 각각 조인 컬럼 기준으로 정렬한 후 병합합니다. 대량 데이터의 등호 조인에서 Nested Loop보다 유리하지만, Hash Join보다는 정렬 비용이 추가됩니다. 이미 정렬된 데이터에서 특히 효율적입니다.",
+    "tags": ["SortMergeJoin", "조인알고리즘"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_008",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "파티션 프루닝(Partition Pruning)에 대한 설명으로 옳은 것은?",
+    "options": [
+      "파티션 테이블에서 모든 파티션을 스캔하는 기법이다",
+      "파티션을 제거하여 테이블 크기를 줄이는 유지보수 작업이다",
+      "쿼리 조건에 따라 필요한 파티션만 접근하고 불필요한 파티션을 제외하는 최적화 기법이다",
+      "파티션 키를 기준으로 데이터를 균등하게 분배하는 기법이다"
+    ],
+    "answer": 2,
+    "explanation": "파티션 프루닝(Partition Pruning)은 쿼리의 WHERE 조건에 파티션 키가 포함된 경우, 해당 조건에 맞는 파티션만 접근하고 나머지 파티션은 검색 대상에서 제외하는 최적화 기법입니다.",
+    "tags": ["파티션프루닝", "파티셔닝", "성능최적화"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_009",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "다음 중 인덱스가 사용될 가능성이 가장 높은 SQL 조건은?",
+    "options": [
+      "WHERE emp_name LIKE '%KIM'",
+      "WHERE dept_id IS NULL",
+      "WHERE emp_name LIKE 'KIM%'",
+      "WHERE dept_id <> 10"
+    ],
+    "answer": 2,
+    "explanation": "LIKE 'KIM%'(앞 고정, 뒤 와일드카드)는 B-Tree 인덱스를 사용할 수 있습니다. '%KIM'(앞 와일드카드)은 인덱스 미사용, IS NULL은 DBMS에 따라 다르지만 일반적으로 미사용, 부정 조건(<>)도 미사용입니다.",
+    "tags": ["LIKE", "인덱스사용", "SQL튜닝"],
+    "difficulty": "중",
+    "questionType": "result"
+  },
+  {
+    "id": "p5c3_010",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "RAID 5(Redundant Array of Independent Disks 5)의 특징으로 옳은 것은?",
+    "options": [
+      "데이터를 두 개의 디스크에 동일하게 저장하여 하나가 고장나도 복구 가능하다",
+      "데이터를 여러 디스크에 분산 저장(스트라이핑)하여 성능은 높지만 안전성이 낮다",
+      "패리티 정보를 분산 저장하여 성능과 안전성을 균형 있게 제공한다",
+      "RAID 0과 RAID 1을 조합하여 고성능·고가용성을 제공한다"
+    ],
+    "answer": 2,
+    "explanation": "RAID 5는 패리티(오류 복구 정보)를 여러 디스크에 분산 저장합니다. 하나의 디스크가 고장나도 나머지 디스크의 데이터와 패리티로 복구할 수 있으며, 성능과 안전성을 균형 있게 제공합니다.",
+    "tags": ["RAID5", "RAID", "서버성능"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_011",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "SQL 튜닝에서 통계 정보 갱신이 중요한 이유로 가장 적절한 것은?",
+    "options": [
+      "인덱스를 자동으로 생성하기 위해",
+      "비용 기반 옵티마이저가 정확한 실행 계획을 수립하는 데 사용되기 때문에",
+      "데이터베이스 연결 수를 관리하기 위해",
+      "백업 데이터를 최신 상태로 유지하기 위해"
+    ],
+    "answer": 1,
+    "explanation": "비용 기반 옵티마이저(CBO)는 테이블 행 수, 컬럼 선택도, 인덱스 정보 등 통계 정보를 바탕으로 최적의 실행 계획을 수립합니다. 통계 정보가 오래되면 부정확한 실행 계획이 선택될 수 있습니다.",
+    "tags": ["통계정보", "CBO", "SQL튜닝"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_012",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "SQL 실행 계획에서 'INDEX UNIQUE SCAN'이 나타나는 조건으로 가장 적절한 것은?",
+    "options": [
+      "WHERE 절에 범위 조건(BETWEEN, <, >)이 있을 때",
+      "WHERE 절에 PRIMARY KEY 또는 UNIQUE 컬럼의 등호(=) 조건이 있을 때",
+      "GROUP BY 절이 있을 때",
+      "ORDER BY 절이 있을 때"
+    ],
+    "answer": 1,
+    "explanation": "INDEX UNIQUE SCAN은 기본키(PK) 또는 UNIQUE 제약조건이 있는 컬럼에 등호(=) 조건을 사용할 때 발생합니다. 단 1개의 행만 반환될 것을 옵티마이저가 알기 때문에 가장 효율적인 인덱스 접근 방식입니다.",
+    "tags": ["INDEX UNIQUE SCAN", "실행계획", "PK"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_013",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "소프트 파싱(Soft Parsing)과 하드 파싱(Hard Parsing)에 대한 설명으로 옳은 것은?",
+    "options": [
+      "소프트 파싱은 항상 새로운 실행 계획을 생성하고, 하드 파싱은 캐시된 계획을 사용한다",
+      "소프트 파싱은 공유 풀의 캐시된 실행 계획을 재사용하고, 하드 파싱은 새로운 실행 계획을 생성한다",
+      "소프트 파싱은 인덱스를 사용하는 파싱, 하드 파싱은 풀 스캔 파싱이다",
+      "소프트 파싱과 하드 파싱은 결과가 동일하므로 구분할 필요가 없다"
+    ],
+    "answer": 1,
+    "explanation": "소프트 파싱(Soft Parsing)은 공유 풀(Shared Pool)에 이미 파싱된 SQL의 실행 계획이 있을 때 이를 재사용합니다. 하드 파싱(Hard Parsing)은 공유 풀에 캐시가 없어 처음부터 최적화·실행 계획 생성을 수행합니다.",
+    "tags": ["소프트파싱", "하드파싱", "공유풀"],
+    "difficulty": "상",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_014",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "복합 인덱스(Composite Index)에서 컬럼 순서 결정 원칙으로 가장 적절한 것은?",
+    "options": [
+      "컬럼 크기(바이트)가 큰 순서대로 배치한다",
+      "알파벳 또는 가나다 순서로 배치한다",
+      "자주 사용되고 선택도가 높은 컬럼을 앞에 배치한다",
+      "NULL 값이 적은 컬럼을 뒤에 배치한다"
+    ],
+    "answer": 2,
+    "explanation": "복합 인덱스에서는 자주 WHERE 조건에 사용되고 선택도(중복이 적고 고유값이 많은)가 높은 컬럼을 앞에 배치해야 인덱스를 효과적으로 활용할 수 있습니다. 앞 컬럼이 조건에 포함되지 않으면 복합 인덱스가 사용되지 않을 수 있습니다.",
+    "tags": ["복합인덱스", "인덱스순서", "선택도"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_016",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "데이터베이스 성능 문제의 90% 이상이 발생하는 주된 원인으로 가장 적절한 것은?",
+    "options": [
+      "CPU 코어 수 부족",
+      "메모리 용량 부족",
+      "비효율적인 DB I/O(디스크 입출력)",
+      "네트워크 대역폭 부족"
+    ],
+    "answer": 2,
+    "explanation": "데이터베이스 성능 문제의 90% 이상은 CPU나 메모리 부족이 아니라 비효율적인 DB I/O(디스크 입출력)에서 발생합니다. 수만 블록을 읽는 비효율적 SQL을 하드웨어 증설로 해결하는 것은 한계가 있으므로, SQL 튜닝이 최우선입니다.",
+    "tags": ["성능저하원인", "DB I/O", "성능튜닝"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_017",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "데이터베이스 성능 튜닝의 접근 순서로 가장 적절한 것은?",
+    "options": [
+      "하드웨어/OS 튜닝 → DB 인스턴스 튜닝 → DB 오브젝트 튜닝 → SQL 튜닝",
+      "SQL 튜닝 → DB 오브젝트 튜닝 → DB 인스턴스 튜닝 → 하드웨어/OS 튜닝",
+      "DB 인스턴스 튜닝 → SQL 튜닝 → 하드웨어/OS 튜닝 → DB 오브젝트 튜닝",
+      "DB 오브젝트 튜닝 → DB 인스턴스 튜닝 → SQL 튜닝 → 하드웨어/OS 튜닝"
+    ],
+    "answer": 1,
+    "explanation": "성능 튜닝은 바깥(하드웨어)이 아닌 안쪽에서부터 접근해야 합니다. SQL 튜닝(효과 가장 큼) → DB 오브젝트 튜닝(인덱스·파티셔닝) → DB 인스턴스 튜닝(메모리·프로세스 설정) → 하드웨어/OS 튜닝(최후 수단) 순서입니다.",
+    "tags": ["튜닝순서", "SQL튜닝", "성능튜닝"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_018",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "SQL 튜닝에서 바인딩 변수(Binding Variable)를 사용해야 하는 주된 이유는?",
+    "options": [
+      "SQL 문장의 가독성을 높이기 위해",
+      "매번 다른 SQL 문자열로 인한 하드 파싱 부하를 방지하고 소프트 파싱으로 실행 계획을 재사용하기 위해",
+      "데이터 타입 변환 오류를 방지하기 위해",
+      "인덱스 사용 여부를 강제로 제어하기 위해"
+    ],
+    "answer": 1,
+    "explanation": "동적 SQL(값을 직접 붙이는 방식)은 실행마다 다른 SQL 문자열로 인식되어 매번 하드 파싱(실행 계획 재생성)이 발생합니다. 바인딩 변수를 사용하면 SQL 구조가 동일하여 소프트 파싱(기존 실행 계획 재사용)이 가능해져 시스템 부하를 대폭 줄일 수 있습니다.",
+    "tags": ["바인딩변수", "소프트파싱", "동적SQL", "정적SQL"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_019",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "데이터 웨어하우스(DW) 환경에서 팩트(Fact) 테이블과 여러 차원(Dimension) 테이블을 조인할 때 최적의 성능을 위해 사용하는 특수 조인 방식은?",
+    "options": [
+      "중첩 루프 조인(Nested Loop Join)",
+      "소트 머지 조인(Sort Merge Join)",
+      "스타 조인(Star Join)",
+      "하이브리드 조인(Hybrid Join)"
+    ],
+    "answer": 2,
+    "explanation": "스타 조인(Star Join)은 DW의 스타 스키마에서 사용하는 특수 조인 방식입니다. 크기가 작은 차원(Dimension) 테이블들의 카테시안 곱을 먼저 만들고, 그 결과를 대용량 팩트(Fact) 테이블과 한 번만 조인하여 I/O를 줄입니다.",
+    "tags": ["스타조인", "StarJoin", "DW", "팩트테이블"],
+    "difficulty": "상",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_020",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "온라인 프로그램 튜닝에서 '부분 범위 처리(Partial Range Scan)'를 적용해야 하는 이유로 옳은 것은?",
+    "options": [
+      "대용량 배치 작업의 처리량을 최대화하기 위해",
+      "전체 데이터를 정렬 후 일괄 반환하여 정확한 결과를 보장하기 위해",
+      "인덱스를 활용해 조건에 맞는 데이터를 즉시 응답함으로써 응답 속도를 최소화하기 위해",
+      "디스크 전체 스캔으로 누락 없는 결과를 보장하기 위해"
+    ],
+    "answer": 2,
+    "explanation": "온라인 서비스는 응답 속도가 목표입니다. 부분 범위 처리는 인덱스를 활용하여 조건에 맞는 데이터를 전체 읽지 않고 필요한 만큼만 읽어 즉시 응답하는 방식입니다. 게시판 목록 조회에서 최신 20건만 반환하는 것이 대표적 예입니다.",
+    "tags": ["부분범위처리", "PartialRangeScan", "온라인튜닝"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_021",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "SQL 분석 함수 중 ROLLUP에 대한 설명으로 옳은 것은?",
+    "options": [
+      "두 컬럼의 가능한 모든 소계 조합을 생성한다",
+      "사용자가 원하는 소계 조합만 지정하여 생성한다",
+      "계층적 소계(부서별 합계 + 전체 합계 등)를 자동 생성하는 GROUP BY 확장 기능이다",
+      "이전 행 또는 다음 행의 값을 참조하는 함수이다"
+    ],
+    "answer": 2,
+    "explanation": "ROLLUP은 GROUP BY의 확장으로, 계층적 소계를 자동 생성합니다. GROUP BY ROLLUP(dept_id, job)은 부서별 직종별 합계 + 부서별 합계 + 전체 합계를 한 번에 생성합니다. CUBE는 모든 조합 소계, GROUPING SETS는 사용자 지정 조합, LAG/LEAD는 이전/다음 행 참조입니다.",
+    "tags": ["ROLLUP", "분석함수", "GROUP BY확장"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p5c3_015",
+    "part": 5,
+    "chapter": "part5_ch3",
+    "content": "데이터베이스 쿼리 캐시(Query Cache)의 단점으로 가장 적절한 것은?",
+    "options": [
+      "처음 실행하는 쿼리도 캐시를 통해 빠르게 처리할 수 있다",
+      "대상 테이블의 데이터가 변경되면 관련 캐시를 무효화(Invalidate)해야 하므로 변경이 잦은 환경에서 오버헤드가 발생한다",
+      "캐시는 CPU 사용을 낮추고 디스크 I/O를 증가시킨다",
+      "캐시를 사용하면 항상 최신 데이터를 조회할 수 없다는 단점이 있다"
+    ],
+    "answer": 1,
+    "explanation": "쿼리 캐시는 동일 쿼리 결과를 재사용하여 성능을 향상시키지만, 대상 테이블 데이터가 변경(INSERT/UPDATE/DELETE)될 때마다 관련 캐시를 무효화해야 합니다. 데이터 변경이 잦은 OLTP 환경에서는 캐시 무효화 오버헤드로 인해 성능 저하가 발생할 수 있습니다.",
+    "tags": ["쿼리캐시", "QueryCache", "성능"],
+    "difficulty": "상",
+    "questionType": "concept"
+  }
+]

@@ -8,6 +8,8 @@ const PART_COLORS: Record<number, { bg: string; border: string; badge: string; b
   2: { bg: 'bg-blue-50', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', bar: 'bg-blue-500', icon: '📋' },
   3: { bg: 'bg-green-50', border: 'border-green-200', badge: 'bg-green-100 text-green-700', bar: 'bg-green-500', icon: '📐' },
   4: { bg: 'bg-purple-50', border: 'border-purple-200', badge: 'bg-purple-100 text-purple-700', bar: 'bg-purple-500', icon: '🗂️' },
+  5: { bg: 'bg-teal-50', border: 'border-teal-200', badge: 'bg-teal-100 text-teal-700', bar: 'bg-teal-500', icon: '🗄️' },
+  6: { bg: 'bg-orange-50', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-700', bar: 'bg-orange-500', icon: '✅' },
 }
 
 export default function TheoryIndexPage() {
@@ -19,12 +21,12 @@ export default function TheoryIndexPage() {
       <div>
         <h1 className="text-2xl font-display font-bold text-ink">이론 학습</h1>
         <p className="text-ink-muted mt-1 text-sm">
-          DAsP 시험 4과목의 핵심 이론을 단계별로 학습하세요.
+          DAP 시험 6과목의 핵심 이론을 단계별로 학습하세요.
         </p>
       </div>
 
       {/* Part sections */}
-      {[1, 2, 3, 4].map(part => {
+      {[1, 2, 3, 4, 5, 6].map(part => {
         const colors = PART_COLORS[part]
         const chapters = CHAPTERS_BY_PART[part] ?? []
         const partStats = stats.byPart[part]

@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useEffect, useState, useCallback, ReactNode } from 'react'
+import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, ReactNode } from 'react'
 import type { ProgressStore, AnswerResult, ExamResult, Stats } from '@/types'
 import {
   loadProgress,
+  saveProgress,
   markAnswer as libMarkAnswer,
   toggleBookmark as libToggleBookmark,
   saveExamResult as libSaveExamResult,
@@ -19,6 +20,7 @@ interface ProgressContextValue {
   saveExamResult: (result: ExamResult) => void
   resetProgress: () => void
   isBookmarked: (id: string) => boolean
+  setLastVisited: (type: 'theory' | 'quiz' | 'practical', id: string) => void
   getStreak: () => number
   getXP: () => number
   getGems: () => number
@@ -70,9 +72,20 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     refresh(libResetProgress())
   }, [refresh])
 
+  const setLastVisited = useCallback((type: 'theory' | 'quiz' | 'practical', id: string) => {
+    const store = loadProgress()
+    store.lastVisited = { type, id }
+    saveProgress(store)
+    setProgress(prev => ({ ...prev, lastVisited: { type, id } }))
+  }, [])
+
   const isBookmarked = useCallback((id: string) => progress.bookmarks.includes(id), [progress.bookmarks])
   const getStreak = useCallback(() => progress.examHistory.length, [progress.examHistory])
-  const getXP = useCallback(() => Object.values(progress.answers).filter(v => v === 'correct').length * 10, [progress.answers])
+  const xpValue = useMemo(
+    () => Object.values(progress.answers).filter(v => v === 'correct').length * 10,
+    [progress.answers]
+  )
+  const getXP = useCallback(() => xpValue, [xpValue])
   const getGems = useCallback(() => progress.examHistory.length * 50, [progress.examHistory])
   const getHearts = useCallback(() => 3, [])
 
@@ -82,7 +95,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       markAnswer, toggleBookmark,
       saveExamResult: saveExamResultFn,
       resetProgress: resetProgressFn,
-      isBookmarked, getStreak, getXP, getGems, getHearts,
+      isBookmarked, setLastVisited, getStreak, getXP, getGems, getHearts,
     }}>
       {children}
     </ProgressContext.Provider>

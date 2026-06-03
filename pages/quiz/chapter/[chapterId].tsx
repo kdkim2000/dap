@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
@@ -25,7 +25,10 @@ interface LocalAnswer {
 
 export default function ChapterQuizPage({ chapterId, questions, chapterTitle, part, chapter }: Props) {
   const router = useRouter()
-  const { markAnswer, toggleBookmark, isBookmarked, progress } = useProgress()
+  const { markAnswer, toggleBookmark, isBookmarked, progress, setLastVisited } = useProgress()
+
+  useEffect(() => { setLastVisited('quiz', chapterId) }, [chapterId, setLastVisited])
+
   const [currentIndex, setCurrentIndex] = useState(0)
   const [localAnswers, setLocalAnswers] = useState<Record<number, LocalAnswer>>({})
   const [showFeedback, setShowFeedback] = useState(false)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import { CHAPTER_IDS, getChapterById, PART_TITLES } from '@/lib/chapters'
@@ -7,6 +7,7 @@ import TheoryContent from '@/components/theory/TheoryContent'
 import TheoryTOC from '@/components/theory/TheoryTOC'
 import RelatedQuestions from '@/components/theory/RelatedQuestions'
 import type { ChapterMeta } from '@/types'
+import { useProgress } from '@/context/ProgressContext'
 
 interface Props {
   chapterId: string
@@ -17,6 +18,9 @@ interface Props {
 }
 
 export default function TheoryChapterPage({ chapterId, content, meta, prevChapter, nextChapter }: Props) {
+  const { setLastVisited } = useProgress()
+  useEffect(() => { setLastVisited('theory', chapterId) }, [chapterId, setLastVisited])
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
       {/* Breadcrumb */}

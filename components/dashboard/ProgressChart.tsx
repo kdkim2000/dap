@@ -8,6 +8,7 @@ const PART_COLORS: Record<number, { stroke: string; bg: string; text: string }> 
   3: { stroke: '#10B981', bg: 'bg-green-500', text: 'text-green-700' },
   4: { stroke: '#A855F7', bg: 'bg-purple-500', text: 'text-purple-700' },
   5: { stroke: '#14B8A6', bg: 'bg-teal-500', text: 'text-teal-700' },
+  6: { stroke: '#F97316', bg: 'bg-orange-500', text: 'text-orange-700' },
 }
 
 interface CircleProgressProps {
@@ -70,8 +71,8 @@ export default function ProgressChart() {
     <div className="q-card space-y-4">
       <h2 className="text-base font-semibold text-ink">과목별 정답률</h2>
 
-      <div className="grid grid-cols-4 gap-2">
-        {[1, 2, 3, 4].map(part => {
+      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+        {[1, 2, 3, 4, 5, 6].map(part => {
           const colors = PART_COLORS[part]
           const partStats = stats.byPart[part]
           const rate = isHydrated && partStats && partStats.attempted > 0

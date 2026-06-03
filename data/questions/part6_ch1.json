@@ -1,0 +1,237 @@
+[
+  {
+    "id": "p6c1_001",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "데이터 품질의 6가지 차원에 해당하지 않는 것은?",
+    "options": ["정확성(Accuracy)", "완전성(Completeness)", "효율성(Efficiency)", "유일성(Uniqueness)"],
+    "answer": 2,
+    "explanation": "데이터 품질의 6가지 차원은 정확성·완전성·일관성·적시성·유효성·유일성입니다. 효율성(Efficiency)은 데이터 품질 차원에 포함되지 않습니다.",
+    "tags": ["데이터품질", "품질차원", "6차원"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_002",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "데이터 표준화 구성 요소 4가지를 올바르게 나열한 것은?",
+    "options": [
+      "표준 테이블, 표준 컬럼, 표준 인덱스, 표준 뷰",
+      "표준 단어, 표준 용어, 표준 코드, 표준 도메인",
+      "표준 형식, 표준 길이, 표준 타입, 표준 제약",
+      "표준 엔터티, 표준 속성, 표준 관계, 표준 식별자"
+    ],
+    "answer": 1,
+    "explanation": "데이터 표준화는 표준 단어(업무 단어와 약어), 표준 용어(단어 조합), 표준 코드(코드 유형과 값), 표준 도메인(데이터 유형·길이·형식)으로 구성됩니다.",
+    "tags": ["데이터표준화", "표준단어", "표준용어", "표준코드", "표준도메인"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_003",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "데이터 품질 차원 중 '여러 시스템에 저장된 동일한 데이터가 서로 같은 값을 가져야 한다'는 차원은?",
+    "options": ["정확성(Accuracy)", "완전성(Completeness)", "일관성(Consistency)", "유효성(Validity)"],
+    "answer": 2,
+    "explanation": "일관성(Consistency)은 동일한 데이터가 여러 시스템이나 데이터베이스에 저장될 때 모두 동일한 값을 가져야 한다는 품질 차원입니다. 시스템 간 불일치 건수로 측정합니다.",
+    "tags": ["일관성", "Consistency", "품질차원"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_004",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "마스터 데이터(Master Data)에 대한 설명으로 옳은 것은?",
+    "options": [
+      "업무 활동을 통해 발생하는 거래 데이터이다",
+      "외부 기관에서 제공하는 표준 분류 데이터이다",
+      "업무의 핵심 기준 정보로 고객, 상품, 직원 등이 해당된다",
+      "시스템 간 데이터 교환을 위한 인터페이스 데이터이다"
+    ],
+    "answer": 2,
+    "explanation": "마스터 데이터(Master Data)는 조직 업무의 핵심 기준 정보로, 고객·상품·직원·부서 등이 포함됩니다. 거래 데이터는 트랜잭션 데이터, 외부 기관 표준 데이터는 참조 데이터에 해당합니다.",
+    "tags": ["마스터데이터", "MasterData", "업무데이터"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_005",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "메타데이터 유형 중 '데이터의 업무적 의미, 정의, 소유자 등 업무 관련 정보'에 해당하는 것은?",
+    "options": ["기술 메타데이터", "업무 메타데이터", "운영 메타데이터", "관리 메타데이터"],
+    "answer": 1,
+    "explanation": "업무 메타데이터(Business Metadata)는 데이터의 업무적 의미, 정의, 데이터 소유자, 비즈니스 규칙 등을 포함합니다. 기술 메타데이터는 구조·형식, 운영 메타데이터는 생성·이력, 관리 메타데이터는 책임자·보안 등급 정보입니다.",
+    "tags": ["메타데이터", "업무메타데이터"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_006",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "MDM(Master Data Management)의 목적으로 가장 적절한 것은?",
+    "options": [
+      "대용량 데이터 분석을 위한 데이터 웨어하우스 구축",
+      "여러 시스템에 분산된 마스터 데이터를 단일 버전으로 통합 관리",
+      "트랜잭션 처리 속도를 향상시키기 위한 데이터베이스 최적화",
+      "데이터 백업 및 복구 전략 수립"
+    ],
+    "answer": 1,
+    "explanation": "MDM(Master Data Management)은 조직 전체에서 사용되는 핵심 기준 데이터(고객·상품 등)를 '단일 버전의 진실(Single Version of Truth)'로 통합 관리하여 데이터 일관성을 보장하는 체계입니다.",
+    "tags": ["MDM", "마스터데이터관리"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_007",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "데이터 거버넌스에서 데이터 오너(Data Owner)와 데이터 스튜어드(Data Steward)의 역할 구분으로 옳은 것은?",
+    "options": [
+      "데이터 오너는 실무 데이터 품질 관리, 데이터 스튜어드는 최종 책임 보유",
+      "데이터 오너는 최종 책임 보유, 데이터 스튜어드는 일상적 실무 데이터 관리",
+      "데이터 오너와 데이터 스튜어드는 동일한 역할이다",
+      "데이터 오너는 기술적 관리, 데이터 스튜어드는 업무적 관리를 담당"
+    ],
+    "answer": 1,
+    "explanation": "데이터 오너(Data Owner)는 해당 데이터에 대한 최종 책임을 보유하는 업무 담당자이고, 데이터 스튜어드(Data Steward)는 일상적인 데이터 품질 관리와 표준화 실무를 담당합니다.",
+    "tags": ["데이터오너", "데이터스튜어드", "거버넌스"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_008",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "데이터 품질 차원 중 완전성(Completeness)을 측정하는 지표로 가장 적절한 것은?",
+    "options": [
+      "시스템 간 동일 데이터의 불일치 건수",
+      "허용 범위를 벗어난 데이터 값의 비율",
+      "필수 항목의 NULL 또는 공백 비율",
+      "중복 레코드의 비율"
+    ],
+    "answer": 2,
+    "explanation": "완전성(Completeness)은 필수적으로 값이 존재해야 하는 항목에서 NULL이나 공백이 얼마나 있는지를 측정합니다. 불일치 건수는 일관성, 허용 범위 이탈은 유효성, 중복은 유일성 지표입니다.",
+    "tags": ["완전성", "Completeness", "품질측정"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_009",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "참조 데이터(Reference Data)의 예시로 가장 적절한 것은?",
+    "options": [
+      "고객의 주문 내역 데이터",
+      "직원의 급여 지급 이력",
+      "국제 표준 통화코드(ISO 4217) 또는 국가코드",
+      "상품별 재고 수량 데이터"
+    ],
+    "answer": 2,
+    "explanation": "참조 데이터(Reference Data)는 외부 기관이나 표준에서 정의한 분류 코드나 목록으로, 국제 표준 통화코드(USD, EUR 등)·국가코드·우편번호 등이 해당합니다. 주문·급여·재고는 트랜잭션 데이터입니다.",
+    "tags": ["참조데이터", "ReferenceData"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_010",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "표준 도메인(Standard Domain)의 역할로 가장 적절한 것은?",
+    "options": [
+      "업무에서 사용하는 단어와 약어를 표준화한다",
+      "여러 단어를 조합하여 업무 용어를 정의한다",
+      "코드 유형과 코드 값의 목록을 정의한다",
+      "데이터의 물리적 유형·길이·형식을 표준화하여 일관된 속성 정의를 지원한다"
+    ],
+    "answer": 3,
+    "explanation": "표준 도메인(Standard Domain)은 데이터의 물리적 속성(데이터 유형·길이·형식)을 표준화합니다. 예: 날짜 도메인(DATE), 금액 도메인(NUMBER(15,2)). 단어 표준화는 표준 단어, 용어 정의는 표준 용어, 코드 목록은 표준 코드입니다.",
+    "tags": ["표준도메인", "StandardDomain"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_011",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "데이터 품질 차원 중 '데이터가 정의된 형식, 범위, 값 집합에 부합해야 한다'는 것은?",
+    "options": ["정확성(Accuracy)", "유효성(Validity)", "유일성(Uniqueness)", "적시성(Timeliness)"],
+    "answer": 1,
+    "explanation": "유효성(Validity)은 데이터 값이 사전에 정의된 형식(날짜 형식 등), 범위(0~100 사이), 값 집합(M/F 등) 내에 있어야 한다는 품질 차원입니다. 형식 오류 비율로 측정합니다.",
+    "tags": ["유효성", "Validity", "품질차원"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_012",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "운영 메타데이터(Operational Metadata)에 해당하는 것은?",
+    "options": [
+      "테이블의 컬럼 이름과 데이터 타입",
+      "데이터의 업무적 의미와 정의",
+      "데이터 생성 일시, 수정 이력, 접근 로그",
+      "데이터 책임자와 보관 기간"
+    ],
+    "answer": 2,
+    "explanation": "운영 메타데이터(Operational Metadata)는 데이터의 생성 일시, 수정 이력, 접근 로그 등 운영 과정에서 생성되는 정보입니다. 컬럼 이름·타입은 기술 메타데이터, 업무 의미는 업무 메타데이터, 책임자·보관 기간은 관리 메타데이터입니다.",
+    "tags": ["운영메타데이터", "메타데이터유형"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_013",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "데이터 품질 관리 프레임워크의 구성 요소에 대한 설명으로 옳지 않은 것은?",
+    "options": [
+      "데이터 품질 목표: 조직이 달성해야 할 데이터 품질 기준 정의",
+      "데이터 품질 측정: 품질 지표(KPI) 설정 및 측정 방법 결정",
+      "데이터 품질 진단: 새로운 데이터를 생성하는 단계",
+      "데이터 품질 모니터링: 지속적 품질 수준 추적 및 관리"
+    ],
+    "answer": 2,
+    "explanation": "데이터 품질 진단은 현재 데이터의 품질 수준을 평가하고 문제점을 식별하는 단계입니다. 새로운 데이터를 생성하는 것은 진단 활동이 아닙니다.",
+    "tags": ["데이터품질관리", "프레임워크"],
+    "difficulty": "중",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_014",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "코드 데이터(Code Data)의 예시로 옳은 것은?",
+    "options": [
+      "고객의 주문 금액 데이터",
+      "직원의 이름과 주소 정보",
+      "주문 상태코드(접수/처리중/완료/취소)와 성별코드(M/F)",
+      "상품의 가격 변경 이력"
+    ],
+    "answer": 2,
+    "explanation": "코드 데이터(Code Data)는 업무에서 사용하는 분류·구분 코드를 정의한 데이터입니다. 주문 상태코드, 성별코드, 부서코드 등이 해당합니다.",
+    "tags": ["코드데이터", "CodeData"],
+    "difficulty": "하",
+    "questionType": "concept"
+  },
+  {
+    "id": "p6c1_015",
+    "part": 6,
+    "chapter": "part6_ch1",
+    "content": "데이터 품질 차원 중 적시성(Timeliness)을 측정하는 방법으로 가장 적절한 것은?",
+    "options": [
+      "데이터 중복 레코드 수를 전체 레코드 수로 나눈 비율",
+      "데이터가 실제로 발생한 시점부터 시스템에 반영되기까지의 지연 시간",
+      "필수 항목 중 값이 없는 비율",
+      "시스템 간 동일 데이터의 불일치 건수"
+    ],
+    "answer": 1,
+    "explanation": "적시성(Timeliness)은 데이터가 필요한 시점에 최신 상태로 존재하는지를 측정합니다. 데이터 지연 시간(발생 → 반영 소요 시간)으로 측정합니다. 중복 비율은 유일성, NULL 비율은 완전성, 불일치 건수는 일관성 지표입니다.",
+    "tags": ["적시성", "Timeliness", "품질측정"],
+    "difficulty": "중",
+    "questionType": "concept"
+  }
+]
