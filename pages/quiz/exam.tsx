@@ -35,7 +35,7 @@ const MODE_CONFIG: Record<ExamMode, { label: string; desc: string; icon: string;
   random: { label: '랜덤 출제',    desc: '매회 다른 문제 조합',  icon: '🎲', btnLabel: '랜덤 시험 시작' },
 }
 
-const EXAM_SECONDS = 5400 // 90분
+const EXAM_SECONDS = 14400 // 240분 (4시간, DAP 시험 기준)
 
 export default function ExamPage() {
   const router = useRouter()
@@ -130,6 +130,8 @@ export default function ExamPage() {
       2: { correct: 0, total: 0 },
       3: { correct: 0, total: 0 },
       4: { correct: 0, total: 0 },
+      5: { correct: 0, total: 0 },
+      6: { correct: 0, total: 0 },
     }
 
     qs.forEach((q, i) => {
@@ -160,6 +162,8 @@ export default function ExamPage() {
       part2Score: toScore(2),
       part3Score: toScore(3),
       part4Score: toScore(4),
+      part5Score: toScore(5),
+      part6Score: toScore(6),
       totalTime: elapsed,
       answers: answersMap,
     }

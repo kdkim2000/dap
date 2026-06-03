@@ -1,6 +1,11 @@
 import type { Question } from '@/types'
 import { CHAPTERS } from './chapters'
 
+// 과목별 모의고사 문항 수 (합계 75)
+const PART_QUOTA: Record<number, number> = {
+  1: 10, 2: 10, 3: 10, 4: 25, 5: 10, 6: 10,
+}
+
 function loadChapterQuestions(chapterId: string): Question[] {
   try {
     // eslint-disable-next-line global-require
@@ -38,14 +43,14 @@ export function getQuestionsByIds(ids: string[]): Question[] {
 
 export function sampleExamQuestions(): Question[] {
   const result: Question[] = []
-  for (let part = 1; part <= 4; part++) {
+  for (let part = 1; part <= 6; part++) {
+    const quota = PART_QUOTA[part] ?? 10
     const partChapters = CHAPTERS.filter(c => c.part === part)
     const partQuestions = partChapters.flatMap(ch => loadChapterQuestions(ch.id))
-    const targetCount = part === 4 ? 20 : 10  // 4과목: 20문항, 1~3과목: 10문항
     const shuffled = [...partQuestions].sort(() => Math.random() - 0.5)
-    result.push(...shuffled.slice(0, targetCount))
+    result.push(...shuffled.slice(0, quota))
   }
-  return result
+  return result  // 총 75문항
 }
 
 export function getMockExamQuestions(examNum: 1 | 2): Question[] {

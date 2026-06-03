@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const QUESTIONS_DIR = path.join(process.cwd(), 'data', 'questions')
-const ID_PATTERN = /^(p[1-4]c[1-4]_\d{3}|exam[12]_\d{3})$/
+const ID_PATTERN = /^(p[1-6]c[1-4]_\d{3}|exam[12]_\d{3})$/
 
 interface QuestionRaw {
   id: string
@@ -30,11 +30,11 @@ function validateQuestion(q: QuestionRaw, filePath: string): string[] {
   if (!q.id || typeof q.id !== 'string') {
     errors.push(`[${file}] id 필드가 없거나 문자열이 아님`)
   } else if (!ID_PATTERN.test(q.id)) {
-    errors.push(`[${file}] id 패턴 불일치: "${q.id}" (기대: p[1-4]c[1-4]_NNN 또는 exam[12]_NNN)`)
+    errors.push(`[${file}] id 패턴 불일치: "${q.id}" (기대: p[1-6]c[1-4]_NNN 또는 exam[12]_NNN)`)
   }
 
-  if (q.part === undefined || q.part < 1 || q.part > 5) {
-    errors.push(`[${file}][${q.id}] part 범위 오류: ${q.part} (1~5 필요)`)
+  if (q.part === undefined || q.part < 1 || q.part > 6) {
+    errors.push(`[${file}][${q.id}] part 범위 오류: ${q.part} (1~6 필요)`)
   }
 
   if (!Array.isArray(q.options) || q.options.length !== 4) {
@@ -113,7 +113,7 @@ function main() {
   }
 
   // Report
-  console.log(`\n=== DAsP 문제 데이터 검증 ===`)
+  console.log(`\n=== DAP Master 문제 데이터 검증 ===`)
   console.log(`파일: ${totalFiles}개, 문제: ${totalQuestions}개, 고유 ID: ${idSet.size}개`)
 
   if (allErrors.length === 0) {
