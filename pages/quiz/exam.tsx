@@ -150,7 +150,8 @@ export default function ExamPage() {
     }
 
     const totalCorrect = Object.values(partScores).reduce((s, p) => s + p.correct, 0)
-    const totalQ = qs.length || 1
+    if (qs.length === 0) return { date: new Date().toISOString(), score: 0, part1Score: 0, part2Score: 0, part3Score: 0, part4Score: 0, part5Score: 0, part6Score: 0, totalTime: elapsed, answers: {} }
+    const totalQ = qs.length
     const totalScore = Math.round((totalCorrect / totalQ) * 100)
 
     const answersMap: Record<string, number> = {}

@@ -25,7 +25,7 @@ export default function PracticalProblemPage({ problem }: Props) {
     const saved = loadPracticalDraft(problem.id)
     if (saved) {
       setDraft(saved)
-      setSavedAt(new Date(saved.savedAt))
+      if (saved.savedAt > 0) setSavedAt(new Date(saved.savedAt))
     }
   }, [problem.id])
 

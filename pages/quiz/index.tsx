@@ -50,7 +50,7 @@ export default function QuizIndexPage() {
             <div className="font-bold text-ink group-hover:text-red-600 transition-colors">오답 노트</div>
             <div className="text-xs text-ink-muted">
               {isHydrated
-                ? `${Object.values(stats.byChapter).reduce((s, c) => s + (c.attempted - c.correct), 0)}문항`
+                ? `${Object.values(stats.byChapter ?? {}).reduce((s, c) => s + (c.attempted - c.correct), 0)}문항`
                 : '로딩 중...'}
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function QuizIndexPage() {
                         <div className="h-1.5 bg-white/70 rounded-full overflow-hidden">
                           <div
                             className={`h-full ${colors.bar} rounded-full transition-all`}
-                            style={{ width: `${rate}%` }}
+                            style={{ width: `${rate ?? 0}%` }}
                           />
                         </div>
                       </div>

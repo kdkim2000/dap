@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { PART_TITLES } from '@/lib/chapters'
-import { isExamPassed, PART_MAX_SCORE } from '@/lib/exam'
+import { isExamPassed, PART_MAX_SCORE, calcPartScore } from '@/lib/exam'
 
 export default function ResultPage() {
   const router = useRouter()
@@ -78,7 +78,7 @@ export default function ResultPage() {
         {partScores.map((score, i) => {
           const partNum = i + 1
           const maxScore = PART_MAX_SCORE[partNum] ?? 8
-          const threshold = maxScore * 0.4
+          const threshold = Math.round(maxScore * 0.4 * 10) / 10
           const ok = score >= threshold
           const pct = Math.min((score / maxScore) * 100, 100)
           return (

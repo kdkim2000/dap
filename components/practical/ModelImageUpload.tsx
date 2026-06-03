@@ -19,7 +19,9 @@ function resizeImage(file: File): Promise<string> {
       const canvas = document.createElement('canvas')
       canvas.width = Math.round(img.width * scale)
       canvas.height = Math.round(img.height * scale)
-      canvas.getContext('2d')!.drawImage(img, 0, 0, canvas.width, canvas.height)
+      const ctx = canvas.getContext('2d')
+      if (!ctx) { reject(new Error('Canvas 2D context를 생성할 수 없습니다.')); return }
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
       let quality = 0.9
       let dataUrl = canvas.toDataURL('image/jpeg', quality)
       while (dataUrl.length > MAX_BYTES * 1.37 && quality > 0.3) {
@@ -70,8 +72,9 @@ export default function ModelImageUpload({ practiceId, initialImageUrl, onSave }
       {imageUrl ? (
         <div className="space-y-2">
           <div className="relative rounded-lg overflow-hidden border border-[var(--q-border)]">
+            {/* base64 dataUrl은 next/image가 지원하지 않으므로 <img> 직접 사용 */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={imageUrl} alt="업로드된 모델 이미지" className="w-full object-contain max-h-[400px]" />
+            <img src={imageUrl} alt="업로드된 논리 데이터 모델 이미지" className="w-full object-contain max-h-[400px]" />
           </div>
           <div className="flex gap-2">
             <button
