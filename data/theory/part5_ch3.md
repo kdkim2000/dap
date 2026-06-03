@@ -72,6 +72,15 @@ EXPLAIN SELECT * FROM TB_EMPLOYEE WHERE dept_id = 10;
 > - 대량+등호+인덱스 없음 → Hash Join
 > - 대량+정렬 필요 → Sort Merge Join
 
+### 2.2-1 조인 알고리즘 선택 기준표
+
+| 조건 | 권장 알고리즘 | 이유 |
+|------|------|------|
+| 소량(수천 행↓) + 내부 테이블 인덱스 | Nested Loop | 인덱스로 내부 테이블 빠르게 탐색 |
+| 대량 + 등호 조인 + 인덱스 없음 | Hash Join | 해시 테이블로 O(n) 매칭 |
+| 대량 + 이미 정렬된 데이터 | Sort Merge | 정렬 비용 없이 병합 |
+| 조인 조건이 부등호(<,>) | Nested Loop | 해시·정렬 적용 어려움 |
+
 ### 2.3 조인 최적화 원칙
 
 1. **조인 컬럼에 인덱스** 생성
@@ -101,7 +110,26 @@ WHERE emp_name LIKE '%KIM'  -- 앞에 %
 
 -- 인덱스 미사용 (NULL 비교)
 WHERE salary IS NULL  -- 단, IS NOT NULL은 가능한 경우도 있음
+
+-- 인덱스 미사용 (OR 조건)
+WHERE dept_id = 10 OR salary > 5000000  -- 각 컬럼에 개별 인덱스 필요
 ```
+
+### 3.1-1 실행 계획 주요 연산자
+
+실행 계획(Execution Plan)은 옵티마이저가 SQL을 처리하는 순서·방법을 보여준다.
+
+| 연산자 | 설명 | 의미 |
+|------|------|------|
+| TABLE ACCESS FULL | 테이블 전체 스캔 | 인덱스 미사용 (풀 스캔) |
+| INDEX RANGE SCAN | 인덱스 범위 검색 | 범위 조건(BETWEEN, <, >) |
+| INDEX UNIQUE SCAN | 인덱스 단건 조회 | PK/UNIQUE 컬럼 등호 조건 |
+| INDEX FULL SCAN | 인덱스 전체 스캔 | 인덱스만 읽는 경우 (커버링 인덱스) |
+| TABLE ACCESS BY ROWID | ROWID로 직접 접근 | 비클러스터드 인덱스 → 테이블 조회 |
+| NESTED LOOPS | 중첩 루프 조인 | 소량 데이터 조인 |
+| HASH JOIN | 해시 조인 | 대량 데이터 등호 조인 |
+
+> **EXPLAIN 활용**: `EXPLAIN SELECT ...` 로 실행 계획 확인, TABLE ACCESS FULL이 보이면 인덱스 추가 검토.
 
 ### 3.2 SQL 튜닝 기법
 
