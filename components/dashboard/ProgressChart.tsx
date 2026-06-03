@@ -71,8 +71,8 @@ export default function ProgressChart() {
     <div className="q-card space-y-4">
       <h2 className="text-base font-semibold text-ink">과목별 정답률</h2>
 
-      <div className="grid grid-cols-4 gap-2">
-        {[1, 2, 3, 4].map(part => {
+      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+        {[1, 2, 3, 4, 5, 6].map(part => {
           const colors = PART_COLORS[part]
           const partStats = stats.byPart[part]
           const rate = isHydrated && partStats && partStats.attempted > 0

@@ -403,7 +403,7 @@ export default function ExamPage() {
     <div className="max-w-5xl mx-auto px-4 py-6">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h1 className="text-lg font-bold text-ink">DAsP 모의고사</h1>
+          <h1 className="text-lg font-bold text-ink">DAP 모의고사</h1>
           <p className="text-xs text-ink-muted">
             {currentIndex + 1} / {questions.length}문항 · {currentQuestion?.part}과목
           </p>
