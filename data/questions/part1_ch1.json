@@ -1,468 +1,468 @@
-﻿[
+[
     {
-        "id":  "p1c1_001",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "전사아키텍처(EA)의 정의로 가장 적절한 것은?",
-        "options":  [
-                        "개별 애플리케이션의 기술 스펙을 정의하는 문서",
-                        "조직의 비즈니스 목표 달성을 위해 업무·데이터·애플리케이션·기술 구성 요소와 관계를 체계적으로 정의·관리하는 프레임워크",
-                        "IT 부서의 연간 예산을 계획하는 체계",
-                        "소프트웨어 개발 방법론의 일종"
-                    ],
-        "answer":  1,
-        "explanation":  "EA는 조직 전체의 비즈니스와 IT를 정렬(Alignment)하기 위해 업무(BA), 데이터(DA), 애플리케이션(AA), 기술(TA) 등 전사 구성 요소와 관계를 체계적으로 정의·관리하는 프레임워크입니다.",
-        "tags":  [
-                     "EA",
-                     "정의"
-                 ],
-        "difficulty":  "하",
-        "questionType":  "concept"
+        "id": "p1c1_001",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "전사아키텍처(EA)의 정의로 가장 적절한 것은?",
+        "options": [
+            "개별 애플리케이션의 기술 스펙을 정의하는 문서",
+            "조직의 비즈니스 목표 달성을 위해 업무·데이터·애플리케이션·기술 구성 요소와 관계를 체계적으로 정의·관리하는 프레임워크",
+            "IT 부서의 연간 예산을 계획하는 체계",
+            "소프트웨어 개발 방법론의 일종"
+        ],
+        "answer": 1,
+        "explanation": "EA는 조직 전체의 비즈니스와 IT를 정렬(Alignment)하기 위해 업무(BA), 데이터(DA), 애플리케이션(AA), 기술(TA) 등 전사 구성 요소와 관계를 체계적으로 정의·관리하는 프레임워크입니다.",
+        "tags": [
+            "EA",
+            "정의"
+        ],
+        "difficulty": "하",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_002",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "EA의 4대 아키텍처 도메인에 해당하지 않는 것은?",
-        "options":  [
-                        "비즈니스 아키텍처(BA)",
-                        "데이터 아키텍처(DA)",
-                        "보안 아키텍처",
-                        "기술 아키텍처(TA)"
-                    ],
-        "answer":  2,
-        "explanation":  "국제 표준 4대 EA 도메인은 BA(비즈니스), DA(데이터), AA(애플리케이션), TA(기술)입니다. 보안 아키텍처는 국내 ITA에서 추가된 항목입니다.",
-        "tags":  [
-                     "EA",
-                     "4대도메인"
-                 ],
-        "difficulty":  "하",
-        "questionType":  "concept"
+        "id": "p1c1_002",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "EA의 4대 아키텍처 도메인에 해당하지 않는 것은?",
+        "options": [
+            "비즈니스 아키텍처(BA)",
+            "데이터 아키텍처(DA)",
+            "보안 아키텍처",
+            "기술 아키텍처(TA)"
+        ],
+        "answer": 2,
+        "explanation": "국제 표준 4대 EA 도메인은 BA(비즈니스), DA(데이터), AA(애플리케이션), TA(기술)입니다. 보안 아키텍처는 국내 ITA에서 추가된 항목입니다.",
+        "tags": [
+            "EA",
+            "4대도메인"
+        ],
+        "difficulty": "하",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_003",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "국내 ITA(정보기술아키텍처)의 법적 근거 법령은?",
-        "options":  [
-                        "개인정보보호법",
-                        "전자정부법",
-                        "정보통신망법",
-                        "저작권법"
-                    ],
-        "answer":  1,
-        "explanation":  "국내 ITA는 「전자정부법」에 근거하여 행정기관의 정보기술아키텍처 수립·관리를 의무화하고 있습니다.",
-        "tags":  [
-                     "ITA",
-                     "법령"
-                 ],
-        "difficulty":  "하",
-        "questionType":  "concept"
+        "id": "p1c1_003",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "국내 ITA(정보기술아키텍처)의 법적 근거 법령은?",
+        "options": [
+            "개인정보보호법",
+            "전자정부법",
+            "정보통신망법",
+            "저작권법"
+        ],
+        "answer": 1,
+        "explanation": "국내 ITA는 「전자정부법」에 근거하여 행정기관의 정보기술아키텍처 수립·관리를 의무화하고 있습니다.",
+        "tags": [
+            "ITA",
+            "법령"
+        ],
+        "difficulty": "하",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_004",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "국내 ITA가 국제 표준 4대 도메인에 추가한 2개의 아키텍처 도메인은?",
-        "options":  [
-                        "보안 아키텍처, 성과 아키텍처",
-                        "보안 아키텍처, 네트워크 아키텍처",
-                        "성과 아키텍처, 서비스 아키텍처",
-                        "클라우드 아키텍처, 보안 아키텍처"
-                    ],
-        "answer":  0,
-        "explanation":  "국내 ITA는 BA/DA/AA/TA 4대 국제 표준 도메인에 보안 아키텍처와 성과 아키텍처를 추가하여 6대 도메인 체계로 구성합니다.",
-        "tags":  [
-                     "ITA",
-                     "6대도메인"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_004",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "국내 ITA가 국제 표준 4대 도메인에 추가한 2개의 아키텍처 도메인은?",
+        "options": [
+            "보안 아키텍처, 성과 아키텍처",
+            "보안 아키텍처, 네트워크 아키텍처",
+            "성과 아키텍처, 서비스 아키텍처",
+            "클라우드 아키텍처, 보안 아키텍처"
+        ],
+        "answer": 0,
+        "explanation": "국내 ITA는 BA/DA/AA/TA 4대 국제 표준 도메인에 보안 아키텍처와 성과 아키텍처를 추가하여 6대 도메인 체계로 구성합니다.",
+        "tags": [
+            "ITA",
+            "6대도메인"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_005",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "Zachman Framework에서 \u0027What(무엇을)\u0027 관점에 해당하는 아키텍처 요소는?",
-        "options":  [
-                        "기능(Function)",
-                        "데이터(Data)",
-                        "네트워크(Network)",
-                        "동기(Motivation)"
-                    ],
-        "answer":  1,
-        "explanation":  "Zachman Framework에서 What 관점은 데이터(Data)/정보(Information)/개체에 해당합니다. How=기능, Where=네트워크, Why=동기·목표·업무규칙입니다.",
-        "tags":  [
-                     "Zachman",
-                     "관점"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_005",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "Zachman Framework에서 'What(무엇을)' 관점에 해당하는 아키텍처 요소는?",
+        "options": [
+            "기능(Function)",
+            "데이터(Data)",
+            "네트워크(Network)",
+            "동기(Motivation)"
+        ],
+        "answer": 1,
+        "explanation": "Zachman Framework에서 What 관점은 데이터(Data)/정보(Information)/개체에 해당합니다. How=기능, Where=네트워크, Why=동기·목표·업무규칙입니다.",
+        "tags": [
+            "Zachman",
+            "관점"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_006",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "Zachman Framework의 6×6 매트릭스에서 총 셀의 수는?",
-        "options":  [
-                        "12",
-                        "24",
-                        "36",
-                        "48"
-                    ],
-        "answer":  2,
-        "explanation":  "Zachman은 6가지 관점(열) × 6가지 역할(행) = 36개의 셀로 구성됩니다.",
-        "tags":  [
-                     "Zachman",
-                     "매트릭스"
-                 ],
-        "difficulty":  "하",
-        "questionType":  "concept"
+        "id": "p1c1_006",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "Zachman Framework의 6×6 매트릭스에서 총 셀의 수는?",
+        "options": [
+            "12",
+            "24",
+            "36",
+            "48"
+        ],
+        "answer": 2,
+        "explanation": "Zachman은 6가지 관점(열) × 6가지 역할(행) = 36개의 셀로 구성됩니다. 관점: What·How·Where·Who·When·Why, 역할: Planner~User.",
+        "tags": [
+            "Zachman",
+            "매트릭스"
+        ],
+        "difficulty": "하",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_007",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "TOGAF에서 아키텍처 개발 방법론을 의미하는 약어는?",
-        "options":  [
-                        "ABB",
-                        "ADM",
-                        "ART",
-                        "ACF"
-                    ],
-        "answer":  1,
-        "explanation":  "TOGAF의 ADM(Architecture Development Method)은 EA를 개발하고 관리하기 위한 단계별 순환 방법론입니다.",
-        "tags":  [
-                     "TOGAF",
-                     "ADM"
-                 ],
-        "difficulty":  "하",
-        "questionType":  "concept"
+        "id": "p1c1_007",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "TOGAF에서 아키텍처 개발 방법론을 의미하는 약어는?",
+        "options": [
+            "ABB",
+            "ADM",
+            "ART",
+            "ACF"
+        ],
+        "answer": 1,
+        "explanation": "TOGAF의 ADM(Architecture Development Method)은 EA를 개발하고 관리하기 위한 단계별 순환 방법론입니다.",
+        "tags": [
+            "TOGAF",
+            "ADM"
+        ],
+        "difficulty": "하",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_008",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "TOGAF ADM의 올바른 단계 순서는?",
-        "options":  [
-                        "A→B→C→D→E→F→G→H",
-                        "예비→A→B→C→D→E→F→G→H (순환)",
-                        "B→A→C→D→F→E→G→H",
-                        "A→C→B→D→E→F→G→H"
-                    ],
-        "answer":  1,
-        "explanation":  "TOGAF ADM은 예비 단계 이후 A(비전)→B(비즈니스)→C(정보시스템)→D(기술)→E(기회)→F(이전계획)→G(구현거버넌스)→H(변경관리) 순으로 순환합니다.",
-        "tags":  [
-                     "TOGAF",
-                     "ADM순서"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_008",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "TOGAF ADM의 올바른 단계 순서는?",
+        "options": [
+            "A→B→C→D→E→F→G→H",
+            "예비→A→B→C→D→E→F→G→H (순환)",
+            "B→A→C→D→F→E→G→H",
+            "A→C→B→D→E→F→G→H"
+        ],
+        "answer": 1,
+        "explanation": "TOGAF ADM은 예비 단계 이후 A(비전)→B(비즈니스)→C(정보시스템)→D(기술)→E(기회)→F(이전계획)→G(구현거버넌스)→H(변경관리) 순으로 순환합니다.",
+        "tags": [
+            "TOGAF",
+            "ADM순서"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_009",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "FEA의 5개 참조 모델에 포함되지 않는 것은?",
-        "options":  [
-                        "성과 참조 모델(PRM)",
-                        "데이터 참조 모델(DRM)",
-                        "거버넌스 참조 모델(GRM)",
-                        "기술 참조 모델(TRM)"
-                    ],
-        "answer":  2,
-        "explanation":  "FEA의 5개 참조 모델은 PRM(성과), BRM(비즈니스), SRM(서비스 컴포넌트), TRM(기술), DRM(데이터)입니다. 거버넌스 참조 모델은 포함되지 않습니다.",
-        "tags":  [
-                     "FEA",
-                     "참조모델"
-                 ],
-        "difficulty":  "상",
-        "questionType":  "concept"
+        "id": "p1c1_009",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "FEA의 5개 참조 모델에 포함되지 않는 것은?",
+        "options": [
+            "성과 참조 모델(PRM)",
+            "데이터 참조 모델(DRM)",
+            "거버넌스 참조 모델(GRM)",
+            "기술 참조 모델(TRM)"
+        ],
+        "answer": 2,
+        "explanation": "FEA의 5개 참조 모델은 PRM(성과), BRM(비즈니스), SRM(서비스 컴포넌트), TRM(기술), DRM(데이터)입니다. 거버넌스 참조 모델은 포함되지 않습니다.",
+        "tags": [
+            "FEA",
+            "참조모델"
+        ],
+        "difficulty": "상",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_010",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "EA 참조 모델(Reference Model)의 역할로 옳지 않은 것은?",
-        "options":  [
-                        "아키텍처 구성 요소의 공통 분류 체계 제공",
-                        "기관 간 공통 서비스·컴포넌트 재사용 촉진",
-                        "개별 부서의 자율적 아키텍처 수립 허용",
-                        "AS-IS와 TO-BE 아키텍처 비교 기준"
-                    ],
-        "answer":  2,
-        "explanation":  "참조 모델은 표준화·재사용·비교평가·거버넌스를 목적으로 합니다. 개별 부서의 자율적 수립 허용은 참조 모델의 역할과 반대됩니다.",
-        "tags":  [
-                     "EA",
-                     "참조모델"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_010",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "EA 참조 모델(Reference Model)의 역할로 옳지 않은 것은?",
+        "options": [
+            "아키텍처 구성 요소의 공통 분류 체계 제공",
+            "기관 간 공통 서비스·컴포넌트 재사용 촉진",
+            "개별 부서의 자율적 아키텍처 수립 허용",
+            "AS-IS와 TO-BE 아키텍처 비교 기준"
+        ],
+        "answer": 2,
+        "explanation": "참조 모델은 표준화·재사용·비교평가·거버넌스를 목적으로 합니다. 개별 부서의 자율적 수립 허용은 참조 모델의 역할과 반대됩니다.",
+        "tags": [
+            "EA",
+            "참조모델"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_011",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "EA에서 현재 운영 중인 IT 환경을 나타내는 아키텍처는?",
-        "options":  [
-                        "TO-BE 아키텍처",
-                        "전환 아키텍처",
-                        "AS-IS 아키텍처",
-                        "목표 아키텍처"
-                    ],
-        "answer":  2,
-        "explanation":  "AS-IS 아키텍처는 현재의 IT 환경 상태를 나타내며, TO-BE(목표) 아키텍처는 미래에 달성해야 할 상태입니다.",
-        "tags":  [
-                     "AS-IS",
-                     "TO-BE"
-                 ],
-        "difficulty":  "하",
-        "questionType":  "concept"
+        "id": "p1c1_011",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "EA에서 현재 운영 중인 IT 환경을 나타내는 아키텍처는?",
+        "options": [
+            "TO-BE 아키텍처",
+            "전환 아키텍처",
+            "AS-IS 아키텍처",
+            "목표 아키텍처"
+        ],
+        "answer": 2,
+        "explanation": "AS-IS 아키텍처는 현재의 IT 환경 상태를 나타내며, TO-BE(목표) 아키텍처는 미래에 달성해야 할 상태입니다.",
+        "tags": [
+            "AS-IS",
+            "TO-BE"
+        ],
+        "difficulty": "하",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_012",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "EA 성숙도 모델에서 EA를 의사결정에 적극적으로 활용하는 최고 수준(6단계)의 명칭은?",
-        "options":  [
-                        "완료(Completed)",
-                        "유지보수(Maintained)",
-                        "활용(Leveraged)",
-                        "최적화(Optimized)"
-                    ],
-        "answer":  2,
-        "explanation":  "EA 성숙도 6단계는 활용(Leveraged)으로, EA 정보를 IT 투자 의사결정에 적극 활용하는 가장 성숙한 단계입니다.",
-        "tags":  [
-                     "EA",
-                     "성숙도"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_012",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "EA 성숙도 모델에서 EA를 의사결정에 적극적으로 활용하는 최고 수준(6단계)의 명칭은?",
+        "options": [
+            "완료(Completed)",
+            "유지보수(Maintained)",
+            "활용(Leveraged)",
+            "최적화(Optimized)"
+        ],
+        "answer": 2,
+        "explanation": "EA 성숙도 6단계는 활용(Leveraged)으로, EA 정보를 IT 투자 의사결정에 적극 활용하는 가장 성숙한 단계입니다.",
+        "tags": [
+            "EA",
+            "성숙도"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_013",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "EA 프로세스에서 AS-IS와 TO-BE 사이의 차이를 분석하는 활동은?",
-        "options":  [
-                        "비전 수립",
-                        "갭(Gap) 분석",
-                        "성과 측정",
-                        "원칙 정의"
-                    ],
-        "answer":  1,
-        "explanation":  "갭 분석은 현재(AS-IS) 아키텍처와 목표(TO-BE) 아키텍처 간의 차이를 분석하여 이행 계획의 기반이 됩니다.",
-        "tags":  [
-                     "갭분석",
-                     "EA프로세스"
-                 ],
-        "difficulty":  "하",
-        "questionType":  "concept"
+        "id": "p1c1_013",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "EA 프로세스에서 AS-IS와 TO-BE 사이의 차이를 분석하는 활동은?",
+        "options": [
+            "비전 수립",
+            "갭(Gap) 분석",
+            "성과 측정",
+            "원칙 정의"
+        ],
+        "answer": 1,
+        "explanation": "갭 분석은 현재(AS-IS) 아키텍처와 목표(TO-BE) 아키텍처 간의 차이를 분석하여 이행 계획의 기반이 됩니다.",
+        "tags": [
+            "갭분석",
+            "EA프로세스"
+        ],
+        "difficulty": "하",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_014",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "EA 원칙(Principles)의 특성으로 옳지 않은 것은?",
-        "options":  [
-                        "보편성: 전사 적용 가능해야 함",
-                        "명확성: 모호하지 않아야 함",
-                        "가변성: 자주 변경되어야 함",
-                        "완전성: EA 전 영역을 커버해야 함"
-                    ],
-        "answer":  2,
-        "explanation":  "EA 원칙은 안정성이 있어야 하며 자주 변경되어서는 안 됩니다. 원칙의 4특성은 보편성·명확성·안정성·완전성입니다.",
-        "tags":  [
-                     "EA원칙",
-                     "특성"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_014",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "EA 원칙(Principles)의 특성으로 옳지 않은 것은?",
+        "options": [
+            "보편성: 전사 적용 가능해야 함",
+            "명확성: 모호하지 않아야 함",
+            "가변성: 자주 변경되어야 함",
+            "완전성: EA 전 영역을 커버해야 함"
+        ],
+        "answer": 2,
+        "explanation": "EA 원칙은 안정성이 있어야 하며 자주 변경되어서는 안 됩니다. 원칙의 4특성은 보편성·명확성·안정성·완전성입니다.",
+        "tags": [
+            "EA원칙",
+            "특성"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_015",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "Zachman Framework에서 \u0027왜(Why)\u0027 관점에 해당하는 아키텍처 요소는?",
-        "options":  [
-                        "데이터",
-                        "기능",
-                        "네트워크",
-                        "동기/목표/전략"
-                    ],
-        "answer":  3,
-        "explanation":  "Zachman의 Why 관점은 동기(Motivation), 목표(Goals), 전략(Strategy), 업무 규칙(Business Rules)에 해당합니다.",
-        "tags":  [
-                     "Zachman",
-                     "관점"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_015",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "Zachman Framework에서 '왜(Why)' 관점에 해당하는 아키텍처 요소는?",
+        "options": [
+            "데이터",
+            "기능",
+            "네트워크",
+            "동기/목표/전략"
+        ],
+        "answer": 3,
+        "explanation": "Zachman의 Why 관점은 동기(Motivation), 목표(Goals), 전략(Strategy), 업무 규칙(Business Rules)에 해당합니다.",
+        "tags": [
+            "Zachman",
+            "관점"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_016",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "TOGAF ADM에서 현재(AS-IS)와 목표(TO-BE) 아키텍처 간 갭을 분석하는 단계는?",
-        "options":  [
-                        "A단계: 아키텍처 비전",
-                        "C단계: 정보시스템 아키텍처",
-                        "E단계: 기회 및 해결방안",
-                        "H단계: 아키텍처 변경 관리"
-                    ],
-        "answer":  2,
-        "explanation":  "TOGAF ADM E단계(기회 및 해결방안)에서 AS-IS와 TO-BE 간의 갭을 분석하고 해결방안을 도출합니다.",
-        "tags":  [
-                     "TOGAF",
-                     "E단계"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_016",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "TOGAF ADM에서 현재(AS-IS)와 목표(TO-BE) 아키텍처 간 갭을 분석하는 단계는?",
+        "options": [
+            "A단계: 아키텍처 비전",
+            "C단계: 정보시스템 아키텍처",
+            "E단계: 기회 및 해결방안",
+            "H단계: 아키텍처 변경 관리"
+        ],
+        "answer": 2,
+        "explanation": "TOGAF ADM E단계(기회 및 해결방안)에서 AS-IS와 TO-BE 간의 갭을 분석하고 해결방안을 도출합니다.",
+        "tags": [
+            "TOGAF",
+            "E단계"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_017",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "국내 ITA 참조 모델 중 정부 업무 기능을 분류하는 모델은?",
-        "options":  [
-                        "SRM(서비스 참조 모델)",
-                        "BRM(비즈니스 참조 모델)",
-                        "TRM(기술 참조 모델)",
-                        "DRM(데이터 참조 모델)"
-                    ],
-        "answer":  1,
-        "explanation":  "BRM(Business Reference Model)은 정부의 업무 기능과 서비스를 분류하는 참조 모델로, 업무 기능 분류체계를 제공합니다.",
-        "tags":  [
-                     "ITA",
-                     "BRM"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_017",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "국내 ITA 참조 모델 중 정부 업무 기능을 분류하는 모델은?",
+        "options": [
+            "SRM(서비스 참조 모델)",
+            "BRM(비즈니스 참조 모델)",
+            "TRM(기술 참조 모델)",
+            "DRM(데이터 참조 모델)"
+        ],
+        "answer": 1,
+        "explanation": "BRM(Business Reference Model)은 정부의 업무 기능과 서비스를 분류하는 참조 모델로, 업무 기능 분류체계를 제공합니다.",
+        "tags": [
+            "ITA",
+            "BRM"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_018",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "데이터 아키텍처(DA)의 주요 산출물로 옳은 것은?",
-        "options":  [
-                        "업무 흐름도, 조직도",
-                        "개념/논리 데이터 모델, 데이터 표준",
-                        "시스템 구성도, 네트워크 구성도",
-                        "응용 기능 분류체계, 인터페이스 목록"
-                    ],
-        "answer":  1,
-        "explanation":  "데이터 아키텍처(DA)의 주요 산출물은 개념·논리·물리 데이터 모델, 데이터 표준, 데이터 흐름도 등입니다.",
-        "tags":  [
-                     "DA",
-                     "산출물"
-                 ],
-        "difficulty":  "하",
-        "questionType":  "concept"
+        "id": "p1c1_018",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "데이터 아키텍처(DA)의 주요 산출물로 옳은 것은?",
+        "options": [
+            "업무 흐름도, 조직도",
+            "개념/논리 데이터 모델, 데이터 표준",
+            "시스템 구성도, 네트워크 구성도",
+            "응용 기능 분류체계, 인터페이스 목록"
+        ],
+        "answer": 1,
+        "explanation": "데이터 아키텍처(DA)의 주요 산출물은 개념·논리·물리 데이터 모델, 데이터 표준, 데이터 흐름도 등입니다.",
+        "tags": [
+            "DA",
+            "산출물"
+        ],
+        "difficulty": "하",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_019",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "Zachman Framework의 유형으로 옳은 것은?",
-        "options":  [
-                        "방법론(Methodology)형",
-                        "분류 체계(Taxonomy)형",
-                        "참조 모델(Reference Model)형",
-                        "프로세스(Process)형"
-                    ],
-        "answer":  1,
-        "explanation":  "Zachman Framework는 분류 체계(Taxonomy)형으로, 6×6 매트릭스로 아키텍처 산출물을 분류합니다. TOGAF는 방법론형, FEA는 참조 모델형입니다.",
-        "tags":  [
-                     "Zachman",
-                     "유형"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_019",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "Zachman Framework의 유형으로 옳은 것은?",
+        "options": [
+            "방법론(Methodology)형",
+            "분류 체계(Taxonomy)형",
+            "참조 모델(Reference Model)형",
+            "프로세스(Process)형"
+        ],
+        "answer": 1,
+        "explanation": "Zachman Framework는 분류 체계(Taxonomy)형으로, 6×6 매트릭스로 아키텍처 산출물을 분류합니다. TOGAF는 방법론형, FEA는 참조 모델형입니다.",
+        "tags": [
+            "Zachman",
+            "유형"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "id":  "p1c1_020",
-        "part":  1,
-        "chapter":  "part1_ch1",
-        "content":  "TOGAF 아키텍처 리포지터리의 구성 요소가 아닌 것은?",
-        "options":  [
-                        "아키텍처 메타모델",
-                        "아키텍처 역량",
-                        "아키텍처 랜드스케이프",
-                        "아키텍처 예산"
-                    ],
-        "answer":  3,
-        "explanation":  "TOGAF 리포지터리 구성 요소: 아키텍처 메타모델, 아키텍처 역량, 아키텍처 랜드스케이프, 표준 정보 기반입니다. 예산은 포함되지 않습니다.",
-        "tags":  [
-                     "TOGAF",
-                     "리포지터리"
-                 ],
-        "difficulty":  "중",
-        "questionType":  "concept"
+        "id": "p1c1_020",
+        "part": 1,
+        "chapter": "part1_ch1",
+        "content": "TOGAF 아키텍처 리포지터리의 구성 요소가 아닌 것은?",
+        "options": [
+            "아키텍처 메타모델",
+            "아키텍처 역량",
+            "아키텍처 랜드스케이프",
+            "아키텍처 예산"
+        ],
+        "answer": 3,
+        "explanation": "TOGAF 리포지터리 구성 요소: 아키텍처 메타모델, 아키텍처 역량, 아키텍처 랜드스케이프, 표준 정보 기반입니다. 예산은 포함되지 않습니다.",
+        "tags": [
+            "TOGAF",
+            "리포지터리"
+        ],
+        "difficulty": "중",
+        "questionType": "concept"
     },
     {
-        "options":  [
-                        "목표·계획·모델",
-                        "규칙(Rule)·계획(Plan)·모델(Model)",
-                        "원칙·표준·지침",
-                        "비전·전략·실행"
-                    ],
-        "part":  1,
-        "id":  "p1c1_021",
-        "questionType":  "concept",
-        "content":  "아키텍처의 3가지 구성요소를 올바르게 짝지은 것은?",
-        "tags":  [
-                     "아키텍처",
-                     "3구성요소",
-                     "Rule",
-                     "Plan",
-                     "Model"
-                 ],
-        "answer":  1,
-        "explanation":  "아키텍처의 3가지 구성요소: Rule(규칙)은 조직의 전략·원칙으로 설계 기준을 확립하고, Plan(계획)은 현재·목표 아키텍처를 정의하며, Model(모델)은 참조모델·도메인 아키텍처를 수립합니다.",
-        "chapter":  "part1_ch1",
-        "difficulty":  "중"
+        "options": [
+            "목표·계획·모델",
+            "규칙(Rule)·계획(Plan)·모델(Model)",
+            "원칙·표준·지침",
+            "비전·전략·실행"
+        ],
+        "part": 1,
+        "id": "p1c1_021",
+        "questionType": "concept",
+        "content": "아키텍처의 3가지 구성요소를 올바르게 짝지은 것은?",
+        "tags": [
+            "아키텍처",
+            "3구성요소",
+            "Rule",
+            "Plan",
+            "Model"
+        ],
+        "answer": 1,
+        "explanation": "아키텍처의 3가지 구성요소: Rule(규칙)은 조직의 전략·원칙으로 설계 기준을 확립하고, Plan(계획)은 현재·목표 아키텍처를 정의하며, Model(모델)은 참조모델·도메인 아키텍처를 수립합니다.",
+        "chapter": "part1_ch1",
+        "difficulty": "중"
     },
     {
-        "options":  [
-                        "Evolutionary(진화성)",
-                        "현행 비즈니스 지원",
-                        "핵심 데이터 집중",
-                        "Actionable(실행가능성)"
-                    ],
-        "part":  1,
-        "id":  "p1c1_022",
-        "questionType":  "concept",
-        "content":  "효과적인 데이터 아키텍처의 특징 중 \u0027조직 내에서 필수적이고 핵심적인 데이터에만 집중하며, 불필요한 모든 데이터를 포함하려 하지 않는 것\u0027을 의미하는 특징은?",
-        "tags":  [
-                     "DA",
-                     "데이터아키텍처",
-                     "특징",
-                     "핵심데이터"
-                 ],
-        "answer":  2,
-        "explanation":  "효과적인 데이터 아키텍처는 ① 현행 비즈니스 지원, ② 핵심 데이터 집중(불필요 데이터 배제), ③ Actionable(명확한 마일스톤), ④ Evolutionary(변화 대응 유연성) 4가지 특징을 갖습니다. 핵심 데이터 집중은 \u0027불필요한 모든 데이터와 정보를 포함하려는 시도\u0027가 데이터 아키텍처 실패 요인임을 역으로 표현한 것입니다.",
-        "chapter":  "part1_ch1",
-        "difficulty":  "중"
+        "options": [
+            "Evolutionary(진화성)",
+            "현행 비즈니스 지원",
+            "핵심 데이터 집중",
+            "Actionable(실행가능성)"
+        ],
+        "part": 1,
+        "id": "p1c1_022",
+        "questionType": "concept",
+        "content": "효과적인 데이터 아키텍처의 특징 중 '조직 내에서 필수적이고 핵심적인 데이터에만 집중하며, 불필요한 모든 데이터를 포함하려 하지 않는 것'을 의미하는 특징은?",
+        "tags": [
+            "DA",
+            "데이터아키텍처",
+            "특징",
+            "핵심데이터"
+        ],
+        "answer": 2,
+        "explanation": "효과적인 데이터 아키텍처는 ① 현행 비즈니스 지원, ② 핵심 데이터 집중(불필요 데이터 배제), ③ Actionable(명확한 마일스톤), ④ Evolutionary(변화 대응 유연성) 4가지 특징을 갖습니다. 핵심 데이터 집중은 '불필요한 모든 데이터와 정보를 포함하려는 시도'가 데이터 아키텍처 실패 요인임을 역으로 표현한 것입니다.",
+        "chapter": "part1_ch1",
+        "difficulty": "중"
     },
     {
-        "options":  [
-                        "범용성: 다양한 업무 영역에서 참조 가능",
-                        "단순성: 복잡하지 않은 단순한 모델",
-                        "배타성: 다른 참조모델과 충돌하지 않아야 함",
-                        "정보 이용성: 엔터티 정의·관계·규칙 등 포함"
-                    ],
-        "part":  1,
-        "id":  "p1c1_023",
-        "questionType":  "concept",
-        "content":  "데이터 참조모델의 지속적 유지관리 기준 6가지에 해당하지 않는 것은?",
-        "tags":  [
-                     "참조모델",
-                     "유지관리기준",
-                     "6기준"
-                 ],
-        "answer":  2,
-        "explanation":  "데이터 참조모델 유지관리 6기준: 범용성·단순성·표준성·정확성·정보이용성·분류성입니다. \u0027배타성\u0027은 포함되지 않습니다.",
-        "chapter":  "part1_ch1",
-        "difficulty":  "상"
+        "options": [
+            "범용성: 다양한 업무 영역에서 참조 가능",
+            "단순성: 복잡하지 않은 단순한 모델",
+            "배타성: 다른 참조모델과 충돌하지 않아야 함",
+            "정보 이용성: 엔터티 정의·관계·규칙 등 포함"
+        ],
+        "part": 1,
+        "id": "p1c1_023",
+        "questionType": "concept",
+        "content": "데이터 참조모델의 지속적 유지관리 기준 6가지에 해당하지 않는 것은?",
+        "tags": [
+            "참조모델",
+            "유지관리기준",
+            "6기준"
+        ],
+        "answer": 2,
+        "explanation": "데이터 참조모델 유지관리 6기준: 범용성·단순성·표준성·정확성·정보이용성·분류성입니다. '배타성'은 포함되지 않습니다.",
+        "chapter": "part1_ch1",
+        "difficulty": "상"
     }
 ]
