@@ -13,6 +13,7 @@ import AnswerFeedback from '@/components/quiz/AnswerFeedback'
 import QuizNavigator from '@/components/quiz/QuizNavigator'
 import ExamTimer from '@/components/quiz/ExamTimer'
 import type { Question, AnswerResult, ExamResult } from '@/types'
+import { isExamPassed, PART_MAX_SCORE } from '@/lib/exam'
 
 type ExamPhase = 'intro' | 'exam' | 'result'
 type ExamMode = 'random' | 'exam1' | 'exam2'
@@ -27,11 +28,13 @@ const PART_TITLES: Record<number, string> = {
   2: '데이터 요건 분석',
   3: '데이터 표준화',
   4: '데이터 모델링',
+  5: '데이터베이스 설계와 이용',
+  6: '데이터 품질 관리이해',
 }
 
 const MODE_CONFIG: Record<ExamMode, { label: string; desc: string; icon: string; btnLabel: string }> = {
-  exam1:  { label: '모의고사 1회', desc: '고정 50문항 세트 1',   icon: '📋', btnLabel: '모의고사 1회 시작' },
-  exam2:  { label: '모의고사 2회', desc: '고정 50문항 세트 2',   icon: '📄', btnLabel: '모의고사 2회 시작' },
+  exam1:  { label: '모의고사 1회', desc: '고정 75문항 세트 1',   icon: '📋', btnLabel: '모의고사 1회 시작' },
+  exam2:  { label: '모의고사 2회', desc: '고정 75문항 세트 2',   icon: '📄', btnLabel: '모의고사 2회 시작' },
   random: { label: '랜덤 출제',    desc: '매회 다른 문제 조합',  icon: '🎲', btnLabel: '랜덤 시험 시작' },
 }
 
@@ -241,15 +244,15 @@ export default function ExamPage() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4">
             <div className="q-card bg-surface-soft text-center py-4">
-              <div className="text-2xl font-bold text-primary-600">50</div>
+              <div className="text-2xl font-bold text-primary-600">75</div>
               <div className="text-xs text-ink-muted mt-1">문항</div>
             </div>
             <div className="q-card bg-surface-soft text-center py-4">
-              <div className="text-2xl font-bold text-primary-600">90</div>
+              <div className="text-2xl font-bold text-primary-600">240</div>
               <div className="text-xs text-ink-muted mt-1">분</div>
             </div>
             <div className="q-card bg-surface-soft text-center py-4">
-              <div className="text-2xl font-bold text-primary-600">4</div>
+              <div className="text-2xl font-bold text-primary-600">6</div>
               <div className="text-xs text-ink-muted mt-1">과목</div>
             </div>
           </div>
@@ -291,10 +294,14 @@ export default function ExamPage() {
 
           {/* Pass criteria */}
           <div className="text-left bg-primary-50 border border-primary-200 rounded-xl px-4 py-3 text-sm space-y-1">
-            <div className="font-semibold text-primary-800 mb-2">합격 기준</div>
-            <div className="text-primary-700">• 전체 평균 60점 이상</div>
-            <div className="text-primary-700">• 각 과목별 40점 이상</div>
-            <div className="text-primary-700">• 1~3과목 10문항, 4과목 20문항</div>
+            <div className="font-semibold text-primary-800 mb-2">합격 기준 (필기)</div>
+            <div className="text-primary-700">• 필기 전체 36점 이상 (60점 만점)</div>
+            <div className="text-primary-700">• 각 과목별 배점의 40% 이상</div>
+            <div className="text-primary-700">• 1·2·3·5·6과목 각 10문항, 4과목 25문항</div>
+          </div>
+          <div className="text-left bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-sm">
+            <div className="font-semibold text-amber-800">⚠️ 실기 40점 별도</div>
+            <div className="text-amber-700 mt-1">실기 1문항 40점은 별도로 준비 필요. 실기 연습 메뉴를 활용하세요.</div>
           </div>
 
           <button
@@ -310,18 +317,19 @@ export default function ExamPage() {
 
   // ── 결과 화면 ─────────────────────────────────────────────────────────
   if (phase === 'result' && examResult) {
-    const passed =
-      examResult.score >= 60 &&
-      examResult.part1Score >= 40 &&
-      examResult.part2Score >= 40 &&
-      examResult.part3Score >= 40 &&
-      examResult.part4Score >= 40
+    const scoresByPart: Record<number, number> = {
+      1: examResult.part1Score, 2: examResult.part2Score, 3: examResult.part3Score,
+      4: examResult.part4Score, 5: examResult.part5Score, 6: examResult.part6Score,
+    }
+    const passed = isExamPassed(scoresByPart)
 
     const partScores = [
       examResult.part1Score,
       examResult.part2Score,
       examResult.part3Score,
       examResult.part4Score,
+      examResult.part5Score,
+      examResult.part6Score,
     ]
 
     const stars = examResult.score >= 80 ? 3 : examResult.score >= 60 ? 2 : 1

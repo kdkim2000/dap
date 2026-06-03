@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { CHAPTERS, CHAPTERS_BY_PART, PART_TITLES } from '@/lib/chapters'
+import { CHAPTERS_BY_PART, PART_TITLES } from '@/lib/chapters'
 import { useProgress } from '@/context/ProgressContext'
 
 const PART_COLORS: Record<number, { bg: string; border: string; badge: string; bar: string }> = {
@@ -9,6 +9,8 @@ const PART_COLORS: Record<number, { bg: string; border: string; badge: string; b
   2: { bg: 'bg-blue-50', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', bar: 'bg-blue-500' },
   3: { bg: 'bg-green-50', border: 'border-green-200', badge: 'bg-green-100 text-green-700', bar: 'bg-green-500' },
   4: { bg: 'bg-purple-50', border: 'border-purple-200', badge: 'bg-purple-100 text-purple-700', bar: 'bg-purple-500' },
+  5: { bg: 'bg-teal-50', border: 'border-teal-200', badge: 'bg-teal-100 text-teal-700', bar: 'bg-teal-500' },
+  6: { bg: 'bg-orange-50', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-700', bar: 'bg-orange-500' },
 }
 
 export default function QuizIndexPage() {
@@ -38,7 +40,7 @@ export default function QuizIndexPage() {
           <span className="text-3xl">📝</span>
           <div className="text-left">
             <div className="font-bold text-ink group-hover:text-primary-600 transition-colors">모의고사</div>
-            <div className="text-xs text-ink-muted">50문항 · 90분</div>
+            <div className="text-xs text-ink-muted">75문항 · 240분</div>
           </div>
         </button>
 
@@ -64,7 +66,7 @@ export default function QuizIndexPage() {
       </div>
 
       {/* Part sections */}
-      {[1, 2, 3, 4].map(part => {
+      {[1, 2, 3, 4, 5, 6].map(part => {
         const colors = PART_COLORS[part]
         const partChapters = CHAPTERS_BY_PART[part] ?? []
         const partStats = stats.byPart[part]
